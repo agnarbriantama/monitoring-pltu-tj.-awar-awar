@@ -40,7 +40,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a class="btn btn-primary" href="<?php echo site_url('admin/Gardu/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
+						<a class="btn btn-primary" href="<?php echo site_url('admin/gardu/input') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
 					</div>
 					<div class="card-body">
 
@@ -48,7 +48,7 @@
 							<table class="table table-hover text-center" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr class="text-center">
-										<th>No</th>
+										<th style="max-width: 30px;">No</th>
 										<th>Nama Gardu</th>
 										<th>Foto Gardu</th>
 										<th>Action</th>
@@ -71,7 +71,7 @@
 
 											<td width="250">
 												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/Gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>

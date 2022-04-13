@@ -94,7 +94,7 @@
 												<img src="<?= base_url('assets/kk/' . $datpan->gambar) ?>" width="70px" height="50px">
 											</td>
 											<td width="100">
-												<?php echo $datpan->status ?>
+												<label class="badge badge-success"><?php echo $datpan->status ?></label>
 											</td>
 											<td width="100">
 												<?php echo $datpan->lokasi_pantauan ?>

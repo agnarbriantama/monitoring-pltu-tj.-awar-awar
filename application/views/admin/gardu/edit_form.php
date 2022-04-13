@@ -29,29 +29,29 @@
 
 						<?php foreach ($Gardu as $kunci) : ?>
 
-							<form action="<?php echo site_url('admin/Gardu/edit'); ?>" method="POST" enctype="multipart/form-data">
-								<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
+						<form action="<?php echo site_url('admin/Gardu/edit'); ?>" method="POST" enctype="multipart/form-data">
+							<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
 							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/Gardu/edit/ID --->
 
-								<input type="hidden" name="id" value="<?php echo $kunci->id_gardu; ?>" />
+							<!-- <input type="hidden" name="id" value="<?php echo $kunci['id_gardu']; ?>" /> -->
 
-								<div class="form-group">
-									<label for="nama_gardu">Nama Gardu</label>
-									<input class="form-control <?php echo form_error('nama_gardu') ? 'is-invalid' : '' ?>" type="text" name="nama_gardu" placeholder="Nama Ketua Tim" value="<?php echo $kunci->nama_gardu; ?>" required />
+							<div class="form-group">
+								<label for="nama_gardu">Nama Gardu</label>
+								<input class="form-control <?php echo form_error('nama_gardu') ? 'is-invalid' : '' ?>" type="text" name="nama_gardu" placeholder="Nama Ketua Tim" value="<?php echo $kunci['nama_gardu']; ?>" required />
+							</div>
+
+							<div class="form-group">
+								<label for="foto_gardu">Foto Gardu</label>
+								<div><img src="<?php echo base_url('./assets/kk/') . $kunci->foto_gardu ?>" border="0" width="70px" height="70px" /></div>
+								<input class="form-control <?php echo form_error('foto_gardu') ? 'is-invalid' : '' ?>" type="file" name="foto_gardu" placeholder="Foto Gardu" />
+								<input type="hidden" name="fotolama" value="<?php echo $kunci->foto_gardu; ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('foto_gardu') ?>
 								</div>
+							</div>
 
-								<div class="form-group">
-									<label for="foto_gardu">Foto Gardu</label>
-									<div><img src="<?php echo base_url('./assets/kk/') . $kunci->foto_gardu ?>" border="0" width="70px" height="70px" /></div>
-									<input class="form-control <?php echo form_error('foto_gardu') ? 'is-invalid' : '' ?>" type="file" name="foto_gardu" placeholder="Foto Gardu" />
-									<input type="hidden" name="fotolama" value="<?php echo $kunci->foto_gardu; ?>" />
-									<div class="invalid-feedback">
-										<?php echo form_error('foto_gardu') ?>
-									</div>
-								</div>
-
-								<input class="btn btn-success" type="submit" name="btn" value="Save" />
-							</form>
+							<input class="btn btn-success" type="submit" name="btn" value="Save" />
+						</form>
 
 						<?php endforeach; ?>
 

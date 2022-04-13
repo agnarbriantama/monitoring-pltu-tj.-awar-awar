@@ -41,7 +41,7 @@ class PantauanHarian extends CI_Controller
 	// menambahkan data
 	public function add()
 	{
-		$nama_gardu = $this->input->post('nama_gardu');
+		$id_gardu = $this->input->post('id_gardu');
 		$suhu = $this->input->post('suhu');
 		$arus = $this->input->post('arus');
 		$cosphi = $this->input->post('cosphi');
@@ -62,7 +62,7 @@ class PantauanHarian extends CI_Controller
 		} else {
 			$gambar = $this->upload->data('file_name');
 			$data = array(
-				'nama_gardu' => $nama_gardu,
+				'id_gardu' => $id_gardu,
 				'suhu' => $suhu,
 				'arus' => $arus,
 				'cosphi' => $cosphi,
@@ -86,10 +86,10 @@ class PantauanHarian extends CI_Controller
 		$this->form_validation->set_rules('suhu', 'Suhu', 'required');
 		$this->form_validation->set_rules('lokasi_pantauan', 'Lokasi_Pantauan', 'required');
 
-		$data['PantauanHarian']  = $this->pantauanharian_model->getById($id);
+		$data['PantauanHarian']  = $this->PantauanHarian_model->getById($id);
 
 		if ($this->form_validation->run()) {
-			$this->pantauanharian_model->update();
+			$this->PantauanHarian_model->update();
 		}
 		$this->load->view("admin/pantauanharian/edit_form", $data);
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
@@ -100,7 +100,7 @@ class PantauanHarian extends CI_Controller
 	{
 		if (!isset($id)) show_404();
 
-		if ($this->pantauanharian_model->delete($id)) {
+		if ($this->PantauanHarian_model->delete($id)) {
 			$this->session->set_flashdata('success', 'Berhasil dihapus');
 			redirect(site_url('admin/PantauanHarian'));
 		}

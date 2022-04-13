@@ -6,17 +6,22 @@ class PantauanHarian_model extends CI_Model
   private $tb_pantauanharian = "tb_pantauanharian";
 
   public function getAll()
-  {
-    // tb_pantauanharian adalah nama tabel
-    // untuk mengembalikan array yang berisi objek dari row
-    return $this->db->get($this->tb_pantauanharian)->result();
+  {$this->db->select('*');
+		$this->db->from('tb_pantauanharian');
+		$this->db->join('tb_gardu', 'tb_gardu.id_gardu = tb_pantauanharian.id_gardu', 'left');
+		$this->db->order_by('id_pantauan', 'desc');
+		return $this->db->get()->result();
   }
 
   public function getById($id)
   {
     // mengembalikan sebuah objek
     // mengambil semua dari tb_pantauanharian yang dimana id_nama = id
-    return $this->db->get_where($this->tb_pantauanharian, ["id_pantauan" => $id])->result();
+    $this->db->select('*');
+		$this->db->from('tb_pantauanharian');
+		$this->db->join('tb_gardu', 'tb_gardu.id_gardu = tb_pantauanharian.id_gardu', 'left');
+		$this->db->where('id_pantauan', $id);
+		return $this->db->get()->row();
   }
 
   public function save()
