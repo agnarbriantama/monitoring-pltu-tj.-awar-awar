@@ -48,7 +48,7 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+							<table class="table table-hover text-center" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -91,10 +91,11 @@
 												<?php echo $datpan->tegangan ?>
 											</td>
 											<td>
-												<img src="<?= base_url('assets/kk/' . $datpan->gambar) ?>" width="70px" height="50px">
+												<?php echo $datpan->gambar ?>
+												<!-- <img src="<?=base_url()?>assets/imgpantauan/<?=$datpan->gambar?>" width="70px" height="50px"> -->
 											</td>
 											<td width="100">
-												<label class="badge badge-success"><?php echo $datpan->status ?></label>
+												<label class="badge badge-success midtext"><?php echo $datpan->status ?></label>
 											</td>
 											<td width="100">
 												<?php echo $datpan->lokasi_pantauan ?>

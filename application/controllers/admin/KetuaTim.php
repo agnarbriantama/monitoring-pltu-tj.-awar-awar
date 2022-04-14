@@ -36,7 +36,7 @@ class KetuaTim extends CI_Controller
   public function add()
   {
     // Configurasi File
-    $config['upload_path'] = './assets/kk';
+    $config['upload_path'] = './assets/imguser';
     $config['allowed_types'] = 'jpg|png|jpeg';
     // Mengatur ukuran maksimal file
     $config['max_size'] = '2048';
@@ -56,7 +56,7 @@ class KetuaTim extends CI_Controller
 
     $data['KetuaTim']  = $this->KetuaTim_model->getById($id);
     // Configurasi File
-    $config['upload_path'] = './assets/kk';
+    $config['upload_path'] = './assets/imguser';
     $config['allowed_types'] = 'jpg|png|jpeg';
     // Mengatur ukuran maksimal file
     $config['max_size'] = '2048';

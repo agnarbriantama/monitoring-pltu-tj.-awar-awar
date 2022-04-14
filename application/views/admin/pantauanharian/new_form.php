@@ -70,17 +70,21 @@
 								<label for="tanggal_konfirmasi">Tegangan</label>
 								<input class="form-control" type="tegangan" name="tegangan" placeholder="Tegangan" required />
 							</div>
-
-							<div class="form-group">
-								<label for="gambar">Gambar</label>
-								<input class="form-control" type="file" name="gambar" required />
+							
+							<div class="form-group custom-file">
+								<label for="gambar" class="custom-file-label">Foto Gardu</label>
+								<input class="form-control custom-file-input" type="file" name="gambar" required />
 							</div>
 
 							<div class="form-group">
-								<label for="kondisi">Lokasi Pantauan</label>
+								<label for="kondisi">Status</label>
+								<input class="form-control" type="text" name="kondisi" required />
+							</div>
+
+							<div class="form-group">
+								<label for="lokasi_pantauan">Lokasi Pantauan</label>
 								<input class="form-control" type="text" name="lokasi_pantauan" required />
 							</div>
-
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

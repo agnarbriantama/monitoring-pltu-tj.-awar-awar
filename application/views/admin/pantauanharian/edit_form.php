@@ -75,7 +75,7 @@
 
 								<div class="form-group">
 									<label for="gambar">Gambar</label>
-									<div><img src="<?php echo base_url('./assets/kk/') . $datpan->gambar?>" border="0" width="70px" height="70px"/></div>
+									<div><img src="<?php echo base_url('./assets/imgpantauan/') . $datpan->gambar ?>" border="0" width="70px" height="70px" /></div>
 									<input class="form-control <?php echo form_error('gambar') ? 'is-invalid' : '' ?>" type="file" name="gambar" placeholder="Gambar" />
 									<input type="hidden" name="fotolama" value="<?php echo $datpan->gambar; ?>" />
 									<div class="invalid-feedback">
@@ -90,6 +90,11 @@
 										<?php echo form_error('gambar') ?>
 									</div>
 								</div> -->
+
+								<div class="form-group">
+									<label for="kondisi">Status</label>
+									<input class="form-control <?php echo form_error('kondisi') ? 'is-invalid' : '' ?>" type="text" name="kondisi" placeholder="Status" value="<?php echo $datpan->status; ?>" />
+								</div>
 
 								<div class="form-group">
 									<label for="lokasi_pantauan">Lokasi Pantauan</label>

@@ -20,7 +20,7 @@
 				<!-- Icon Cards-->
 				<br>
 				<div class="row">
-					<div class="col-xl-6 col-sm-6 mb-3">
+					<div class="col-xl-4 col-sm-4 mb-3">
 						<div class="card text-white bg-primary o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
@@ -38,17 +38,35 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-xl-6 col-sm-6 mb-3">
-						<div class="card text-white bg-info o-hidden h-100">
+					<div class="col-xl-4 col-sm-4 mb-3">
+						<div class="card text-white bg-warning o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
 									<i class="fas fa-fw fa-users"></i>
 								</div>
 								<div class="mr-10 mb-5">
-									<h4>Jumlah Ketua Tim Yang Terdata : <?php echo $this->db->count_all('tb_anggotatim'); ?></h4>
+									<h4>Jumlah Anggota Tim Yang Terdata : <?php echo $this->db->count_all('tb_anggotatim'); ?></h4>
 								</div>
 							</div>
 							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/AnggotaTim/index') ?>">
+								<span class="float-left">Lihat Lebih Detail</span>
+								<span class="float-right">
+									<i class="fas fa-angle-right"></i>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-xl-4 col-sm-4 mb-3">
+						<div class="card text-white bg-danger o-hidden h-100">
+							<div class="card-body">
+								<div class="card-body-icon">
+									<i class="fa fa-cogs"></i>
+								</div>
+								<div class="mr-10 mb-5">
+									<h4>Jumlah User Yang Terdata : <?php echo $this->db->count_all('users'); ?></h4>
+								</div>
+							</div>
+							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/User/index') ?>">
 								<span class="float-left">Lihat Lebih Detail</span>
 								<span class="float-right">
 									<i class="fas fa-angle-right"></i>

@@ -52,7 +52,7 @@ class PantauanHarian extends CI_Controller
 		//'kondisi' => $this->input->post('kondisi'),
 		$data['gambar'] = '';
 		$gambar = $_FILES['gambar']['name'];
-		$config['upload_path'] = './assets/kk/';
+		$config['upload_path'] = './assets/imgpantauan/';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 
 		$this->load->library('upload', $config);
@@ -84,7 +84,6 @@ class PantauanHarian extends CI_Controller
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
 
-		$this->form_validation->set_rules('nama_gardu', 'Nama_Gardu', 'required');
 		$this->form_validation->set_rules('suhu', 'Suhu', 'required');
 		$this->form_validation->set_rules('lokasi_pantauan', 'Lokasi_Pantauan', 'required');
 

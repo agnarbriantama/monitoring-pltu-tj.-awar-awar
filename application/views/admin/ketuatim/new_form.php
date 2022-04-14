@@ -52,7 +52,7 @@
               </div>
 
               <div class="form-group custom-file">
-                <label class="custom-file-label" for="foto_ketuatim">Foto Ketua Tim</label>
+                <label class="custom-file-label" for="foto_ketuatim">foto ketua tim  <i class="fa fa-upload"></i></label>
                 <input class="form-control custom-file-input" type="file" name="foto_ketuatim" placeholder="Foto Ketua Tim" required/>
               </div>
 

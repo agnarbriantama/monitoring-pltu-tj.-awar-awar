@@ -44,20 +44,22 @@ class PantauanHarian_model extends CI_Model
 
   public function update($id = NULL)
   {
-    $tegangan = implode(" , ", $this->input->post('tegangan'));
+    // $tegangan = implode(" , ", $this->input->post('tegangan'));
     $id = $this->input->post('id_pantauan');
-    if (empty($tegangan)) $tegangan = "Kosong";
+    // if (empty($tegangan)) $tegangan = "Kosong";
 
     $data = array(
       'id_pantauan' => $id,
-      'nama_gardu' => $this->input->post('nama_gardu'),
+      // 'nama_gardu' => $this->input->post('nama_gardu'),
+      'id_gardu' => $this->input->post('id_gardu'),
       'suhu' => $this->input->post('suhu'),
       'arus' => $this->input->post('arus'),
       'cosphi' => $this->input->post('cosphi'),
       'tgl_pantauan' => $this->input->post('tgl_pantauan'),
-      'tegangan' => $tegangan,
+      'tegangan' => $this->input->post('tegangan'),
       'gambar' => $this->input->post('gambar'),
-      'kondisi' => $this->input->post('kondisi'),
+      'status' => $this->input->post('kondisi'),
+      'lokasi_pantauan' => $this->input->post('lokasi_pantauan'),
     );
 
     $this->db->update($this->tb_pantauanharian, $data, array('id_pantauan' => $id));

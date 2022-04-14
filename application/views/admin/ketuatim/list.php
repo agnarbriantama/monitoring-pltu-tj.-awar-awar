@@ -45,7 +45,7 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+							<table class="table table-hover text-center" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -83,7 +83,7 @@
 												<?php echo $ketuatim->no_hp ?>
 											</td>
 											<td width="150">
-												<img src="<?=base_url()?>assets/kk/<?=$ketuatim->foto_ketuatim?>" style="max-width:115%; max-height:100%; height:180px" alt="foto">
+												<img src="<?=base_url()?>assets/imguser/<?=$ketuatim->foto_ketuatim?>" style="max-width:115%; max-height:115%;" alt="foto">
 											</td>
 											<td width="150">
 												<?php echo $ketuatim->domisili ?>

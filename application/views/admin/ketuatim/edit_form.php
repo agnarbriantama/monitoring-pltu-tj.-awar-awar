@@ -74,7 +74,7 @@
 
 								<div class="form-group custom-file">
 									<label for="foto_ketuatim custom-file-label">Foto Ketua Tim</label>
-									<div><img src="<?php echo base_url('./assets/kk/') . $kunci->foto_ketuatim ?>" border="0" width="70px" height="70px" /></div>
+									<div><img src="<?php echo base_url('./assets/imguser/') . $kunci->foto_ketuatim ?>" border="0" width="70px" height="70px" /></div>
 									<input class="form-control <?php echo form_error('foto_ketuatim') ? 'is-invalid' : '' ?>" type="file" name="foto_ketuatim" placeholder="Foto Ketua Tim" />
 									<input class="custom-file-input" type="hidden" name="fotolama" value="<?php echo $kunci->foto_ketuatim; ?>" />
 									<div class="invalid-feedback">

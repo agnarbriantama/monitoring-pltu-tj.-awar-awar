@@ -32,7 +32,7 @@
 							</div>
 
 							<div class="form-group custom-file">
-								<label class="custom-file-label" for="gambar">Foto Gardu</label>
+								<label class="custom-file-label" for="gambar">Foto Gardu  <i class="fa fa-upload"></i></label>
 								<input class="form-control custom-file-input" type="file" name="gambar" placeholder="Foto Gardu" required />
 							</div>
 
