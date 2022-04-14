@@ -22,7 +22,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 
-						<a href="<?php echo site_url('admin/DataPantauan/') ?>"><i class="fas fa-arrow-left"></i>
+						<a href="<?php echo site_url('admin/PantauanHarian/') ?>"><i class="fas fa-arrow-left"></i>
 							Back</a>
 					</div>
 					<div class="card-body">
@@ -36,8 +36,13 @@
 								<input type="hidden" name="id_pantauan" value="<?php echo $datpan->id_pantauan; ?>" />
 
 								<div class="form-group">
-									<label for="nama_gardu">Nama Gardu</label>
-									<input class="form-control <?php echo form_error('nama_gardu') ? 'is-invalid' : '' ?>" type="text" name="nama_gardu" placeholder="Nama Gardu" value="<?php echo $datpan->nama_gardu; ?>" />
+									<label for="id_gardu">Nama Gardu</label>
+									<select id="id_gardu" name="id_gardu" class="form-control" required>
+										<option value="">Pilih Gardu</option>
+										<?php foreach ($Gardu as $gardu) : ?>
+											<option value="<?php echo $gardu->id_gardu ?>"><?= $gardu->nama_gardu ?></option>
+										<?php endforeach; ?>
+									</select>
 								</div>
 
 								<div class="form-group">
@@ -68,34 +73,23 @@
 									</div>
 								</div>
 
-								<?php
-								// $gejala = explode(' , ', $datpan->gejala);
-								?>
-
-								<!-- <div class="form-group">
-								<label for="gejala">Gejala</label>
-								<div>
-									<input type="checkbox" id="gejala" name="gejala[]" value="Demam" <?php in_array('Demam', $gejala) ? print "checked" : ""; ?>> Demam
-									<input type="checkbox" id="gejala" name="gejala[]" value="Pusing" <?php in_array('Pusing', $gejala) ? print "checked" : ""; ?>> Pusing
-									<input type="checkbox" id="gejala" name="gejala[]" value="Mual" <?php in_array('Mual', $gejala) ? print "checked" : ""; ?>> Mual
-									<input type="checkbox" id="gejala" name="gejala[]" value="Batuk" <?php in_array('Batuk', $gejala) ? print "checked" : ""; ?>> Batuk
-									<input type="checkbox" id="gejala" name="gejala[]" value="Pilek" <?php in_array('Pilek', $gejala) ? print "checked" : ""; ?>> Pilek
-									<input type="checkbox" id="gejala" name="gejala[]" value="DLL" <?php in_array('DLL', $gejala) ? print "checked" : ""; ?>> DLL
-								</div>
-								<div class="invalid-feedback">
-									<?php echo form_error('gejala') ?>
-								</div>
-							</div> -->
-
-
-
 								<div class="form-group">
 									<label for="gambar">Gambar</label>
-									<input class="form-control <?php echo form_error('gambar') ? 'is-invalid' : '' ?>" type="date" name="gambar" placeholder="gambar" value="<?php echo $datpan->gambar ?>" />
+									<div><img src="<?php echo base_url('./assets/kk/') . $datpan->gambar?>" border="0" width="70px" height="70px"/></div>
+									<input class="form-control <?php echo form_error('gambar') ? 'is-invalid' : '' ?>" type="file" name="gambar" placeholder="Gambar" />
+									<input type="hidden" name="fotolama" value="<?php echo $datpan->gambar; ?>" />
 									<div class="invalid-feedback">
 										<?php echo form_error('gambar') ?>
 									</div>
 								</div>
+
+								<!-- <div class="form-group">
+									<label for="gambar">Gambar</label>
+									<input class="form-control <?php echo form_error('gambar') ? 'is-invalid' : '' ?>" type="file" name="gambar" placeholder="gambar" value="<?php echo $datpan->gambar ?>" />
+									<div class="invalid-feedback">
+										<?php echo form_error('gambar') ?>
+									</div>
+								</div> -->
 
 								<div class="form-group">
 									<label for="lokasi_pantauan">Lokasi Pantauan</label>

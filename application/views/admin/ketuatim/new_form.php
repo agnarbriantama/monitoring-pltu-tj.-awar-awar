@@ -51,9 +51,9 @@
                 <input class="form-control" type="number" name="no_hp" placeholder="Nomor HP" required/>
               </div>
 
-              <div class="form-group">
-                <label for="foto_ketuatim">Foto Ketua Tim</label>
-                <input class="form-control" type="file" name="foto_ketuatim" placeholder="Foto Ketua Tim" required/>
+              <div class="form-group custom-file">
+                <label class="custom-file-label" for="foto_ketuatim">Foto Ketua Tim</label>
+                <input class="form-control custom-file-input" type="file" name="foto_ketuatim" placeholder="Foto Ketua Tim" required/>
               </div>
 
               <div class="form-group">

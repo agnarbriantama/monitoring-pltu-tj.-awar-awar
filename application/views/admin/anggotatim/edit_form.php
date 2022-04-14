@@ -22,7 +22,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 
-						<a href="<?php echo site_url('admin/AnggotaKeluarga/') ?>"><i class="fas fa-arrow-left"></i>
+						<a href="<?php echo site_url('admin/AnggotaTim/') ?>"><i class="fas fa-arrow-left"></i>
 							Back</a>
 					</div>
 					<div class="card-body">
@@ -31,7 +31,7 @@
 
 							<form action="<?php echo site_url('admin/AnggotaTim/edit'); ?>" method="POST" enctype="multipart/form-data">
 								<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/AnggotaKeluarga/edit/ID --->
+							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/AnggotaTim/edit/ID --->
 
 								<input type="hidden" name="id" value="<?php echo $ang->id_anggotatim; ?>" />
 

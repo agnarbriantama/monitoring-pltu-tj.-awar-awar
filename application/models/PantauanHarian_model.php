@@ -14,15 +14,11 @@ class PantauanHarian_model extends CI_Model
   }
 
   public function getById($id)
-  {
-    // mengembalikan sebuah objek
-    // mengambil semua dari tb_pantauanharian yang dimana id_nama = id
-    $this->db->select('*');
-		$this->db->from('tb_pantauanharian');
-		$this->db->join('tb_gardu', 'tb_gardu.id_gardu = tb_pantauanharian.id_gardu', 'left');
-		$this->db->where('id_pantauan', $id);
-		return $this->db->get()->row();
-  }
+	{
+		// mengembalikan sebuah objek
+		// mengambil semua dari tb_data-rt yang dimana id_nama = id
+		return $this->db->get_where($this->tb_pantauanharian, ["id_pantauan" => $id])->result();
+	}
 
   public function save()
   {
@@ -30,7 +26,8 @@ class PantauanHarian_model extends CI_Model
 
     $data = array(
       'id_pantauan' => $this->input->post('id_pantauan'),
-      'nama_gardu' => $this->input->post('nama_gardu'),
+      'id_gardu' => $this->input->post('id_gardu'),
+      // 'nama_gardu' => $this->input->post('nama_gardu'),
       'suhu' => $this->input->post('suhu'),
       'arus' => $this->input->post('arus'),
       'cosphi' => $this->input->post('cosphi'),

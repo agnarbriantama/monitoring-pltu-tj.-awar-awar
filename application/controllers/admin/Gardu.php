@@ -49,27 +49,42 @@ class Gardu extends CI_Controller
 	}
 
 	// untuk fungsi edit dengan nilai defaultnya null
-	public function edit($id = NULL)
+	public function edit($id)
 	{
-
-
-		$data['Gardu']  = $this->Gardu_model->getById($id);
-		// Configurasi File
-		$config['upload_path'] = './assets/kk';
-		$config['allowed_types'] = 'jpg|png|jpeg';
-		// Mengatur ukuran maksimal file
-		$config['max_size'] = '2048';
-		// mengatur ukuran lebar maksimal yang dilakukan
-		$config['max_width'] = '2000';
-		$config['max_height'] = '2000';
-		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
-
-		if ($this->form_validation->run()) {
-			$this->Gardu_model->update();
-		}
+		$data['Gardu'] =  $this->db->get_where('tb_gardu', ['id_gardu' => $id])->row();
 		$this->load->view("admin/gardu/edit_form", $data);
-		$this->session->set_flashdata('success', 'Berhasil diupdate');
+	}
+
+	public function update_gardu($id)
+	{
+		$kondisi = array('id_gardu' => $id);
+		$nama_gardu = $this->input->post('nama_gardu');
+		$config['upload_path'] = './assets/kk';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('gambar')) {
+			$data = array(
+				'nama_gardu' => $nama_gardu,
+
+			);
+
+			$this->db->where($kondisi);
+			$this->db->update('tb_gardu', $data);
+			redirect('admin/gardu/list');
+		} else {
+			$upload_data = $this->upload->data();
+			$gambar = $upload_data['file_name'];
+			$data = array(
+				'nama_gardu' => $nama_gardu,
+				'gambar' => $gambar,
+			);
+
+			$this->db->where($kondisi);
+			$this->db->update('tb_gardu', $data);
+			redirect('admin/gardu/list');
+		}
 	}
 
 	// untuk fungsi delete dengan nilai defaultnya null

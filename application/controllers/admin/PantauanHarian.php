@@ -82,6 +82,8 @@ class PantauanHarian extends CI_Controller
 	// untuk fungsi edit dengan nilai defaultnya null
 	public function edit($id = NULL)
 	{
+		$data["Gardu"] = $this->Gardu_model->getAll();
+
 		$this->form_validation->set_rules('nama_gardu', 'Nama_Gardu', 'required');
 		$this->form_validation->set_rules('suhu', 'Suhu', 'required');
 		$this->form_validation->set_rules('lokasi_pantauan', 'Lokasi_Pantauan', 'required');

@@ -20,7 +20,7 @@
 
         <div class="card mb-3">
           <div class="card-header">
-            <a href="<?php echo site_url('admin/AnggotaKeluarga/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+            <a href="<?php echo site_url('admin/AnggotaTim/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
           </div>
           <div class="card-body">
 

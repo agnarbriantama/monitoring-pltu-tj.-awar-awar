@@ -55,7 +55,7 @@ class AnggotaTim extends CI_Controller
 		$this->form_validation->set_rules('no_hp', 'No_HP', 'required');
 		$this->form_validation->set_rules('domisili', 'Domisili', 'required');
 
-		// $data["KepalaKeluarga"] = $this->KepalaKeluarga_model->getAll();
+		// $data["KetuaTim"] = $this->KetuaTim_model->getAll();
 		$data['AnggotaTim']  = $this->AnggotaTim_model->getById($id);
 
 		if ($this->form_validation->run()) {

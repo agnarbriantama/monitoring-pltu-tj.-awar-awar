@@ -17,14 +17,6 @@
 
 			<div class="container-fluid">
 
-				<!-- 
-        karena ini halaman overview (home), kita matikan partial breadcrumb.
-        Jika anda ingin mengampilkan breadcrumb di halaman overview,
-        silahkan hilangkan komentar (//) di tag PHP di bawah.
-        -->
-				<?php //$this->load->view("admin/_partials/breadcrumb.php") 
-				?>
-
 				<!-- Icon Cards-->
 				<br>
 				<div class="row">
@@ -34,10 +26,12 @@
 								<div class="card-body-icon">
 									<i class="fas fa-fw fa-user-tie"></i>
 								</div>
-								<div class="mr-10 mb-5 "><h4>Jumlah Ketua Tim Yang Terdata : <?php echo $this->db->count_all('tb_ketuatim'); ?></h4></div>
+								<div class="mr-10 mb-5 ">
+									<h4>Jumlah Ketua Tim Yang Terdata : <?php echo $this->db->count_all('tb_ketuatim'); ?></h4>
+								</div>
 							</div>
 							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/KetuaTim/index') ?>">
-								<span class="float-left">View Details</span>
+								<span class="float-left">Lihat Lebih Detail</span>
 								<span class="float-right">
 									<i class="fas fa-angle-right"></i>
 								</span>
@@ -50,10 +44,12 @@
 								<div class="card-body-icon">
 									<i class="fas fa-fw fa-users"></i>
 								</div>
-								<div class="mr-10 mb-5"><h4>Jumlah Ketua Tim Yang Terdata : <?php echo $this->db->count_all('tb_anggotatim'); ?></h4></div>
+								<div class="mr-10 mb-5">
+									<h4>Jumlah Ketua Tim Yang Terdata : <?php echo $this->db->count_all('tb_anggotatim'); ?></h4>
+								</div>
 							</div>
 							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/AnggotaTim/index') ?>">
-								<span class="float-left">View Details</span>
+								<span class="float-left">Lihat Lebih Detail</span>
 								<span class="float-right">
 									<i class="fas fa-angle-right"></i>
 								</span>

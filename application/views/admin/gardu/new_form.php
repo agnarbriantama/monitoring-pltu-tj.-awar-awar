@@ -31,12 +31,12 @@
 								<input class="form-control" type="text" name="nama_gardu" placeholder="Nama Gardu" required />
 							</div>
 
-							<div class="form-group">
-								<label for="foto_gardu">Foto Gardu</label>
-								<input class="form-control" type="file" name="foto_gardu" placeholder="Foto Gardu" required />
+							<div class="form-group custom-file">
+								<label class="custom-file-label" for="gambar">Foto Gardu</label>
+								<input class="form-control custom-file-input" type="file" name="gambar" placeholder="Foto Gardu" required />
 							</div>
 
-							<input class="btn btn-success" type="submit" name="btn" value="Save" />
+							<input class="btn btn-success mt-2" type="submit" name="btn" value="Save" />
 						</form>
 
 					</div>

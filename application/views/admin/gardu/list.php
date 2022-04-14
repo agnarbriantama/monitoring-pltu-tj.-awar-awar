@@ -66,7 +66,7 @@
 												<?php echo $gardu->nama_gardu ?>
 											</td>
 											<td width="150">
-												<img src="<?= base_url() ?>assets/kk/<?= $gardu->foto_gardu ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto">
+												<img src="<?= base_url() ?>assets/kk/<?= $gardu->gambar ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto">
 											</td>
 
 											<td width="250">

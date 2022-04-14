@@ -3,7 +3,7 @@
 	<li class="nav-item <?php echo $this->uri->segment(2) == '' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin') ?>">
 			<i class="fas fa-fw fa-desktop"></i>
-			<span>Home</span>
+			<span>Master POS</span>
 		</a>
 	</li>
 	<br>
@@ -34,7 +34,7 @@
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'User' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/User') ?>">
 			<i class="fas fa-fw fa-users-cog"></i>
-			<span>Users</span></a>
+			<span>Pengguna</span></a>
 	</li>
 	<!-- <li class="nav-item">
         <a class="nav-link" href="#">

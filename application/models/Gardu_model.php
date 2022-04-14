@@ -34,7 +34,7 @@ class Gardu_model extends CI_Model
     $data = array(
       'id_gardu' => Null,
       'nama_gardu' => $this->input->post('nama_gardu'),
-      'foto_gardu' => $foto,
+      'gambar' => $foto,
 
     );
 
