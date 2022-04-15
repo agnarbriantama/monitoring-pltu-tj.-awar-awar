@@ -59,19 +59,20 @@
 									$no = 1;
 									foreach ($Gardu as $gardu) : ?>
 										<tr>
-											<td class="10">
+											<td class="10"><br>
 												<?php echo $no++ ?>
 											</td>
-											<td class="200">
+											<td class="200"><br>
 												<?php echo $gardu->nama_gardu ?>
 											</td>
 											<td width="150">
-												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto">
+												<!-- <img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto"> -->
+												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="100px" width="100px" alt="foto">
 											</td>
 
-											<td width="250">
-												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+											<td width="250"><br>
+												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>

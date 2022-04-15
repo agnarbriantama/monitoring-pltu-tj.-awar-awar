@@ -90,8 +90,8 @@
 												<?php echo $ketuatim->domisili_ketuatim ?>
 											</td>
 											<td width="250">
-												<a href="<?php echo site_url('admin/KetuaTim/edit/' . $ketuatim->id_ketuatim) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/KetuaTim/delete/' . $ketuatim->id_ketuatim) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+												<a href="<?php echo site_url('admin/KetuaTim/edit/' . $ketuatim->id_ketuatim) ?>" class="btn btn-small btn-outline-primary mb-3 w-75"><i class="fas fa-edit"></i> Ubah</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/KetuaTim/delete/' . $ketuatim->id_ketuatim) ?>')" href="#!" class="btn btn-small btn-outline-danger w-75"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
