@@ -77,7 +77,7 @@
 												<?php echo $angtim->no_hp ?>
 											</td>
 											<td width="150">
-												<?php echo $angtim->domisili ?>
+												<?php echo $angtim->domisili_ketuatim ?>
 											</td>
 											<td width="150">
 												<?php echo $angtim->tahun_kerja ?>

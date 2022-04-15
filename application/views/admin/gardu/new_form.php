@@ -32,8 +32,8 @@
 							</div>
 
 							<div class="form-group custom-file">
-								<label class="custom-file-label" for="gambar">Foto Gardu  <i class="fa fa-upload"></i></label>
-								<input class="form-control custom-file-input" type="file" name="gambar" placeholder="Foto Gardu" required />
+								<label class="custom-file-label" for="gambar_gardu">Foto Gardu  <i class="fa fa-upload"></i></label>
+								<input class="form-control custom-file-input" type="file" name="gambar_gardu" placeholder="Foto Gardu" required />
 							</div>
 
 							<input class="btn btn-success mt-2" type="submit" name="btn" value="Save" />

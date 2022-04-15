@@ -56,7 +56,7 @@ class AnggotaTim extends CI_Controller
 		$this->form_validation->set_rules('domisili', 'Domisili', 'required');
 
 		// $data["KetuaTim"] = $this->KetuaTim_model->getAll();
-		$data['AnggotaTim']  = $this->AnggotaTim_model->getById($id);
+		$data['AnggotaTim']  = $this->AnggotaTim_model->getAll();
 
 		if ($this->form_validation->run()) {
 			$this->AnggotaTim_model->update();

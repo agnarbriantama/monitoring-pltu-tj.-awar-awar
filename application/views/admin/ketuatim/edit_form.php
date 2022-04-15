@@ -80,17 +80,17 @@
 									<div class="invalid-feedback">
 										<?php echo form_error('foto_ketuatim') ?>
 									</div>
-								</div>
+								</div><br><br>
 
 								<div class="form-group">
-									<label for="domisili">Domisili</label>
-									<textarea class="form-control <?php echo form_error('domisili') ? 'is-invalid' : '' ?>" name="domisili" placeholder="domisili"><?php echo $kunci->domisili ?></textarea>
+									<label for="domisili_ketuatim">Domisili</label>
+									<textarea class="form-control <?php echo form_error('domisili_ketuatim') ? 'is-invalid' : '' ?>" name="domisili_ketuatim" placeholder="domisili"><?php echo $kunci->domisili_ketuatim ?></textarea>
 									<script src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
 									<script>
-										CKEDITOR.replace('domisili');
+										CKEDITOR.replace('domisili_ketuatim');
 									</script>
 									<div class="invalid-feedback">
-										<?php echo form_error('domisili') ?>
+										<?php echo form_error('domisili_ketuatim') ?>
 									</div>
 								</div>
 

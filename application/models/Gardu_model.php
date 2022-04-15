@@ -21,20 +21,20 @@ class Gardu_model extends CI_Model
 
   public function save()
   {
-    $foto = $this->upload->do_upload('foto_gardu');
+    $gambar_gardu = $this->upload->do_upload('gambar_gardu');
 
-    if ($foto) {
-      $foto = $this->upload->data('file_name');
+    if ($gambar_gardu) {
+      $gambar_gardu = $this->upload->data('file_name');
       $this->session->flashdata('success', 'Berhasil Disimpan');
     } else {
       echo "else terjalankan";
-      $file = '';
+      $gambar_gardu = '';
     }
 
     $data = array(
       'id_gardu' => Null,
       'nama_gardu' => $this->input->post('nama_gardu'),
-      'gambar' => $foto,
+      'gambar_gardu' => $gambar_gardu,
 
     );
 

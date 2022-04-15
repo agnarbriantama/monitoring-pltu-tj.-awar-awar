@@ -47,7 +47,6 @@ class PantauanHarian extends CI_Controller
 		$cosphi = $this->input->post('cosphi');
 		$tgl_pantauan = $this->input->post('tgl_pantauan');
 		$tegangan = $this->input->post('tegangan');
-		$status = $this->input->post('Menunggu persetujuan');
 		$lokasi_pantauan = $this->input->post('lokasi_pantauan');
 		//'kondisi' => $this->input->post('kondisi'),
 		$data['gambar'] = '';
@@ -69,6 +68,7 @@ class PantauanHarian extends CI_Controller
 				'tgl_pantauan' => $tgl_pantauan,
 				'tegangan' => $tegangan,
 				'gambar' => $gambar,
+				'status' => 0,
 				'lokasi_pantauan' => $lokasi_pantauan,
 			);
 		}
@@ -95,6 +95,24 @@ class PantauanHarian extends CI_Controller
 		$this->load->view("admin/pantauanharian/edit_form", $data);
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
 	}
+	//disetujui
+	public function disetujui($id)
+	{
+		$sql = "UPDATE tb_pantauanharian SET status ='1' WHERE id_pantauan =$id";
+		$this->db->query($sql);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect(site_url('admin/pantauanharian'));
+	}
+
+	public function ditolak($id)
+	{
+		$sql = "UPDATE tb_pantauanharian SET status ='2' WHERE id_pantauan =$id";
+		$this->db->query($sql);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect(site_url('admin/pantauanharian'));
+	}
+
+
 
 	// untuk fungsi delete dengan nilai defaultnya null
 	public function delete($id = null)

@@ -57,7 +57,7 @@
 				<!-- <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activity Log</a> -->
 				<!-- <div class="dropdown-divider"></div> -->
-				<a class="dropdown-item badge-danger text-light" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+				<a class="dropdown-item badge-danger text-light text-center" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
 			</div>
 		</li>
 	</ul>

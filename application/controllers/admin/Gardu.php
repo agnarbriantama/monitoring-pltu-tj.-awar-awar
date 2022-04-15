@@ -35,7 +35,7 @@ class Gardu extends CI_Controller
 	public function add()
 	{
 		// Configurasi File
-		$config['upload_path'] = './assets/kk';
+		$config['upload_path'] = './assets/imgpantauan';
 		$config['allowed_types'] = 'jpg|png|jpeg';
 		// Mengatur ukuran maksimal file
 		$config['max_size'] = '2048';
@@ -59,12 +59,12 @@ class Gardu extends CI_Controller
 	{
 		$kondisi = array('id_gardu' => $id);
 		$nama_gardu = $this->input->post('nama_gardu');
-		$config['upload_path'] = './assets/kk';
+		$config['upload_path'] = './assets/imgpantauan';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload('gambar')) {
+		if (!$this->upload->do_upload('gambar_gardu')) {
 			$data = array(
 				'nama_gardu' => $nama_gardu,
 
@@ -75,10 +75,10 @@ class Gardu extends CI_Controller
 			redirect('admin/gardu');
 		} else {
 			$upload_data = $this->upload->data();
-			$gambar = $upload_data['file_name'];
+			$gambar_gardu = $upload_data['file_name'];
 			$data = array(
 				'nama_gardu' => $nama_gardu,
-				'gambar' => $gambar,
+				'gambar_gardu' => $gambar_gardu,
 			);
 
 			$this->db->where($kondisi);

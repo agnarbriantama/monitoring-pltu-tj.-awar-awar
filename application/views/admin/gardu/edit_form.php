@@ -41,12 +41,12 @@
 							</div>
 
 							<div class="form-group">
-								<label for="foto_gardu">Foto Gardu</label>
-								<div><img src="<?php echo base_url('./assets/kk/') . $Gardu->gambar ?>" border="0" width="70px" height="70px" /></div>
-								<input class="form-control <?php echo form_error('foto_gardu') ? 'is-invalid' : '' ?>" type="file" name="gambar" placeholder="Foto Gardu" />
-								<input type="hidden" name="fotolama" value="<?php echo $Gardu->gambar; ?>" />
+								<label for="gambar_gardu">Foto Gardu</label>
+								<div><img src="<?php echo base_url('./assets/imgpantauan/') . $Gardu->gambar_gardu ?>" border="0" width="70px" height="70px" /></div>
+								<input class="form-control <?php echo form_error('foto_gardu') ? 'is-invalid' : '' ?>" type="file" name="gambar_gardu" placeholder="Foto Gardu" />
+								<input type="hidden" name="fotolama" value="<?php echo $Gardu->gambar_gardu; ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('gambar') ?>
+									<?php echo form_error('gambar_gardu') ?>
 								</div>
 							</div>
 

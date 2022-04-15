@@ -46,7 +46,7 @@
 								<div class="form-group">
 									<label for="id_ketuatim">Nama Tim</label>
 									<select id="id_ketuatim" name="id_ketuatim" class="form-control" required>
-										<option value="">Pilih Tim</option>
+									<option value="<?php echo $ang->id_ketuatim; ?>"><?php echo $ang->nama_tim; ?></option>
 										<?php foreach ($KetuaTim as $ketuatim) : ?>
 											<option value="<?php echo $ketuatim->id_ketuatim ?>"><?= $ketuatim->nama_tim ?></option>
 										<?php endforeach; ?>

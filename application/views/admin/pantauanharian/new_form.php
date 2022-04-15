@@ -77,11 +77,6 @@
 							</div>
 
 							<div class="form-group">
-								<label for="kondisi">Status</label>
-								<input class="form-control" type="text" name="kondisi" required />
-							</div>
-
-							<div class="form-group">
 								<label for="lokasi_pantauan">Lokasi Pantauan</label>
 								<input class="form-control" type="text" name="lokasi_pantauan" required />
 							</div>

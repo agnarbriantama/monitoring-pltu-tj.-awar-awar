@@ -39,7 +39,7 @@ class KetuaTim_model extends CI_Model
       'nama_tim' => $this->input->post('nama_tim'),
       'no_hp' => $this->input->post('no_hp'),
       'foto_ketuatim' => $foto,
-      'domisili' =>  $this->input->post("domisili"),
+      'domisili_ketuatim' =>  $this->input->post("domisili_ketuatim"),
 
     );
 
@@ -69,7 +69,7 @@ class KetuaTim_model extends CI_Model
       'nama_tim' => $this->input->post('nama_tim'),
       'no_hp' => $this->input->post('no_hp'),
       'foto_ketuatim' => $foto,
-      'domisili' =>  $this->input->post("domisili"),
+      'domisili_ketuatim' =>  $this->input->post("domisili_ketuatim"),
     );
 
     $this->db->update($this->tb_ketuatim, $data, array('id_ketuatim' => $id));

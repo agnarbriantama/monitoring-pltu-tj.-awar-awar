@@ -83,10 +83,11 @@
 												<?php echo $ketuatim->no_hp ?>
 											</td>
 											<td width="150">
-												<img src="<?=base_url()?>assets/imguser/<?=$ketuatim->foto_ketuatim?>" style="max-width:115%; max-height:115%;" alt="foto">
+												<!-- <img src="<?=base_url()?>assets/imguser/<?=$ketuatim->foto_ketuatim?>" style="max-width:115%; max-height:115%;" alt="foto"> -->
+												<img src="<?=base_url()?>assets/imguser/<?=$ketuatim->foto_ketuatim?>" width="70px" height="50px" alt="foto">
 											</td>
 											<td width="150">
-												<?php echo $ketuatim->domisili ?>
+												<?php echo $ketuatim->domisili_ketuatim ?>
 											</td>
 											<td width="250">
 												<a href="<?php echo site_url('admin/KetuaTim/edit/' . $ketuatim->id_ketuatim) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
