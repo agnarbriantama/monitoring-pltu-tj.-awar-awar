@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-html5-1.5.4/b-print-1.5.4/datatables.min.css" />
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-
-
 
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
 </head>
 
-<body id="page-top">
+<body id=" page-top">
 
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 	<div id="wrapper">
@@ -47,14 +41,12 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a class="btn btn-primary" href="<?php echo site_url('admin/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
-						<!-- <a class="btn btn-info ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Whatsapp</a>
-						<a class="btn btn-success ml-2" style="float: right;" href="#"><i class="fa fa-file-excel-o"></i> Excel</a>
-						<a class="btn btn-danger ml-2 " style="float: right;" href="#"><i class="fa fa-file-pdf-o"></i> PDF</a> -->
+						<a class="btn btn-info ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Send Whatsapp</a>
 					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover text-center " id="dataTables" width="100%" cellspacing="0">
+							<table class="table table-hover text-center" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -140,44 +132,29 @@
 	</div>
 	<!-- /#wrapper -->
 
-
 	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 	<?php $this->load->view("admin/_partials/modal.php") ?>
-
 	<?php $this->load->view("admin/_partials/js.php") ?>
-
 
 	<script>
 		$(document).ready(function() {
-			$('#dataTables').DataTable({
-				dom: 'Bfrtip',
-				buttons: [
-					'copy', 'csv', 'excel', 'pdf', 'print'
-					// {
-					// 	extend: 'copy',
-					// 	className: 'copyButton'
-					// },
-					// {
-					// 	extend: 'excel',
-					// 	className: 'excelButton'
-					// }
-				]
+			var table = $('#dataTables').DataTable({
+				lengthChange: false,
+				buttons: ['copy', 'excel', 'pdf', 'csv', 'print']
 			});
+
+			table.buttons().container()
+				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
 		});
 	</script>
-
-
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.flash.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-	</script>
+
 
 </body>
 
