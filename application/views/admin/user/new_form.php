@@ -52,8 +52,12 @@
 							</div>
 
 							<div class="form-group">
-								<label for="created_at">Dibuat Pada</label>
-								<input class="form-control" type="datetime-local" name="created_at" placeholder="Dibuat Pada" required />
+								<label for="level_id">Level</label>
+								<select class="form-control" id="level_id">
+									<option>Super Admin</option>
+									<option>Ketua Tim</option>
+									<option>Anggota Tim</option>
+								</select>
 							</div>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />

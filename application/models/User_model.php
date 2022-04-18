@@ -50,8 +50,8 @@ class User_model extends CI_Model
     $this->full_name = $post["full_name"];
     $this->email = $post["email"];
     $this->password = password_hash($post["password"], PASSWORD_DEFAULT);
-    $this->role = $post["role"] ?? "admin";
     $this->phone = $post["phone"];
+    $this->level = $post["level"];
     $this->db->insert($this->_table, $this);
     $this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
     redirect(site_url('admin/User/index'));
@@ -60,25 +60,15 @@ class User_model extends CI_Model
   public function update()
   {
     $post = $this->input->post();
-    $this->user_id = $post["id"];
-    $this->full_name = $post["full_name"];
     $this->username = $post["username"];
-    $this->password = $post["password"];
+    $this->full_name = $post["full_name"];
     $this->email = $post["email"];
+    $this->password = password_hash($post["password"], PASSWORD_DEFAULT);
     $this->phone = $post["phone"];
+    $this->level = $post["level"];
     $this->db->update($this->_table, $this, array('user_id' => $post['id']));
     $this->session->set_flashdata('success', 'Berhasil diupdate');
     redirect(site_url('admin/User/index'));
-  }
-
-  public function Jum_kas()
-  {
-    $this->db->group_by('jenis_bantuan');
-    $this->db->select('jenis_bantuan');
-    $this->db->select("count(*) as total");
-    return $this->db->from('tb_anakpenerimabantuan')
-      ->get()
-      ->result();
   }
 
   public function doLogin()

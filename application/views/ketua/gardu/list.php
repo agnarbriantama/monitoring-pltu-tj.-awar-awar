@@ -49,7 +49,7 @@
 								<thead>
 									<tr class="text-center">
 										<th style="max-width: 30px;">No</th>
-										<th style="max-width: 200px;" >Nama Gardu</th>
+										<th>Nama Gardu</th>
 										<th>Foto Gardu</th>
 										<th>Action</th>
 									</tr>
@@ -62,10 +62,10 @@
 											<td class="10"><br>
 												<?php echo $no++ ?>
 											</td>
-											<td class="100"><br>
+											<td class="200"><br>
 												<?php echo $gardu->nama_gardu ?>
 											</td>
-											<td width="200">
+											<td width="150">
 												<!-- <img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto"> -->
 												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="100px" width="100px" alt="foto">
 											</td>

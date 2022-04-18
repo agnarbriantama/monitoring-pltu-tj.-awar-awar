@@ -12,26 +12,26 @@
 
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
 
-		<div id="content-wrapper">
+		<div id="content-wrapper">	
 
 			<div class="container-fluid">
 				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
-				<?php if ($this->session->flashdata('success')) : ?>
+				<?php if ($this->session->flashdata('success')): ?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $this->session->flashdata('success'); ?>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+							<span aria-hidden="true">&times;</span> 
 						</button>
 					</div>
 					<?php $this->session->unset_userdata('success') ?>
 				<?php endif; ?>
-
-				<?php if ($this->session->flashdata('berhasil')) : ?>
+				
+				<?php if ($this->session->flashdata('berhasil')): ?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $this->session->flashdata('berhasil'); ?>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
+							<span aria-hidden="true">&times;</span> 
 						</button>
 					</div>
 					<?php $this->session->unset_userdata('berhasil') ?>
@@ -40,39 +40,51 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a class="btn btn-primary" href="<?php echo site_url('admin/gardu/input') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
+						<a class="btn btn-primary" href="<?php echo site_url('admin/AnggotaTim/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
 					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
 							<table class="table table-hover text-center" id="dataTable" width="100%" cellspacing="0">
 								<thead>
-									<tr class="text-center">
-										<th style="max-width: 30px;">No</th>
-										<th style="max-width: 200px;" >Nama Gardu</th>
-										<th>Foto Gardu</th>
+									<tr>
+										<th>No</th>
+										<!--<th>ID Ketua Tim</th>-->
+										<th>Nama Tim</th>
+										<th>Nama Anggota</th>
+										<th>No HP</th>
+										<th>Domisili</th>
+										<th>Tahun Aktif Kerja</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php
+									<?php 
 									$no = 1;
-									foreach ($Gardu as $gardu) : ?>
+									foreach ($AnggotaTim as $angtim) : ?>
 										<tr>
-											<td class="10"><br>
+											<td class="10">
 												<?php echo $no++ ?>
 											</td>
-											<td class="100"><br>
-												<?php echo $gardu->nama_gardu ?>
+											<td class="150">
+											<!-- Message: Undefined property: stdClass::$nama_tim -->
+												<?php echo $angtim->nama_tim ?>
 											</td>
-											<td width="200">
-												<!-- <img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto"> -->
-												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="100px" width="100px" alt="foto">
+											<td width="150">
+												<?php echo $angtim->nama_anggota ?>
 											</td>
-
-											<td width="250"><br>
-												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
+											<td width="150">
+												<?php echo $angtim->no_hp ?>
+											</td>
+											<td width="150">
+												<?php echo $angtim->domisili_ketuatim ?>
+											</td>
+											<td width="150">
+												<?php echo $angtim->tahun_kerja ?>
+											</td>
+											<td width="250">
+												<a href="<?php echo site_url('admin/AnggotaTim/edit/' . $angtim->id_anggotatim) ?>" class="btn btn-small btn-outline-primary mb-3 w-75"><i class="fas fa-edit"></i> Ubah</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/AnggotaTim/delete/' . $angtim->id_anggotatim) ?>')" href="#!" class="btn btn-small btn-outline-danger w-75"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>

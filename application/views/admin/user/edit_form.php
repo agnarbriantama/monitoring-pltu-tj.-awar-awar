@@ -27,54 +27,63 @@
 					</div>
 					<div class="card-body">
 
-					<?php foreach ($User as $akun) : ?>
+						<?php foreach ($User as $akun) : ?>
 
-						<form action="<?php echo site_url('admin/User/edit'); ?>" method="POST" enctype="multipart/form-data">
-							<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
+							<form action="<?php echo site_url('admin/User/edit'); ?>" method="POST" enctype="multipart/form-data">
+								<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
 							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/User/edit/ID --->
-							
-							<input type="hidden" name="id" value="<?php echo $akun->user_id; ?>" />
-							
-							<div class="form-group">
-								<label for="username">Username</label>
-								<input class="form-control <?php echo form_error('username') ? 'is-invalid':'' ?>" type="text" name="username" placeholder="Username" value="<?php echo $akun->username; ?>" required/>
-							</div>
-							
-							<div class="form-group">
-								<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>" type="hidden" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required/>
-								<div class="invalid-feedback">
-									<?php echo form_error('password') ?>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label for="email">Email</label>
-								<input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>" type="email" name="email" placeholder="Email" value="<?php echo $akun->email ?>" required/>
-								<div class="invalid-feedback">
-									<?php echo form_error('email') ?>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label for="full_name">Nama Lengkap</label>
-								<input class="form-control <?php echo form_error('full_name') ? 'is-invalid':'' ?>" type="text" name="full_name" placeholder="Nama Lengkap" value="<?php echo $akun->full_name ?>" required/>
-								<div class="invalid-feedback">
-									<?php echo form_error('full_name') ?>
-								</div>
-							</div>
 
-							<div class="form-group">
-								<label for="phone">Nomor HP</label>
-								<input class="form-control <?php echo form_error('phone') ? 'is-invalid':'' ?>" type="text" name="phone" placeholder="Nomor Hp" value="<?php echo $akun->phone ?>" required/>
-								<div class="invalid-feedback">
-									<?php echo form_error('phone') ?>
+								<input type="hidden" name="id" value="<?php echo $akun->user_id; ?>" />
+
+								<div class="form-group">
+									<label for="username">Username</label>
+									<input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="Username" value="<?php echo $akun->username; ?>" required />
 								</div>
-							</div>
 
-							<input class="btn btn-success" type="submit" name="btn" value="Save" />
-						</form>
+								<div class="form-group">
+									<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="hidden" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required />
+									<div class="invalid-feedback">
+										<?php echo form_error('password') ?>
+									</div>
+								</div>
 
-					<?php endforeach; ?>
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="email" name="email" placeholder="Email" value="<?php echo $akun->email ?>" required />
+									<div class="invalid-feedback">
+										<?php echo form_error('email') ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="full_name">Nama Lengkap</label>
+									<input class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Nama Lengkap" value="<?php echo $akun->full_name ?>" required />
+									<div class="invalid-feedback">
+										<?php echo form_error('full_name') ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="phone">Nomor HP</label>
+									<input class="form-control <?php echo form_error('phone') ? 'is-invalid' : '' ?>" type="text" name="phone" placeholder="Nomor Hp" value="<?php echo $akun->phone ?>" required />
+									<div class="invalid-feedback">
+										<?php echo form_error('phone') ?>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Level</label><br>
+									<select name="level_id" class="form-control">
+										<option value="1" <?php if ($akun->{'level_id'} == '1') echo 'selected' ?>>Super Admin</option>
+										<option value="2" <?php if ($akun->{'level_id'} == '2') echo 'selected' ?>>Ketua Tim</option>
+										<option value="3" <?php if ($akun->{'level_id'} == '2') echo 'selected' ?>>Anggota Tim</option>
+									</select>
+								</div>
+
+								<input class="btn btn-success" type="submit" name="btn" value="Save" />
+							</form>
+
+						<?php endforeach; ?>
 
 					</div>
 

@@ -9,9 +9,6 @@ class Gardu extends CI_Controller
 	{
 		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
-		if (!$this->session->userdata('username')) {
-			redirect('auth/login');
-		}
 		// load model dan library
 		$this->load->model('Gardu_model');
 		$this->load->library('form_validation');

@@ -40,7 +40,10 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a class="btn btn-primary" href="<?php echo site_url('admin/User/input') ?>"><i class="fas fa-plus"></i> Tambah User</a>
+						<a class="btn btn-primary" href="<?php echo site_url('admin/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
+						<a class="btn btn-info ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Whatsapp</a>
+						<a class="btn btn-success ml-2" style="float: right;" href="#"><i class="fa fa-file-excel-o"></i> Excel</a>
+						<a class="btn btn-danger ml-2 " style="float: right;" href="#"><i class="fa fa-file-pdf-o"></i> PDF</a>
 					</div>
 					<div class="card-body">
 
@@ -49,40 +52,66 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Username</th>
-										<th>Email</th>
-										<th>Nama Lengkap</th>
-										<th>Nomor HP</th>
-										<th>Level</th>
+										<th>Nama Gardu</th>
+										<th>Suhu</th>
+										<th>Arus</th>
+										<th>Cosphi</th>
+										<th>Tanggal</th>
+										<th>Tegangan</th>
+										<th>Gambar</th>
+										<th>Status</th>
+										<th>Lokasi</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($User as $akun) : ?>
+									foreach ($PantauanHarian as $datpan) : ?>
 										<tr>
 											<td class="10">
 												<?php echo $no++ ?>
 											</td>
-											<td class="200">
-												<?php echo $akun->username ?>
+											<td class="100">
+												<?php echo $datpan->nama_gardu ?>
 											</td>
-											<td width="200">
-												<?php echo $akun->email ?>
+											<td width="100">
+												<?php echo $datpan->suhu ?>
 											</td>
-											<td width="200">
-												<?php echo $akun->full_name ?>
-											</td>
-											<td width="150">
-												<?php echo $akun->phone ?>
+											<td width="100">
+												<?php echo $datpan->arus ?>
 											</td>
 											<td width="150">
-												<?php echo $akun->level_id ?>
+												<?php echo $datpan->cosphi ?>
+											</td>
+											<td width="100">
+												<?php echo dateindo($datpan->tgl_pantauan) ?>
+											</td>
+											<td width="100">
+												<?php echo $datpan->tegangan ?>
+											</td>
+											<td>
+
+												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
+											</td>
+											<td width="100">
+												<?php
+												if ($datpan->status == 0) {
+												?>
+													<span class="badge badge-warning">Pending</span>
+												<?php
+												} else {
+													echo $datpan->status == 1 ? '<span class="badge badge-success">Diterima</span>' : '<span class="badge badge-danger">Ditolak</span>';
+												}
+												?>
+
+											</td>
+											<td width="100">
+												<?php echo $datpan->lokasi_pantauan ?>
 											</td>
 											<td width="250">
-												<a href="<?php echo site_url('admin/User/edit/' . $akun->user_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/User/delete/' . $akun->user_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+												<a href="<?php echo site_url('admin/PantauanHarian/disetujui/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-success mb-3 w-100"><i class="fa fa-check-square-o"></i>  Setuju</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/PantauanHarian/ditolak/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger w-100"><i class="fa fa-window-close-o"></i>  Tolak</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>

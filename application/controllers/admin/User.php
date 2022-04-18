@@ -39,20 +39,6 @@ class User extends CI_Controller
   }
 
   // untuk fungsi edit dengan nilai defaultnya null
-  // public function edit( $id = NULL )
-  // {
-  //     $data['User']  = $this->user_model->getById($id);
-
-  //     if ($this->form_validation->run()) {
-  //         // $this->user_model->update();
-  //         echo "gagal";
-  //     }
-
-  //     $this->load->view("admin/user/edit_form", $data);
-  //     $this->session->set_flashdata('success', 'Berhasil diupdate');
-  // }
-
-  // untuk fungsi edit dengan nilai defaultnya null
   public function edit($id = NULL)
   {
     $user = $this->user_model;

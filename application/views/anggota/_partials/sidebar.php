@@ -27,6 +27,7 @@
 	<br>
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'PantauanHarian' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/PantauanHarian') ?>">
+			<!-- <i class="fas fa-fw fa-hospital"></i> -->
 			<i class="fa fa-book"></i>
 			<span>Data Pantauan Harian</span></a>
 	</li>
@@ -36,4 +37,9 @@
 			<i class="fa fa-info"></i>
 			<span>Data Pengguna</span></a>
 	</li>
+	<!-- <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Settings</span></a>
+    </li> -->
 </ul>
