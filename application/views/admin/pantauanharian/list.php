@@ -46,7 +46,7 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover text-center" id="dataTables" width="100%" cellspacing="0">
+							<table class="table table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -140,7 +140,32 @@
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
 				lengthChange: false,
-				buttons: ['copy', 'excel', 'pdf', 'csv', 'print']
+				buttons: [{
+						extend: 'copyHtml5',
+						text: 'copy <i class="fa fa-files-o"></i>',
+						titleAttr: 'Copy'
+					},
+					{
+						extend: 'excelHtml5',
+						text: 'Excel <i class="fa fa-file-excel-o"></i>',
+						titleAttr: 'Excel'
+					},
+					{
+						extend: 'csvHtml5',
+						text: 'CSV <i class="fa fa-file-text-o"></i>',
+						titleAttr: 'CSV'
+					},
+					{
+						extend: 'pdfHtml5',
+						text: 'PDF <i class="fa fa-file-pdf-o"></i>',
+						titleAttr: 'PDF'
+					},
+					{
+						extend: 'print',
+						text: 'Print <i class="fa fa-print"></i>',
+						titleAttr: 'print'
+					}
+				]
 			});
 
 			table.buttons().container()

@@ -45,7 +45,7 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover text-center" id="dataTable" width="100%" cellspacing="0">
+							<table class="table table-hover text-center table-striped" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr class="text-center">
 										<th style="max-width: 30px;">No</th>
