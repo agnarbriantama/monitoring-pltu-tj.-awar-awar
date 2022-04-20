@@ -67,7 +67,7 @@
 											</td>
 											<td width="200">
 												<!-- <img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto"> -->
-												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="100px" width="100px" alt="foto">
+												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="80px" width="80px" alt="foto">
 											</td>
 
 											<td width="250"><br>

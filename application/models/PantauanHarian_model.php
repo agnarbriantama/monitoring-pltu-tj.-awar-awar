@@ -15,8 +15,6 @@ class PantauanHarian_model extends CI_Model
 
   public function getById($id)
 	{
-		// mengembalikan sebuah objek
-		// mengambil semua dari tb_data-rt yang dimana id_nama = id
 		return $this->db->get_where($this->tb_pantauanharian, ["id_pantauan" => $id])->result();
 	}
 

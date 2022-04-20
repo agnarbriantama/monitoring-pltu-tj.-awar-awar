@@ -49,11 +49,14 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Username</th>
-										<th>Email</th>
 										<th>Nama Lengkap</th>
+										<th>Username</th>
+										<th>Password</th>
+										<th>Email</th>
+										<th>Nama Tim</th>
 										<th>Nomor HP</th>
 										<th>Level</th>
+										<th>Foto</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -65,21 +68,31 @@
 											<td class="10">
 												<?php echo $no++ ?>
 											</td>
+											<td width="200">
+												<?php echo $akun->full_name ?>
+											</td>
 											<td class="200">
 												<?php echo $akun->username ?>
 											</td>
-											<td width="200">
+											<td type="password">
+												<?php echo $akun->password ?>
+											</td>
+											<td>
 												<?php echo $akun->email ?>
 											</td>
-											<td width="200">
-												<?php echo $akun->full_name ?>
+											<td>
+												<?php echo $akun->nama_tim ?>
 											</td>
 											<td width="150">
 												<?php echo $akun->phone ?>
 											</td>
-											<td width="150">
-												<?php echo $akun->level_id ?>
+											<td>
+											<?php echo $akun->nama_level ?>
 											</td>
+											<td width="150">
+											<img src="<?= base_url('assets/imguser/' . $akun->gambar_user) ?>" width="70px" height="50px">
+											</td>
+
 											<td width="250">
 												<a href="<?php echo site_url('admin/User/edit/' . $akun->user_id) ?>" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Ubah</a>
 												<a onclick="deleteConfirm('<?php echo site_url('admin/User/delete/' . $akun->user_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>

@@ -7,7 +7,7 @@
 		</a>
 	</li>
 	<br>
-	<li class="nav-item <?php echo $this->uri->segment(2) == 'KetuaTim' ? 'active' : '' ?>">
+	<!-- <li class="nav-item <?php echo $this->uri->segment(2) == 'KetuaTim' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/KetuaTim') ?>">
 			<i class="fas fa-fw fa-user"></i>
 			<span>Data Ketua Tim</span></a>
@@ -18,7 +18,7 @@
 			<i class="fas fa-fw fa-users"></i>
 			<span>Data Anggota Tim</span></a>
 	</li>
-	<br>
+	<br> -->
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'Gardu' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/Gardu') ?>">
 			<i class="fa fa-list"></i>

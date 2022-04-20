@@ -41,7 +41,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a class="btn btn-primary" href="<?php echo site_url('admin/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
-						<a class="btn btn-info ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Send Whatsapp</a>
+						<a class="btn btn-success ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Send Whatsapp</a>
 					</div>
 					<div class="card-body">
 
@@ -89,7 +89,6 @@
 												<?php echo $datpan->tegangan ?>
 											</td>
 											<td>
-
 												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
 											</td>
 											<td width="100">
@@ -102,7 +101,6 @@
 													echo $datpan->status == 1 ? '<span class="badge badge-success">Diterima</span>' : '<span class="badge badge-danger">Ditolak</span>';
 												}
 												?>
-
 											</td>
 											<td width="100">
 												<?php echo $datpan->lokasi_pantauan ?>

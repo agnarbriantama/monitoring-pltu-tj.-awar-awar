@@ -29,11 +29,19 @@
 
 						<?php foreach ($User as $akun) : ?>
 
-							<form action="<?php echo site_url('admin/User/edit'); ?>" method="POST" enctype="multipart/form-data">
+							<form action="<?= base_url('admin/user/update/' . $akun->user_id) ?>" method="POST" enctype="multipart/form-data">
 								<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
 							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/User/edit/ID --->
 
 								<input type="hidden" name="id" value="<?php echo $akun->user_id; ?>" />
+
+								<div class="form-group">
+									<label for="full_name">Nama Lengkap</label>
+									<input class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Nama Lengkap" value="<?php echo $akun->full_name ?>" required />
+									<div class="invalid-feedback">
+										<?php echo form_error('full_name') ?>
+									</div>
+								</div>
 
 								<div class="form-group">
 									<label for="username">Username</label>
@@ -56,10 +64,10 @@
 								</div>
 
 								<div class="form-group">
-									<label for="full_name">Nama Lengkap</label>
-									<input class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Nama Lengkap" value="<?php echo $akun->full_name ?>" required />
+									<label for="nama_tim">Nama Tim</label>
+									<input class="form-control <?php echo form_error('nama_tim') ? 'is-invalid' : '' ?>" type="text" name="nama_tim" placeholder="Nomor Hp" value="<?php echo $akun->nama_tim ?>" required />
 									<div class="invalid-feedback">
-										<?php echo form_error('full_name') ?>
+										<?php echo form_error('nama_tim') ?>
 									</div>
 								</div>
 
@@ -78,6 +86,16 @@
 										<option value="2" <?php if ($akun->{'level_id'} == '2') echo 'selected' ?>>Ketua Tim</option>
 										<option value="3" <?php if ($akun->{'level_id'} == '2') echo 'selected' ?>>Anggota Tim</option>
 									</select>
+								</div>
+
+								<div class="form-group">
+									<label for="gambar_user">Foto User</label>
+									<div><img src="<?php echo base_url('./assets/imguser/') . $akun->gambar_user ?>" border="0" width="70px" height="70px" /></div>
+									<input class="form-control <?php echo form_error('gambar_user') ? 'is-invalid' : '' ?>" type="file" name="gambar_user" placeholder="Foto User" />
+									<input type="hidden" name="fotolama" value="<?php echo $akun->gambar_user; ?>" />
+									<div class="invalid-feedback">
+										<?php echo form_error('gambar_user') ?>
+									</div>
 								</div>
 
 								<input class="btn btn-success" type="submit" name="btn" value="Save" />

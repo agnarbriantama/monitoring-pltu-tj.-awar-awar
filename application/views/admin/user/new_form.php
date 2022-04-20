@@ -27,6 +27,11 @@
 						<form action="<?php echo site_url('admin/User/add'); ?>" method="POST" enctype="multipart/form-data">
 
 							<div class="form-group">
+								<label for="full_name">Full Name</label>
+								<input class="form-control" type="text" name="full_name" placeholder="Full Name" required />
+							</div>
+
+							<div class="form-group">
 								<label for="username">Username</label>
 								<input class="form-control" type="text" name="username" placeholder="Username" required />
 							</div>
@@ -42,8 +47,8 @@
 							</div>
 
 							<div class="form-group">
-								<label for="full_name">Full Name</label>
-								<input class="form-control" type="text" name="full_name" placeholder="Full Name" required />
+								<label for="nama_tim">Nama Tim</label>
+								<input class="form-control" type="text" name="nama_tim" placeholder="Nama Tim" required />
 							</div>
 
 							<div class="form-group">
@@ -53,12 +58,17 @@
 
 							<div class="form-group">
 								<label for="level_id">Level</label>
-								<select class="form-control" id="level_id">
-									<option>Super Admin</option>
-									<option>Ketua Tim</option>
-									<option>Anggota Tim</option>
+								<select class="form-control" name="level_id" id="level_id">
+									<option value="1">Super Admin</option>
+									<option value="2">Ketua Tim</option>
+									<option value="3">Anggota Tim</option>
 								</select>
 							</div>
+
+							<div class="form-group custom-file">
+								<label class="custom-file-label" for="gambar_user">Foto User <i class="fa fa-upload"></i></label>
+								<input class="form-control custom-file-input" type="file" name="gambar_user" placeholder="Foto User" required />
+							</div><br><br>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
