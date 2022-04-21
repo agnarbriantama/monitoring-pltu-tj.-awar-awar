@@ -29,7 +29,6 @@
 
 				<?php if ($this->session->flashdata('berhasil')) : ?>
 					<div class="alert alert-success" role="alert">
-						<?php echo $this->session->flashdata('berhasil'); ?>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -106,8 +105,7 @@
 												<?php echo $datpan->lokasi_pantauan ?>
 											</td>
 											<td width="250">
-												<a href="<?php echo site_url('admin/PantauanHarian/disetujui/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-success mb-3 w-100"><i class="fa fa-check-square-o"></i> Setuju</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/PantauanHarian/ditolak/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger w-100"><i class="fa fa-window-close-o"></i> Tolak</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -133,6 +131,13 @@
 	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 	<?php $this->load->view("admin/_partials/modal.php") ?>
 	<?php $this->load->view("admin/_partials/js.php") ?>
+
+	<script>
+		function deleteConfirm(url) {
+			$('#btn-delete').attr('href', url);
+			$('#deleteModal').modal();
+		}
+	</script>
 
 	<script>
 		$(document).ready(function() {

@@ -49,7 +49,8 @@
 								</div>
 
 								<div class="form-group">
-									<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="hidden" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required />
+									<label for="password">Password</label>
+									<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required />
 									<div class="invalid-feedback">
 										<?php echo form_error('password') ?>
 									</div>

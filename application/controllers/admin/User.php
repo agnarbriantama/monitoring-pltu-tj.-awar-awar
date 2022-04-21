@@ -37,7 +37,7 @@ class User extends CI_Controller
 		$user_id = $this->input->post('user_id');
 		$full_name = $this->input->post('full_name');
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+		$password = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
 		$email = $this->input->post('email');
 		$nama_tim = $this->input->post('nama_tim');
 		$phone = $this->input->post('phone');
@@ -87,12 +87,12 @@ class User extends CI_Controller
 		$kondisi = array('user_id' => $id);
 		$full_name = $this->input->post('full_name');
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+		$password = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
 		$email = $this->input->post('email');
 		$nama_tim = $this->input->post('nama_tim');
 		$phone = $this->input->post('phone');
 		$level_id = $this->input->post('level_id');
-		$config['upload_path'] = './uploads';
+		$config['upload_path'] = './assets/imguser';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 
 		$this->load->library('upload', $config);

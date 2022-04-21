@@ -9,10 +9,10 @@ class AnggotaTim extends CI_Controller
 	{
 		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
-		
+
 		if (!$this->session->userdata('username')) {
-            redirect('auth/login');
-        }
+			redirect('auth/login');
+		}
 		// load model dan library
 		$this->load->model('AnggotaTim_model');
 		$this->load->model('KetuaTim_model');

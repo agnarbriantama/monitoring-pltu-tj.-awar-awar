@@ -20,25 +20,10 @@ class PantauanHarian extends CI_Controller
 	public function index()
 	{
 		// untuk mengambil data dari model secara keseluruhan
-		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
-		// meload data pada view yang sudah dibuat pada folder view
-		$this->load->view("admin/pantauanharian/list", $data);
-	}
-
-	public function relasi()
-	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
-		$this->load->view("admin/pantauanharian/new_form", $data);
+		$this->load->view("anggota/pantauanharian/new_form", $data);
 	}
 
-	// Digunakan untuk memanggil form
-	public function input()
-	{
-		// untuk meload tampilan newform pada bagian view
-		$this->load->view('admin/pantauanharian/new_form');
-	}
-
-	// menambahkan data
 	public function add()
 	{
 		$id_gardu = $this->input->post('id_gardu');
@@ -74,54 +59,11 @@ class PantauanHarian extends CI_Controller
 		}
 
 		$this->db->insert('tb_pantauanharian', $data);
-		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
-		redirect(site_url('admin/PantauanHarian/index'));
-	}
-
-
-	// untuk fungsi edit dengan nilai defaultnya null
-	public function edit($id = NULL)
-	{
-		$data["Gardu"] = $this->Gardu_model->getAll();
-
-		$this->form_validation->set_rules('suhu', 'Suhu', 'required');
-		$this->form_validation->set_rules('lokasi_pantauan', 'Lokasi_Pantauan', 'required');
-
-		$data['PantauanHarian']  = $this->PantauanHarian_model->getById($id);
-
-		if ($this->form_validation->run()) {
-			$this->PantauanHarian_model->update();
-		}
-		$this->load->view("admin/pantauanharian/edit_form", $data);
-		$this->session->set_flashdata('success', 'Berhasil diupdate');
-	}
-	//disetujui
-	public function disetujui($id)
-	{
-		$sql = "UPDATE tb_pantauanharian SET status ='1' WHERE id_pantauan =$id";
-		$this->db->query($sql);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect(site_url('admin/pantauanharian'));
-	}
-
-	public function ditolak($id)
-	{
-		$sql = "UPDATE tb_pantauanharian SET status ='2' WHERE id_pantauan =$id";
-		$this->db->query($sql);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect(site_url('admin/pantauanharian'));
-	}
-
-
-
-	// untuk fungsi delete dengan nilai defaultnya null
-	public function delete($id = null)
-	{
-		if (!isset($id)) show_404();
-
-		if ($this->PantauanHarian_model->delete($id)) {
-			$this->session->set_flashdata('success', 'Berhasil dihapus');
-			redirect(site_url('admin/PantauanHarian'));
-		}
+		$this->session->set_flashdata('berhasil', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Data Berhasil Ditambahkan</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></div>');
+		redirect(site_url('anggota/PantauanHarian/index'));
 	}
 }

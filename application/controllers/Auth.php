@@ -32,7 +32,7 @@ class Auth extends CI_Controller
 
 		if ($user) {
 			if ($user['is_active'] == 1) {
-				if ($user['password']) {
+				if (password_verify($password, $user['password'])) {
 					$data = [
 						'username' => $user['username'],
 						'level_id' => $user['level_id']
@@ -63,7 +63,7 @@ class Auth extends CI_Controller
 			}
 		} else {
 			$this->session->set_flashdata('login', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>Email belum terdaftar</strong>
+      <strong>Username belum terdaftar</strong>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>!</div>');

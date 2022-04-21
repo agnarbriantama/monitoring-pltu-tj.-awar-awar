@@ -2,20 +2,20 @@
 <html lang="en">
 
 <head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
+	<?php $this->load->view("ketua/_partials/head.php") ?>
 </head>
 
 <body id="page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
+	<?php $this->load->view("ketua/_partials/navbar.php") ?>
 	<div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+		<?php $this->load->view("ketua/_partials/sidebar.php") ?>
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
-				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+				<?php $this->load->view("ketua/_partials/breadcrumb.php") ?>
 
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success" role="alert">
@@ -40,16 +40,16 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a class="btn btn-primary" href="<?php echo site_url('admin/gardu/input') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
+						<a class="btn btn-primary" href="<?php echo site_url('ketua/gardu/input') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
 					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover text-center" id="dataTable" width="100%" cellspacing="0">
+							<table class="table table-hover text-center table-striped" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr class="text-center">
 										<th style="max-width: 30px;">No</th>
-										<th>Nama Gardu</th>
+										<th style="max-width: 200px;" >Nama Gardu</th>
 										<th>Foto Gardu</th>
 										<th>Action</th>
 									</tr>
@@ -62,17 +62,17 @@
 											<td class="10"><br>
 												<?php echo $no++ ?>
 											</td>
-											<td class="200"><br>
+											<td class="100"><br>
 												<?php echo $gardu->nama_gardu ?>
 											</td>
-											<td width="150">
+											<td width="200">
 												<!-- <img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" style="max-width:115%; max-height:100%; height:180px" alt="foto"> -->
-												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="100px" width="100px" alt="foto">
+												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="80px" width="80px" alt="foto">
 											</td>
 
 											<td width="250"><br>
-												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
+												<a href="<?php echo site_url('ketua/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
+												<a onclick="deleteConfirm('<?php echo site_url('ketua/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -87,7 +87,7 @@
 			<!-- /.container-fluid -->
 
 			<!-- Sticky Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
+			<?php $this->load->view("ketua/_partials/footer.php") ?>
 
 		</div>
 		<!-- /.content-wrapper -->
@@ -96,10 +96,10 @@
 	<!-- /#wrapper -->
 
 
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?>
+	<?php $this->load->view("ketua/_partials/scrolltop.php") ?>
+	<?php $this->load->view("ketua/_partials/modal.php") ?>
 
-	<?php $this->load->view("admin/_partials/js.php") ?>
+	<?php $this->load->view("ketua/_partials/js.php") ?>
 
 	<script>
 		function deleteConfirm(url) {
