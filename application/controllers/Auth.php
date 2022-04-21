@@ -40,13 +40,13 @@ class Auth extends CI_Controller
 					];
 					$this->session->set_userdata($data);
 					if ($user['level_id'] == 1) {
-						redirect('admin/ketuatim');
+						redirect('admin/overview');
 					}
 					if ($user['level_id'] == 2) {
-						redirect('admin/anggotatim');
+						redirect('ketua/gardu');
 					}
 					if ($user['level_id'] == 3) {
-						redirect('admin/gardu');
+						redirect('anggota/pantauanharian');
 					}
 				} else {
 					$this->session->set_flashdata('login', '<div class="alert alert-danger alert-dismissible fade show" role="alert">

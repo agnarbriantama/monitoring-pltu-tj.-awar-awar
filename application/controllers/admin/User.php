@@ -9,6 +9,10 @@ class User extends CI_Controller
 	{
 		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
+
+		if (!$this->session->userdata('username')) {
+			redirect('auth/login');
+		}
 		// load model dan library
 		$this->load->model('user_model');
 		$this->load->library('form_validation');
@@ -37,7 +41,7 @@ class User extends CI_Controller
 		$user_id = $this->input->post('user_id');
 		$full_name = $this->input->post('full_name');
 		$username = $this->input->post('username');
-		$password = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
+		$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		$email = $this->input->post('email');
 		$nama_tim = $this->input->post('nama_tim');
 		$phone = $this->input->post('phone');
@@ -87,7 +91,7 @@ class User extends CI_Controller
 		$kondisi = array('user_id' => $id);
 		$full_name = $this->input->post('full_name');
 		$username = $this->input->post('username');
-		$password = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
+		$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		$email = $this->input->post('email');
 		$nama_tim = $this->input->post('nama_tim');
 		$phone = $this->input->post('phone');

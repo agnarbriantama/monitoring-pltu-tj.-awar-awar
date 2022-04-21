@@ -4,6 +4,9 @@
 <head>
 	<?php $this->load->view("anggota/_partials/head.php") ?>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.map"></script>
 
 <body id="page-top">
 
@@ -71,12 +74,23 @@
 								<input class="form-control custom-file-input" type="file" name="gambar" required />
 							</div>
 
-							<div class="form-group">
-								<label for="lokasi_pantauan">Lokasi Pantauan</label>
-								<input class="form-control" type="text" name="lokasi_pantauan" required />
+							<div class="form-group ">
+								<label for="lokasi" class="">Foto Bukti Di Tempat Gardu</label>
+								<input class="form-control" type="text" name="lokasi" required />
 							</div>
 
-							<input class="btn btn-success" type="submit" name="btn" value="Save" />
+							<!-- <div class="form-group"> -->
+							<!-- <label for="lokasi_pantauan">Lokasi Pantauan</label>
+								<input class="form-control" type="text" name="lokasi_pantauan" required /> -->
+							<!-- <label for="lokasi" class="custom-file-label">Lokasi</label> -->
+							<!-- </div> -->
+
+							<div class="form-group"><br>
+								<h6>Klik Tombol ini <button class="btn btn-info btn-sm" name="lokasi_pantauan" onclick="getLocation()">Get Location</button> sebelum mengirimkan data</h6>
+								<p id="demo"></p>
+							</div>
+							<input class="btn btn-success float-right" type="submit" name="btn" value="Save" />
+
 						</form>
 
 					</div>
@@ -104,6 +118,23 @@
 		<?php $this->load->view("anggota/_partials/scrolltop.php") ?>
 
 		<?php $this->load->view("anggota/_partials/js.php") ?>
+
+		<script>
+			var x = document.getElementById("demo");
+
+			function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+					x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+
+			function showPosition(position) {
+				x.innerHTML = "Latitude: " + position.coords.latitude +
+					" || Longitude: " + position.coords.longitude;
+			}
+		</script>
 
 </body>
 
