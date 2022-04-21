@@ -62,7 +62,7 @@
 
 
 		<?php $this->load->view("ketua/_partials/scrolltop.php") ?>
-
+		<?php $this->load->view("ketua/_partials/modal.php") ?>
 		<?php $this->load->view("ketua/_partials/js.php") ?>
 
 </body>

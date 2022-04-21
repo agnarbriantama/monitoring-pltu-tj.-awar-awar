@@ -86,7 +86,7 @@
 							<!-- </div> -->
 
 							<div class="form-group"><br>
-								<h6>Klik Tombol ini <button class="btn btn-info btn-sm" name="lokasi_pantauan" onclick="getLocation()">Get Location</button> sebelum mengirimkan data</h6>
+								<h6>Klik Tombol ini <button class="btn btn-outline-info btn-sm" name="lokasi_pantauan" onclick="getLocation()">Get Location</button> sebelum mengirimkan data</h6>
 								<p id="demo"></p>
 							</div>
 							<input class="btn btn-success float-right" type="submit" name="btn" value="Save" />
@@ -116,7 +116,7 @@
 
 
 		<?php $this->load->view("anggota/_partials/scrolltop.php") ?>
-
+		<?php $this->load->view("anggota/_partials/modal.php") ?>
 		<?php $this->load->view("anggota/_partials/js.php") ?>
 
 		<script>

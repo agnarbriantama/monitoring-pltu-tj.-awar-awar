@@ -49,7 +49,7 @@
 								<thead>
 									<tr class="text-center">
 										<th style="max-width: 30px;">No</th>
-										<th style="max-width: 200px;" >Nama Gardu</th>
+										<th style="max-width: 200px;">Nama Gardu</th>
 										<th>Foto Gardu</th>
 										<th>Action</th>
 									</tr>
@@ -98,7 +98,6 @@
 
 	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 	<?php $this->load->view("admin/_partials/modal.php") ?>
-
 	<?php $this->load->view("admin/_partials/js.php") ?>
 
 	<script>
