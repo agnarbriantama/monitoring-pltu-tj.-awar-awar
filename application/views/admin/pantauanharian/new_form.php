@@ -25,7 +25,7 @@
 					<div class="card-body">
 
 						<form action="<?php echo site_url('admin/PantauanHarian/add'); ?>" method="POST" enctype="multipart/form-data">
-
+							<?php echo $this->session->flashdata('berhasil'); ?>
 							<div class="form-group">
 								<label for="id_gardu">Nama Gardu</label>
 								<select id="id_gardu" name="id_gardu" class="form-control" required>
@@ -35,10 +35,6 @@
 									<?php endforeach; ?>
 								</select>
 							</div>
-							<!-- <div class="form-group">
-								<label for="nama_gardu">Nama Gardu</label>
-								<input class="form-control" type="text" name="nama_gardu" placeholder="Masukkan Nama Gardu" required />
-							</div> -->
 
 							<div class="form-group">
 								<label for="suhu">Suhu</label>
@@ -49,14 +45,6 @@
 								<input class="form-control" type="text" name="arus" required />
 							</div>
 
-							<!-- <div class="form-group">
-                <label for="jenis_kelamin">Jenis Kelamin</label>
-                <div>
-                  <label><input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Laki-laki"> Laki-laki</label>
-                  <label><input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Perempuan"> Perempuan</label>
-                </div>
-              </div> -->
-
 							<div class="form-group">
 								<label for="cosphi">Cosphi</label>
 								<input class="form-control" type="text" name="cosphi" placeholder="" required />
@@ -66,22 +54,28 @@
 								<label for="tgl_pantauan">Tanggal Pantauan</label>
 								<input class="form-control" type="date" name="tgl_pantauan" required />
 							</div>
+
 							<div class="form-group">
 								<label for="tanggal_konfirmasi">Tegangan</label>
-								<input class="form-control" type="tegangan" name="tegangan" placeholder="Tegangan" required />
+								<input class="form-control" type="text" name="tegangan" placeholder="Tegangan" required />
 							</div>
-							
-							<div class="form-group custom-file">
-								<label for="gambar" class="custom-file-label">Foto Gardu</label>
+
+							<div class="form-group">
+								<label for="lokasi_pantauan">Lokasi <em>(klik tombol Get Location)</em></label>
+								<input class="form-control" id="lokasi" type="text" name="lokasi_pantauan" placeholder="Lokasi" required readonly />
+							</div>
+
+							<div class="form-group">
+								<h6>Klik Tombol ini <button class="btn btn-outline-info btn-sm" name="lokasi_pantauan" onclick="getLocation()">Get Location</button> sebelum mengirimkan data</h6>
+							</div>
+
+							<div class="form-group custom-file mt-2 mb-3">
+								<label for="gambar" class="custom-file-label">Foto Bukti Di Tempat Gardu</label>
 								<input class="form-control custom-file-input" type="file" name="gambar" required />
 							</div>
 
-							<div class="form-group">
-								<label for="lokasi_pantauan">Lokasi Pantauan</label>
-								<input class="form-control" type="text" name="lokasi_pantauan" required />
-							</div>
+							<input class="btn btn-success float-right" type="submit" name="btn" value="Save" />
 
-							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
 
 					</div>
@@ -109,6 +103,24 @@
 		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 		<?php $this->load->view("admin/_partials/modal.php") ?>
 		<?php $this->load->view("admin/_partials/js.php") ?>
+
+		<script>
+			var x = document.getElementById("lokasi");
+
+			function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+					x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+
+			function showPosition(position) {
+				// x.innerHTML = "Latitude: " + position.coords.latitude +
+				// 	" || Longitude: " + position.coords.longitude;
+				x.value = position.coords.latitude + "," + position.coords.longitude
+			}
+		</script>
 
 </body>
 

@@ -100,7 +100,7 @@
 												?>
 											</td>
 											<td width="100">
-												<?php echo $datpan->lokasi_pantauan ?>
+												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><?php echo $datpan->lokasi_pantauan ?></a>
 											</td>
 											<td width="250">
 												<a href="<?php echo site_url('ketua/PantauanHarian/disetujui/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-success mb-3 w-100"><i class="fa fa-check-square-o"></i> Setuju</a>

@@ -18,7 +18,6 @@
 			<div class="container-fluid">
 
 				<!-- Icon Cards-->
-				<br>
 				<div class="row">
 					<div class="col-xl-4 col-sm-4 mb-3">
 						<div class="card text-white bg-primary o-hidden h-100">
@@ -87,7 +86,6 @@
 
 	</div>
 	<!-- /#wrapper -->
-
 
 	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 	<?php $this->load->view("admin/_partials/modal.php") ?>

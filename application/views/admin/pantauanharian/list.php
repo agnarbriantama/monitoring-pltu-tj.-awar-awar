@@ -102,7 +102,7 @@
 												?>
 											</td>
 											<td width="100">
-												<a target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><?php echo $datpan->lokasi_pantauan ?></a>
+												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><?php echo $datpan->lokasi_pantauan ?></a>
 											</td>
 											<td width="250">
 												<a onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
@@ -143,32 +143,65 @@
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
 				lengthChange: false,
+				"bInfo": false,
+				// scrollY: '250px',
+				// dom: 'Bfrtip',
 				buttons: [{
+						title: 'Data Pantauan Harian Monitoring Gardu',
 						extend: 'copyHtml5',
 						text: 'copy <i class="fa fa-files-o"></i>',
-						titleAttr: 'Copy'
+						titleAttr: 'Copy',
+						exportOptions: {
+							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
+							// stripHtml: false
+						}
+
 					},
 					{
+						title: 'Data Pantauan Harian Monitoring Gardu',
 						extend: 'excelHtml5',
 						text: 'Excel <i class="fa fa-file-excel-o"></i>',
-						titleAttr: 'Excel'
+						titleAttr: 'Excel',
+						exportOptions: {
+							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
+							// stripHtml: false
+						}
 					},
 					{
+						title: 'Data Pantauan Harian Monitoring Gardu',
 						extend: 'csvHtml5',
 						text: 'CSV <i class="fa fa-file-text-o"></i>',
-						titleAttr: 'CSV'
+						titleAttr: 'CSV',
+						exportOptions: {
+							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
+							// stripHtml: false
+						}
 					},
 					{
+						title: 'Data Pantauan Harian Monitoring Gardu',
 						extend: 'pdfHtml5',
+						// orientation: 'landscape',
 						text: 'PDF <i class="fa fa-file-pdf-o"></i>',
-						titleAttr: 'PDF'
+						titleAttr: 'PDF',
+						exportOptions: {
+							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
+							// stripHtml: false
+						}
 					},
 					{
+						title: 'Data Pantauan Harian Monitoring Gardu',
 						extend: 'print',
+						// orientation: 'landscape',	
 						text: 'Print <i class="fa fa-print"></i>',
-						titleAttr: 'print'
-					}
+						titleAttr: 'print',
+						exportOptions: {
+							columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+							stripHtml: false
+						}
+					},
 				]
+
+
 			});
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
