@@ -57,7 +57,7 @@
 										<th>Tegangan</th>
 										<th>Gambar</th>
 										<th>Status</th>
-										<th>Lokasi</th>
+										<th>Lokasi Pantauan</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -102,7 +102,7 @@
 												?>
 											</td>
 											<td width="100">
-												<?php echo $datpan->lokasi_pantauan ?>
+												<a target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><?php echo $datpan->lokasi_pantauan ?></a>
 											</td>
 											<td width="250">
 												<a onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
