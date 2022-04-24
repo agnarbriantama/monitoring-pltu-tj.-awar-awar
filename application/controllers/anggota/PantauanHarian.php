@@ -9,7 +9,7 @@ class PantauanHarian extends CI_Controller
 	{
 		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
-		
+
 		if (!$this->session->userdata('username')) {
 			redirect('auth/login');
 		}
@@ -25,6 +25,7 @@ class PantauanHarian extends CI_Controller
 	{
 		// untuk mengambil data dari model secara keseluruhan
 		$data["Gardu"] = $this->Gardu_model->getAll();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("anggota/pantauanharian/new_form", $data);
 	}
 
@@ -69,5 +70,14 @@ class PantauanHarian extends CI_Controller
           <span aria-hidden="true">&times;</span>
         </button></div>');
 		redirect(site_url('anggota/PantauanHarian/index'));
+	}
+
+	public function list()
+	{
+		// untuk mengambil data dari model secara keseluruhan
+		$data["Gardu"] = $this->Gardu_model->getAll();
+		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view("anggota/pantauanharian/list", $data);
 	}
 }

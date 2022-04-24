@@ -2,20 +2,20 @@
 <html lang="en">
 
 <head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
+	<?php $this->load->view("anggota/_partials/head.php") ?>
 </head>
 
 <body id=" page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
+	<?php $this->load->view("anggota/_partials/navbar.php") ?>
 	<div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+		<?php $this->load->view("anggota/_partials/sidebar.php") ?>
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
-				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+				<?php $this->load->view("anggota/_partials/breadcrumb.php") ?>
 
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success" role="alert">
@@ -40,7 +40,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a class="btn btn-primary" href="<?php echo site_url('admin/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
+						<a class="btn btn-primary" href="<?php echo site_url('anggota/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
 						<a class="btn btn-success ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Send Whatsapp</a>
 					</div>
 					<div class="card-body">
@@ -58,8 +58,6 @@
 										<th>Tegangan</th>
 										<th>Gambar</th>
 										<th>Status</th>
-										<th>Lokasi Pantauan</th>
-										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -102,12 +100,6 @@
 												}
 												?>
 											</td>
-											<td width="100">
-												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><?php echo $datpan->lokasi_pantauan ?></a>
-											</td>
-											<td width="250">
-												<a onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
-											</td>
 										</tr>
 									<?php endforeach; ?>
 
@@ -121,7 +113,7 @@
 			<!-- /.container-fluid -->
 
 			<!-- Sticky Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
+			<?php $this->load->view("anggota/_partials/footer.php") ?>
 
 		</div>
 		<!-- /.content-wrapper -->
@@ -129,9 +121,9 @@
 	</div>
 	<!-- /#wrapper -->
 
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?>
-	<?php $this->load->view("admin/_partials/js.php") ?>
+	<?php $this->load->view("anggota/_partials/scrolltop.php") ?>
+	<?php $this->load->view("anggota/_partials/modal.php") ?>
+	<?php $this->load->view("anggota/_partials/js.php") ?>
 
 	<script>
 		function deleteConfirm(url) {
@@ -148,70 +140,6 @@
 				"scrollY": "350px",
 				"scrollCollapse": true,
 				"paging": true,
-				// scrollY: '250px',
-				// dom: 'Bfrtip',
-				buttons: [{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'copyHtml5',
-						text: 'COPY <i class="fa fa-files-o"></i>',
-						titleAttr: 'Copy',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'excelHtml5',
-						text: 'EXCEL <i class="fa fa-file-excel-o"></i>',
-						titleAttr: 'Excel',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'csvHtml5',
-						text: 'CSV <i class="fa fa-file-text-o"></i>',
-						titleAttr: 'CSV',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'pdfHtml5',
-						// orientation: 'landscape',
-						text: 'PDF <i class="fa fa-file-pdf-o"></i>',
-						titleAttr: 'PDF',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'print',
-						// orientation: 'landscape',	
-						text: 'PRINT <i class="fa fa-print"></i>',
-						titleAttr: 'print',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 7, 9],
-							stripHtml: false
-						},
-						customize: function(win) {
-							$(win.document.body)
-								.css('font-size', '10pt');
-
-							$(win.document.body).find('table')
-								.addClass('compact')
-								.css('font-size', 'inherit');
-						}
-					},
-				],
 				lengthChange: true,
 			});
 			table.buttons().container()

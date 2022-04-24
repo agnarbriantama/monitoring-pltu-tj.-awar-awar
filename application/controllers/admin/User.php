@@ -24,6 +24,7 @@ class User extends CI_Controller
 	{
 		// untuk mengambil data dari model secara keseluruhan
 		$data["User"] = $this->user_model->getAll();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("admin/user/list", $data);
 	}
@@ -32,6 +33,7 @@ class User extends CI_Controller
 	public function input()
 	{
 		// untuk meload tampilan newform pada bagian view
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view('admin/user/new_form');
 	}
 
@@ -82,6 +84,7 @@ class User extends CI_Controller
 	public function edit($id = NULL)
 	{
 		$data['User']  = $this->user_model->getById($id);
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 
 		$this->load->view("admin/user/edit_form", $data);
 	}

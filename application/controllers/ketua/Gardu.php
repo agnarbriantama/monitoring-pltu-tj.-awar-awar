@@ -23,6 +23,7 @@ class Gardu extends CI_Controller
 	{
 		// untuk mengambil data dari model secara keseluruhan
 		$data["Gardu"] = $this->Gardu_model->getAll();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("ketua/gardu/list", $data);
 	}
@@ -31,7 +32,8 @@ class Gardu extends CI_Controller
 	public function input()
 	{
 		// untuk meload tampilan newform pada bagian view
-		$this->load->view('ketua/gardu/new_form');
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view('ketua/gardu/new_form',$data);
 	}
 
 	// menambahkan data
@@ -55,6 +57,7 @@ class Gardu extends CI_Controller
 	public function edit($id)
 	{
 		$data['Gardu'] =  $this->db->get_where('tb_gardu', ['id_gardu' => $id])->row();
+		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("ketua/gardu/edit_form", $data);
 	}
 

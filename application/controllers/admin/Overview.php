@@ -5,17 +5,19 @@ class Overview extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		if (!$this->session->userdata('username')) {
 			redirect('auth/login');
 		}
 		$this->load->model("user_model");
+		$this->load->model("Overview_model");
 	}
 
 	public function index()
 	{
-		// $data['hasil']=$this->user_model->Jum_kas();
+		$data['hasil'] = $this->Overview_model->Jum_data();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// load view admin/overview.php
-		$this->load->view("admin/overview");
+		$this->load->view("admin/Overview", $data);
 	}
 }

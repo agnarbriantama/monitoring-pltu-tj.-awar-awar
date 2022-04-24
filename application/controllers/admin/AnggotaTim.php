@@ -25,6 +25,7 @@ class AnggotaTim extends CI_Controller
 	{
 		// untuk mengambil data dari model secara keseluruhan
 		$data["AnggotaTim"] = $this->AnggotaTim_model->getAll();
+		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("admin/anggotatim/list", $data);
 	}
@@ -32,6 +33,7 @@ class AnggotaTim extends CI_Controller
 	public function relasi()
 	{
 		$data["KetuaTim"] = $this->KetuaTim_model->getAll();
+		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/anggotatim/new_form", $data);
 	}
 
@@ -39,7 +41,8 @@ class AnggotaTim extends CI_Controller
 	public function input()
 	{
 		// untuk meload tampilan newform pada bagian view
-		$this->load->view('admin/anggotatim/new_form');
+		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view('admin/anggotatim/new_form',$data);
 	}
 
 	// menambahkan data
@@ -54,6 +57,7 @@ class AnggotaTim extends CI_Controller
 	{
 		// mengambil relasi dari ketua tim
 		$data["KetuaTim"] = $this->KetuaTim_model->getAll();
+		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
 
 		$this->form_validation->set_rules('nama_anggota', 'Nama_Anggota', 'required');
 		$this->form_validation->set_rules('no_hp', 'No_HP', 'required');

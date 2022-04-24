@@ -9,14 +9,13 @@ class KetuaTim extends CI_Controller
   {
     // untuk menjalankan program pertama kali dieksekusi
     parent::__construct();
-		if (!$this->session->userdata('username')) {
-            redirect('auth/login');
-        }
+    if (!$this->session->userdata('username')) {
+      redirect('auth/login');
+    }
     // load model dan library
     $this->load->model('KetuaTim_model');
     $this->load->library('form_validation');
     $this->load->model("user_model");
-    
   }
 
   // mengambil data model dan di render
@@ -24,6 +23,7 @@ class KetuaTim extends CI_Controller
   {
     // untuk mengambil data dari model secara keseluruhan
     $data["KetuaTim"] = $this->KetuaTim_model->getAll();
+    $data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
     // meload data pada view yang sudah dibuat pada folder view
     $this->load->view("admin/ketuatim/list", $data);
   }
@@ -32,7 +32,8 @@ class KetuaTim extends CI_Controller
   public function input()
   {
     // untuk meload tampilan newform pada bagian view
-    $this->load->view('admin/ketuatim/new_form');
+    $data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $this->load->view('admin/ketuatim/new_form', $data);
   }
 
   // menambahkan data
@@ -58,6 +59,7 @@ class KetuaTim extends CI_Controller
     $this->form_validation->set_rules('nama_ketuatim', 'Nama_KetuaTim', 'required');
 
     $data['KetuaTim']  = $this->KetuaTim_model->getById($id);
+    $data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
     // Configurasi File
     $config['upload_path'] = './assets/imguser';
     $config['allowed_types'] = 'jpg|png|jpeg';

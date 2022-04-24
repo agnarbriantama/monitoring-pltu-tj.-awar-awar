@@ -9,7 +9,7 @@ class PantauanHarian extends CI_Controller
 	{
 		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
-		
+
 		if (!$this->session->userdata('username')) {
 			redirect('auth/login');
 		}
@@ -25,6 +25,7 @@ class PantauanHarian extends CI_Controller
 	{
 		// untuk mengambil data dari model secara keseluruhan
 		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("admin/pantauanharian/list", $data);
 	}
@@ -32,6 +33,7 @@ class PantauanHarian extends CI_Controller
 	public function relasi()
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
+		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/pantauanharian/new_form", $data);
 	}
 
@@ -78,7 +80,7 @@ class PantauanHarian extends CI_Controller
 		}
 
 		$this->db->insert('tb_pantauanharian', $data);
-		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
+		$this->session->set_flashdata('berhasil', 'Berhasil DiTambahkan');
 		redirect(site_url('admin/PantauanHarian/index'));
 	}
 
@@ -87,6 +89,7 @@ class PantauanHarian extends CI_Controller
 	public function edit($id = NULL)
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
+		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
 
 		$this->form_validation->set_rules('suhu', 'Suhu', 'required');
 		$this->form_validation->set_rules('lokasi_pantauan', 'Lokasi_Pantauan', 'required');

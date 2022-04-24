@@ -9,7 +9,7 @@ class PantauanHarian extends CI_Controller
 	{
 		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
-		
+
 		if (!$this->session->userdata('username')) {
 			redirect('auth/login');
 		}
@@ -25,6 +25,7 @@ class PantauanHarian extends CI_Controller
 	{
 		// untuk mengambil data dari model secara keseluruhan
 		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("ketua/pantauanharian/list", $data);
 	}

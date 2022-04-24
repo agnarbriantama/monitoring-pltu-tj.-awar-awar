@@ -12,11 +12,12 @@
 
 	<?php $this->load->view("anggota/_partials/navbar.php") ?>
 	<div id="wrapper">
-
+		<?php $this->load->view("anggota/_partials/sidebar.php") ?>
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
+				<?php $this->load->view("anggota/_partials/breadcrumb.php") ?>
 
 				<div class="card mb-3">
 					<div class="card-header"></div>

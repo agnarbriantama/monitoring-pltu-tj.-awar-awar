@@ -3,6 +3,7 @@
 
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
+	<script src="<?php echo base_url('assets/Chart.js') ?>"></script>
 </head>
 
 <body id="page-top">
@@ -19,7 +20,7 @@
 
 				<!-- Icon Cards-->
 				<div class="row">
-					<div class="col-xl-4 col-sm-4 mb-3">
+					<div class="col-xl-3 col-sm-3 mb-3">
 						<div class="card text-white bg-primary o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
@@ -37,7 +38,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-xl-4 col-sm-4 mb-3">
+					<div class="col-xl-3 col-sm-3 mb-3">
 						<div class="card text-white bg-warning o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
@@ -55,7 +56,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-xl-4 col-sm-4 mb-3">
+					<div class="col-xl-3 col-sm-3 mb-3">
 						<div class="card text-white bg-danger o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
@@ -73,14 +74,79 @@
 							</a>
 						</div>
 					</div>
+					<div class="col-xl-3 col-sm-3 mb-3">
+						<div class="card text-white bg-info o-hidden h-100">
+							<div class="card-body">
+								<div class="card-body-icon">
+									<i class="fa fa-info"></i>
+								</div>
+								<div class="mr-10 mb-5">
+									<h4>Total Data Pantauan Harian : <?php echo $this->db->count_all('tb_pantauanharian'); ?></h4>
+								</div>
+							</div>
+							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/PantauanHarian/index') ?>">
+								<span class="float-left">Lihat Lebih Detail</span>
+								<span class="float-right">
+									<i class="fas fa-angle-right"></i>
+								</span>
+							</a>
+						</div>
+					</div>
 				</div>
 
 			</div>
 			<!-- /.container-fluid -->
+			<div>
+				<h5 class="text-center mb-3 mt-3">Grafik Pantauan Harian</h5>
+				<canvas id="myChart"></canvas>
+				<?php
+				//Inisialisasi nilai variabel awal
+				$jum_data = "";
+				$jumlah = null;
+				foreach ($hasil as $item) {
+					$tgl = $item->tgl_pantauan;
+					$jum_data .= "'$tgl'" . ", ";
+					$jum = $item->total;
+					$jumlah .= "$jum" . ", ";
+				}
+				?>
+			</div>
 
+			<script>
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var chart = new Chart(ctx, {
+					// The type of chart we want to create
+					type: 'line',
+					// The data for our dataset
+					data: {
+						labels: [<?php echo $jum_data; ?>],
+						datasets: [{
+							label: 'Data Pantauan Harian ',
+							pointStyle: 'circle',
+							pointBorderWidth: '3',
+							// pointBorderColor: '#00c0ef',
+							pointBackgroundColor: 'rgb(65, 105, 225)',
+							backgroundColor: ['rgba(255, 255, 0, 0.2)'],
+							fill: true,
+							borderColor: ['rgb(255,160,122)'],
+							data: [<?php echo $jumlah; ?>]
+						}]
+					},
+
+					// Configuration options go here
+					options: {
+						scales: {
+							yAxes: [{
+								ticks: {
+									beginAtZero: true
+								}
+							}]
+						}
+					}
+				});
+			</script>
 			<!-- Sticky Footer -->
 			<?php $this->load->view("admin/_partials/footer.php") ?>
-
 		</div>
 		<!-- /.content-wrapper -->
 
