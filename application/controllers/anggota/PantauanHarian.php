@@ -24,6 +24,15 @@ class PantauanHarian extends CI_Controller
 	public function index()
 	{
 		// untuk mengambil data dari model secara keseluruhan
+		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+		$data["pantauan_user"] = $this->PantauanHarian_model->pantauan_user();
+		$this->load->view("anggota/pantauanharian/list", $data);
+	}
+
+	public function tambah_data()
+	{
+		// untuk mengambil data dari model secara keseluruhan
 		$data["Gardu"] = $this->Gardu_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("anggota/pantauanharian/new_form", $data);
@@ -60,15 +69,12 @@ class PantauanHarian extends CI_Controller
 				'gambar' => $gambar,
 				'status' => 0,
 				'lokasi_pantauan' => $lokasi_pantauan,
+				'username' => $this->session->userdata('username')	
 			);
 		}
 
 		$this->db->insert('tb_pantauanharian', $data);
-		$this->session->set_flashdata('berhasil', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Data Berhasil Ditambahkan</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button></div>');
+		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 		redirect(site_url('anggota/PantauanHarian/index'));
 	}
 

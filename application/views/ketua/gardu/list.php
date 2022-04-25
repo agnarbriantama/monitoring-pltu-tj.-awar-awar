@@ -45,11 +45,11 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover text-center table-striped" id="dataTable" width="100%" cellspacing="0">
+							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr class="text-center">
 										<th style="max-width: 30px;">No</th>
-										<th style="max-width: 200px;" >Nama Gardu</th>
+										<th style="max-width: 200px;">Nama Gardu</th>
 										<th>Foto Gardu</th>
 										<th>Action</th>
 									</tr>
@@ -105,6 +105,21 @@
 			$('#btn-delete').attr('href', url);
 			$('#deleteModal').modal();
 		}
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			var table = $('#dataTables').DataTable({
+				"bInfo": false,
+				"scrollX": true,
+				"scrollY": "350px",
+				"scrollCollapse": true,
+				"paging": true,
+				lengthChange: true,
+			});
+			table.buttons().container()
+				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+		});
 	</script>
 </body>
 

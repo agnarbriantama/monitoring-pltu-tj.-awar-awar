@@ -33,7 +33,7 @@ class PantauanHarian extends CI_Controller
 	public function relasi()
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
-		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/pantauanharian/new_form", $data);
 	}
 
@@ -89,12 +89,22 @@ class PantauanHarian extends CI_Controller
 	public function edit($id = NULL)
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
-		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 
 		$this->form_validation->set_rules('suhu', 'Suhu', 'required');
 		$this->form_validation->set_rules('lokasi_pantauan', 'Lokasi_Pantauan', 'required');
 
 		$data['PantauanHarian']  = $this->PantauanHarian_model->getById($id);
+
+		$config['upload_path'] = './assets/imgpantauan';
+		$config['allowed_types'] = 'jpg|png|jpeg';
+		// Mengatur ukuran maksimal file
+		$config['max_size'] = '2048';
+		// mengatur ukuran lebar maksimal yang dilakukan
+		$config['max_width'] = '2000';
+		$config['max_height'] = '2000';
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
 
 		if ($this->form_validation->run()) {
 			$this->PantauanHarian_model->update();

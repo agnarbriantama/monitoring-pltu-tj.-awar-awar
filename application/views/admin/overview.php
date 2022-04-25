@@ -20,7 +20,7 @@
 
 				<!-- Icon Cards-->
 				<div class="row">
-					<div class="col-xl-3 col-sm-3 mb-3">
+					<!-- <div class="col-xl-3 col-sm-3 mb-3">
 						<div class="card text-white bg-primary o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
@@ -55,8 +55,8 @@
 								</span>
 							</a>
 						</div>
-					</div>
-					<div class="col-xl-3 col-sm-3 mb-3">
+					</div> -->
+					<div class="col-xl-6 col-sm-6 mb-3">
 						<div class="card text-white bg-danger o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
@@ -74,14 +74,14 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-xl-3 col-sm-3 mb-3">
-						<div class="card text-white bg-info o-hidden h-100">
+					<div class="col-xl-6 col-sm-6 mb-3">
+						<div class="card text-white bg-primary o-hidden h-100">
 							<div class="card-body">
 								<div class="card-body-icon">
 									<i class="fa fa-info"></i>
 								</div>
 								<div class="mr-10 mb-5">
-									<h4>Total Data Pantauan Harian : <?php echo $this->db->count_all('tb_pantauanharian'); ?></h4>
+									<h4>Total Data Pantauan Harian Yang Terdata : <?php echo $this->db->count_all('tb_pantauanharian'); ?></h4>
 								</div>
 							</div>
 							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/PantauanHarian/index') ?>">

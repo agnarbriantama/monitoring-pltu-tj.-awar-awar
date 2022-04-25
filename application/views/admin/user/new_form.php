@@ -46,9 +46,20 @@
 								<input class="form-control" type="email" name="email" placeholder="Email" required />
 							</div>
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label for="nama_tim">Nama Tim</label>
 								<input class="form-control" type="text" name="nama_tim" placeholder="Nama Tim" required />
+							</div> -->
+
+							<div class="form-group">
+								<label for="id_tim">Nama Tim</label>
+								<select class="form-control" name="id_tim" id=id_tim">
+									<option value="1">Bima Panca Satya</option>
+									<option value="2">Cita Sandya</option>
+									<option value="3">Nusantara Merdeka</option>
+									<option value="4">Nusantara Bersatu</option>
+									<option value="5">Three Star</option>
+								</select>
 							</div>
 
 							<div class="form-group">

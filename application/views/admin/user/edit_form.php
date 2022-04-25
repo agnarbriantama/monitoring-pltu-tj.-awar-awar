@@ -64,12 +64,23 @@
 									</div>
 								</div>
 
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label for="nama_tim">Nama Tim</label>
 									<input class="form-control <?php echo form_error('nama_tim') ? 'is-invalid' : '' ?>" type="text" name="nama_tim" placeholder="Nomor Hp" value="<?php echo $akun->nama_tim ?>" required />
 									<div class="invalid-feedback">
 										<?php echo form_error('nama_tim') ?>
 									</div>
+								</div> -->
+
+								<div class="form-group">
+									<label>Nama Tim</label><br>
+									<select name="id_tim" class="form-control">
+										<option value="1" <?php if ($akun->{'id_tim'} == '1') echo 'selected' ?>>Bima Panca Satya</option>
+										<option value="2" <?php if ($akun->{'id_tim'} == '2') echo 'selected' ?>>Cita Sandya</option>
+										<option value="3" <?php if ($akun->{'id_tim'} == '3') echo 'selected' ?>>Nusantara Merdeka</option>
+										<option value="4" <?php if ($akun->{'id_tim'} == '4') echo 'selected' ?>>Nusantara Bersatu</option>
+										<option value="5" <?php if ($akun->{'id_tim'} == '5') echo 'selected' ?>>Three Star</option>
+									</select>
 								</div>
 
 								<div class="form-group">
@@ -85,7 +96,7 @@
 									<select name="level_id" class="form-control">
 										<option value="1" <?php if ($akun->{'level_id'} == '1') echo 'selected' ?>>Super Admin</option>
 										<option value="2" <?php if ($akun->{'level_id'} == '2') echo 'selected' ?>>Ketua Tim</option>
-										<option value="3" <?php if ($akun->{'level_id'} == '2') echo 'selected' ?>>Anggota Tim</option>
+										<option value="3" <?php if ($akun->{'level_id'} == '3') echo 'selected' ?>>Anggota Tim</option>
 									</select>
 								</div>
 

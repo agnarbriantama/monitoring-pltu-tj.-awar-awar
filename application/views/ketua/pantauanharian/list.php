@@ -134,7 +134,12 @@
 	<script>
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
-				lengthChange: false,
+				"bInfo": false,
+				"scrollX": true,
+				"scrollY": "350px",
+				"scrollCollapse": true,
+				"paging": true,
+				lengthChange: true,
 			});
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');

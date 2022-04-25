@@ -40,7 +40,8 @@
 									<select id="id_gardu" name="id_gardu" class="form-control" required>
 										<option value="">Pilih Gardu</option>
 										<?php foreach ($Gardu as $gardu) : ?>
-											<option value="<?php echo $gardu->id_gardu ?>"><?= $gardu->nama_gardu ?></option>
+											<option value="<?php echo $gardu->id_gardu ?>" <?= $datpan->id_gardu == $gardu->id_gardu ? 'selected' : null ?>   ><?= $gardu->nama_gardu ?></option>
+
 										<?php endforeach; ?>
 									</select>
 								</div>
@@ -98,7 +99,7 @@
 
 								<div class="form-group">
 									<label for="lokasi_pantauan">Lokasi Pantauan</label>
-									<input class="form-control <?php echo form_error('lokasi_pantauan') ? 'is-invalid' : '' ?>" type="text" name="lokasi_pantauan" placeholder="lokasi_pantauan" value="<?php echo $datpan->lokasi_pantauan; ?>" />
+									<input class="form-control <?php echo form_error('lokasi_pantauan') ? 'is-invalid' : '' ?>" type="text" name="lokasi_pantauan" placeholder="lokasi_pantauan" value="<?php echo $datpan->lokasi_pantauan; ?>" readonly/>
 								</div>
 
 								<input class="btn btn-success" type="submit" name="btn" value="Save" />

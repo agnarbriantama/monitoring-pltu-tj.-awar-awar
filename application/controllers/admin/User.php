@@ -34,7 +34,7 @@ class User extends CI_Controller
 	{
 		// untuk meload tampilan newform pada bagian view
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-		$this->load->view('admin/user/new_form');
+		$this->load->view('admin/user/new_form', $data);
 	}
 
 	// menambahkan data
@@ -45,7 +45,7 @@ class User extends CI_Controller
 		$username = $this->input->post('username');
 		$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		$email = $this->input->post('email');
-		$nama_tim = $this->input->post('nama_tim');
+		$id_tim = $this->input->post('id_tim');
 		$phone = $this->input->post('phone');
 		$level_id = $this->input->post('level_id');
 
@@ -67,7 +67,7 @@ class User extends CI_Controller
 				'username' => $username,
 				'password' => $password,
 				'email' => $email,
-				'nama_tim' => $nama_tim,
+				'id_tim' => $id_tim,
 				'phone' => $phone,
 				'level_id' => $level_id,
 				'gambar_user' => $gambar_user,
@@ -96,7 +96,7 @@ class User extends CI_Controller
 		$username = $this->input->post('username');
 		$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		$email = $this->input->post('email');
-		$nama_tim = $this->input->post('nama_tim');
+		$id_tim = $this->input->post('id_tim');
 		$phone = $this->input->post('phone');
 		$level_id = $this->input->post('level_id');
 		$config['upload_path'] = './assets/imguser';
@@ -110,7 +110,7 @@ class User extends CI_Controller
 				'username' => $username,
 				'password' => $password,
 				'email' => $email,
-				'nama_tim' => $nama_tim,
+				'id_tim' => $id_tim,
 				'phone' => $phone,
 				'level_id' => $level_id,
 				'created_at' => time(),
@@ -135,7 +135,7 @@ class User extends CI_Controller
 				'username' => $username,
 				'password' => $password,
 				'email' => $email,
-				'nama_tim' => $nama_tim,
+				'id_tim' => $id_tim,
 				'phone' => $phone,
 				'level_id' => $level_id,
 				'gambar_user' => $gambar_user,

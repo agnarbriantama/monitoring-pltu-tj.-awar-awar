@@ -45,7 +45,7 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover text-center table-striped" id="dataTable" width="100%" cellspacing="0">
+							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -87,10 +87,10 @@
 												<?php echo $akun->phone ?>
 											</td>
 											<td>
-											<?php echo $akun->nama_level ?>
+												<?php echo $akun->nama_level ?>
 											</td>
 											<td width="150">
-											<img src="<?= base_url('assets/imguser/' . $akun->gambar_user) ?>" width="70px" height="50px">
+												<img src="<?= base_url('assets/imguser/' . $akun->gambar_user) ?>" width="70px" height="50px">
 											</td>
 
 											<td width="250">
@@ -128,6 +128,21 @@
 			$('#btn-delete').attr('href', url);
 			$('#deleteModal').modal();
 		}
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			var table = $('#dataTables').DataTable({
+				"bInfo": false,
+				"scrollX": true,
+				"scrollY": "350px",
+				"scrollCollapse": true,
+				"paging": true,
+				lengthChange: true,
+			});
+			table.buttons().container()
+				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+		});
 	</script>
 </body>
 

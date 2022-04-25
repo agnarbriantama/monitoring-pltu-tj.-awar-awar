@@ -59,6 +59,7 @@
 										<th>Gambar</th>
 										<th>Status</th>
 										<th>Lokasi Pantauan</th>
+										<th>Pengirim</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -105,7 +106,11 @@
 											<td width="100">
 												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><?php echo $datpan->lokasi_pantauan ?></a>
 											</td>
+											<td width="100">
+												<?php echo $datpan->username ?>
+											</td>
 											<td width="250">
+											<a href="<?php echo site_url('admin/pantauanharian/edit/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
 												<a onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>

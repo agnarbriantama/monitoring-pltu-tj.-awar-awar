@@ -36,7 +36,7 @@
 								</select>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group"> 
 								<label for="suhu">Suhu</label>
 								<input class="form-control" type="text" name="suhu" required />
 							</div>

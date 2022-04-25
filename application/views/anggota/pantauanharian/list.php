@@ -40,8 +40,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a class="btn btn-primary" href="<?php echo site_url('anggota/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
-						<a class="btn btn-success ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Send Whatsapp</a>
+						<a class="btn btn-primary" href="<?php echo site_url('anggota/PantauanHarian/tambah_data') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
 					</div>
 					<div class="card-body">
 
@@ -63,7 +62,7 @@
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($PantauanHarian as $datpan) : ?>
+									foreach ($pantauan_user as $datpan) : ?>
 										<tr>
 											<td class="10">
 												<?php echo $no++ ?>

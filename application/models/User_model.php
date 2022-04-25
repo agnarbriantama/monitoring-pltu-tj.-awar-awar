@@ -11,6 +11,7 @@ class User_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('users');
 		$this->db->join('level', 'level.level_id = users.level_id', 'left');
+		$this->db->join('tim', 'tim.id_tim = users.id_tim', 'left');
 		$this->db->order_by('user_id', 'desc');
 		return $this->db->get()->result();
 	}
@@ -43,6 +44,7 @@ class User_model extends CI_Model
 		$this->password = password_hash($post["password"], PASSWORD_DEFAULT);
 		$this->phone = $post["phone"];
 		$this->level_id = $post["level_id"];
+		$this->id_tim = $post["id_tim"];
 		$this->db->update($this->_table, $this, array('user_id' => $post['id']));
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
 		redirect(site_url('admin/User/index'));
