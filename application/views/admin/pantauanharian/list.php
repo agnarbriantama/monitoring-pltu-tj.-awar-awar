@@ -44,6 +44,14 @@
 						<a class="btn btn-success ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Send Whatsapp</a>
 					</div>
 					<div class="card-body">
+						<div class="row">
+							<div class="col col-8"></div>
+							<div class="col col-2"><input class="form-control" type="date" name="startdate" placeholder="Start Date" />
+							</div>
+							<div class="col col-2"><input class="form-control" type="date" name="enddate" placeholder="End Date" />
+							</div>
+						</div>
+						<hr>
 
 						<div class="table-responsive">
 							<table class="table cell-border table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
@@ -110,7 +118,7 @@
 												<?php echo $datpan->username ?>
 											</td>
 											<td width="250">
-											<a href="<?php echo site_url('admin/pantauanharian/edit/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
+												<a href="<?php echo site_url('admin/pantauanharian/edit/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
 												<a onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
@@ -160,6 +168,7 @@
 						extend: 'copyHtml5',
 						text: 'COPY <i class="fa fa-files-o"></i>',
 						titleAttr: 'Copy',
+						className: 'btn-default',
 						exportOptions: {
 							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
 							// stripHtml: false
@@ -171,6 +180,7 @@
 						extend: 'excelHtml5',
 						text: 'EXCEL <i class="fa fa-file-excel-o"></i>',
 						titleAttr: 'Excel',
+						className: 'btn-success',
 						exportOptions: {
 							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
 							// stripHtml: false
@@ -181,6 +191,7 @@
 						extend: 'csvHtml5',
 						text: 'CSV <i class="fa fa-file-text-o"></i>',
 						titleAttr: 'CSV',
+						className: 'btn-info',
 						exportOptions: {
 							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
 							// stripHtml: false
@@ -192,6 +203,7 @@
 						// orientation: 'landscape',
 						text: 'PDF <i class="fa fa-file-pdf-o"></i>',
 						titleAttr: 'PDF',
+						className: 'btn-danger',
 						exportOptions: {
 							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
 							// stripHtml: false
@@ -203,6 +215,7 @@
 						// orientation: 'landscape',	
 						text: 'PRINT <i class="fa fa-print"></i>',
 						titleAttr: 'print',
+						className: 'btn-warning text-white',
 						exportOptions: {
 							columns: [0, 1, 2, 3, 4, 5, 6, 7, 9],
 							stripHtml: false
@@ -217,6 +230,13 @@
 						}
 					},
 				],
+				dom: "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
+					"<'row'<'col-md-12'tr>>" +
+					"<'row'<'col-md-5'i><'col-md-7'p>>",
+				lengthMenu: [
+					[5, 10, 25, 50, -1],
+					[5, 10, 25, 50, "All"]
+				],
 				lengthChange: true,
 			});
 			table.buttons().container()
@@ -230,6 +250,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.semanticui.min.js"></script> -->
 
 
 </body>

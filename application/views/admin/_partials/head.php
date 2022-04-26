@@ -27,3 +27,8 @@
 <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<style>
+	body {
+		padding-top: 66px;
+	}
+</style>

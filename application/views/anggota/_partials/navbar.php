@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark static-top" style=" background-color: #FBE900; font-weight: 600;">
+<nav class="navbar navbar-expand navbar-dark fixed-top" style=" background-color: #FBE900; font-weight: 600;">
 
 	<!-- <a class="navbar-brand mr-1 text-dark" href="<?php echo site_url('admin') ?>"><?php echo SITE_NAME ?></a> -->
 	<a><img src="<?php echo base_url('assets/logoweb/logoweb.png') ?>" width="150px" height="50px" alt=""></a>

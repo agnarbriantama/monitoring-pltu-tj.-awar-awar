@@ -6,7 +6,7 @@
 	<script src="<?php echo base_url('assets/Chart.js') ?>"></script>
 </head>
 
-<body id="page-top">
+<body id="page-top" style="padding-top: 66px;">
 
 	<?php $this->load->view("admin/_partials/navbar.php") ?>
 
@@ -20,42 +20,6 @@
 
 				<!-- Icon Cards-->
 				<div class="row">
-					<!-- <div class="col-xl-3 col-sm-3 mb-3">
-						<div class="card text-white bg-primary o-hidden h-100">
-							<div class="card-body">
-								<div class="card-body-icon">
-									<i class="fas fa-fw fa-user-tie"></i>
-								</div>
-								<div class="mr-10 mb-5 ">
-									<h4>Jumlah Ketua Tim Yang Terdata : <?php echo $this->db->count_all('tb_ketuatim'); ?></h4>
-								</div>
-							</div>
-							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/KetuaTim/index') ?>">
-								<span class="float-left">Lihat Lebih Detail</span>
-								<span class="float-right">
-									<i class="fas fa-angle-right"></i>
-								</span>
-							</a>
-						</div>
-					</div>
-					<div class="col-xl-3 col-sm-3 mb-3">
-						<div class="card text-white bg-warning o-hidden h-100">
-							<div class="card-body">
-								<div class="card-body-icon">
-									<i class="fas fa-fw fa-users"></i>
-								</div>
-								<div class="mr-10 mb-5">
-									<h4>Jumlah Anggota Tim Yang Terdata : <?php echo $this->db->count_all('tb_anggotatim'); ?></h4>
-								</div>
-							</div>
-							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/AnggotaTim/index') ?>">
-								<span class="float-left">Lihat Lebih Detail</span>
-								<span class="float-right">
-									<i class="fas fa-angle-right"></i>
-								</span>
-							</a>
-						</div>
-					</div> -->
 					<div class="col-xl-6 col-sm-6 mb-3">
 						<div class="card text-white bg-danger o-hidden h-100">
 							<div class="card-body">
@@ -81,7 +45,7 @@
 									<i class="fa fa-info"></i>
 								</div>
 								<div class="mr-10 mb-5">
-									<h4>Total Data Pantauan Harian Yang Terdata : <?php echo $this->db->count_all('tb_pantauanharian'); ?></h4>
+									<h4>Data Pantauan Yang Tercatat : <?php echo $this->db->count_all('tb_pantauanharian'); ?></h4>
 								</div>
 							</div>
 							<a class="card-footer text-white clearfix small z-1" href="<?php echo site_url('admin/PantauanHarian/index') ?>">
