@@ -23,6 +23,11 @@ class PantauanHarian extends CI_Controller
 	// mengambil data model dan di render
 	public function index()
 	{
+		// $startdate = $this->input->get('startdate', TRUE);
+		// $enddate = $this->input->get('enddate', TRUE);
+		// die($startdate. "===" .$enddate);
+
+
 		// untuk mengambil data dari model secara keseluruhan
 		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();

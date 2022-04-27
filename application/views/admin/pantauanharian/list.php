@@ -50,6 +50,11 @@
 							</div>
 							<div class="col col-2"><input class="form-control" type="date" name="enddate" placeholder="End Date" />
 							</div>
+							<!-- <form action="<?php echo site_url('admin/PantauanHarian/index'); ?>" class="" method="get">
+								<input class="form-control" type="date" name="startdate" placeholder="Start Date" />
+								<input class="form-control" type="date" name="enddate" placeholder="End Date" />
+								<button type="submit" class="btn btn-primary">Cari</button>
+							</form> -->
 						</div>
 						<hr>
 
