@@ -3,26 +3,32 @@
 	<li class="nav-item <?php echo $this->uri->segment(2) == '' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin') ?>">
 			<i class="fas fa-fw fa-desktop"></i>
-			<span>Master POS</span>
+			<span> Master POS</span>
 		</a>
 	</li>
 
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'User' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/User') ?>">
 			<i class="fa fa-info"></i>
-			<span>Data Pengguna</span></a>
+			<span> Data Pengguna</span></a>
+	</li>
+
+	<li class="nav-item <?php echo $this->uri->segment(2) == 'Tim' ? 'active' : '' ?>">
+		<a class="nav-link" href="<?php echo site_url('admin/Tim') ?>">
+			<i class="fa fa-users"></i>
+			<span> Nama Tim</span></a>
 	</li>
 
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'Gardu' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/Gardu') ?>">
 			<i class="fa fa-list"></i>
-			<span>Data Gardu</span></a>
+			<span> Data Gardu</span></a>
 	</li>
 
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'PantauanHarian' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/PantauanHarian') ?>">
 			<i class="fa fa-book"></i>
-			<span>Data Pantauan Harian</span></a>
+			<span> Data Pantauan Harian</span></a>
 	</li>
 
 	<li class="nav-item">

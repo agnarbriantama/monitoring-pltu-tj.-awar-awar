@@ -24,7 +24,8 @@ class InfoTim extends CI_Controller
 	public function index()
 	{
 		// untuk mengambil data dari model secara keseluruhan
-		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
+		$data["users_ketua"] = $this->user_model->users_ketua();
+		$data["users_tim"] = $this->user_model->users_tim();
 		$data["User"] = $this->user_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view

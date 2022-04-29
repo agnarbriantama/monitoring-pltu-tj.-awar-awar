@@ -63,6 +63,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
+										<th>Nama Tim</th>
 										<th>Nama Gardu</th>
 										<th>Suhu</th>
 										<th>Arus</th>
@@ -83,6 +84,9 @@
 										<tr>
 											<td class="10">
 												<?php echo $no++ ?>
+											</td>
+											<td class="100">
+												<?php echo $datpan->id_tim ?>
 											</td>
 											<td class="100">
 												<?php echo $datpan->nama_gardu ?>

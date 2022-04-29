@@ -86,4 +86,13 @@ class PantauanHarian_model extends CI_Model
 		// menjalankan dengan memanggil db dan tabel kemudian mencari id yang sesuai
 		return $this->db->delete($this->tb_pantauanharian, array("id_pantauan" => $id));
 	}
+
+	public function pantauan_tim()
+	{
+		$this->db->select('*');
+		$this->db->join('tim', 'tim.id_tim = tb_pantauanharian.id_tim', 'left');
+		$this->db->join('tb_gardu', 'tb_gardu.id_gardu = tb_pantauanharian.id_gardu', 'left');
+		$this->db->where('tb_pantauanharian.id_tim',  $this->session->userdata('id_tim'));
+		return $this->db->get('tb_pantauanharian')->result();
+	}
 }

@@ -43,10 +43,11 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
+							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
+										<th>Nama Tim</th>
 										<th>Nama Gardu</th>
 										<th>Suhu</th>
 										<th>Arus</th>
@@ -54,6 +55,7 @@
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Gambar</th>
+										<th>Pengirim</th>
 										<th>Status</th>
 										<th>Lokasi</th>
 										<th>Action</th>
@@ -62,10 +64,13 @@
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($PantauanHarian as $datpan) : ?>
+									foreach ($pantauan_tim as $datpan) : ?>
 										<tr>
 											<td class="10">
 												<?php echo $no++ ?>
+											</td>
+											<td class="100">
+												<?php echo $datpan->nama_tim ?>
 											</td>
 											<td class="100">
 												<?php echo $datpan->nama_gardu ?>
@@ -87,6 +92,9 @@
 											</td>
 											<td>
 												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
+											</td>
+											<td width="100">
+												<?php echo $datpan->username ?>
 											</td>
 											<td width="100">
 												<?php
@@ -131,24 +139,8 @@
 	<?php $this->load->view("ketua/_partials/modal.php") ?>
 	<?php $this->load->view("ketua/_partials/js.php") ?>
 
-	<script>
-		$(document).ready(function() {
-			var table = $('#dataTables').DataTable({
-				lengthMenu: [
-					[5, 10, 25, 50, -1],
-					[5, 10, 25, 50, "All"]
-				],
-				"bInfo": false,
-				// "scrollX": true,
-				// "scrollY": "350px",
-				"scrollCollapse": true,
-				"paging": true,
-				lengthChange: true,
-			});
-			table.buttons().container()
-				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
-		});
-	</script>
+
+
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>

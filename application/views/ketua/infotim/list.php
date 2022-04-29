@@ -38,9 +38,12 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<div class="card-header">
-						<h3 class="text-uppercase font-weight-bold text-center">Nama Tim : <?= $users['id_tim'] ?></h3>
-					</div>
+					<?php
+					foreach ($users_tim as $akun) : ?>
+						<div class="card-header">
+							<h3 class="text-uppercase font-weight-bold text-center">Nama Tim : <?php echo $akun->nama_tim ?></h3>
+						</div>
+					<?php endforeach; ?>
 
 					<div class="card-body">
 						<div class="table-responsive">
@@ -50,67 +53,34 @@
 										<th>No</th>
 										<th>Nama</th>
 										<th>Email</th>
+										<th>Jabatan</th>
 										<th>Foto</th>
-										<!-- <th>Cosphi</th>
-										<th>Tanggal</th>
-										<th>Tegangan</th>
-										<th>Gambar</th>
-										<th>Status</th>
-										<th>Lokasi</th> -->
-										<th>Action</th>
 									</tr>
 								</thead>
-								<!-- <tbody>
+								<tbody>
 									<?php
 									$no = 1;
-									foreach ($PantauanHarian as $datpan) : ?>
+									foreach ($users_ketua as $akun) : ?>
 										<tr>
 											<td class="10">
 												<?php echo $no++ ?>
 											</td>
-											<td class="100">
-												<?php echo $datpan->nama_gardu ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->suhu ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->arus ?>
-											</td>
-											<td width="150">
-												<?php echo $datpan->cosphi ?>
-											</td>
-											<td width="100">
-												<?php echo dateindo($datpan->tgl_pantauan) ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->tegangan ?>
+											<td width="200">
+												<?php echo $akun->full_name ?>
 											</td>
 											<td>
-												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
+												<?php echo $akun->email ?>
 											</td>
-											<td width="100">
-												<?php
-												if ($datpan->status == 0) {
-												?>
-													<span class="badge badge-warning">Pending</span>
-												<?php
-												} else {
-													echo $datpan->status == 1 ? '<span class="badge badge-success">Diterima</span>' : '<span class="badge badge-danger">Ditolak</span>';
-												}
-												?>
+											<td>
+												<?php echo $akun->nama_level ?>
 											</td>
-											<td width="100">
-												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>">Lihat Lokasi</a>
-											</td>
-											<td width="250">
-												<a href="<?php echo site_url('ketua/PantauanHarian/disetujui/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-success mb-3 w-100"><i class="fa fa-check-square-o"></i> Setuju</a>
-												<a onclick="deleteConfirm('<?php echo site_url('ketua/PantauanHarian/ditolak/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger w-100"><i class="fa fa-window-close-o"></i> Tolak</a>
+											<td width="150">
+												<img src="<?= base_url('assets/imguser/' . $akun->gambar_user) ?>" width="70px" height="50px">
 											</td>
 										</tr>
 									<?php endforeach; ?>
 
-								</tbody> -->
+								</tbody>
 							</table>
 						</div>
 					</div>

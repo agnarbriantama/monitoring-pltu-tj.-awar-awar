@@ -20,6 +20,22 @@ class User_model extends CI_Model
 		return $this->db->get_where($this->_table, ["user_id" => $id])->result();
 	}
 
+	public function users_ketua()
+	{
+		$this->db->select('*');
+		$this->db->join('tim', 'tim.id_tim = users.id_tim', 'left');
+		$this->db->join('level', 'level.level_id = users.level_id', 'left');
+		$this->db->where('users.id_tim',  $this->session->userdata('id_tim'));
+		return $this->db->get('users')->result();
+	}
+	public function users_tim()
+	{
+		$this->db->select('*');
+		$this->db->join('tim', 'tim.id_tim = users.id_tim', 'left');
+		$this->db->where('users.username',  $this->session->userdata('username'));
+		return $this->db->get('users')->result();
+	}
+
 	public function save()
 	{
 		$post = $this->input->post();

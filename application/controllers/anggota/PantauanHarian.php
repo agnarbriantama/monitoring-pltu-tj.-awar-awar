@@ -61,6 +61,7 @@ class PantauanHarian extends CI_Controller
 			$gambar = $this->upload->data('file_name');
 			$data = array(
 				'id_gardu' => $id_gardu,
+				'id_tim' => $this->session->userdata('id_tim'),
 				'suhu' => $suhu,
 				'arus' => $arus,
 				'cosphi' => $cosphi,
@@ -69,7 +70,7 @@ class PantauanHarian extends CI_Controller
 				'gambar' => $gambar,
 				'status' => 0,
 				'lokasi_pantauan' => $lokasi_pantauan,
-				'username' => $this->session->userdata('username')	
+				'username' => $this->session->userdata('username')
 			);
 		}
 
