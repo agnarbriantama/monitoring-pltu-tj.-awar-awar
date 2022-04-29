@@ -104,7 +104,7 @@
 
 								<div class="form-group">
 									<label for="pengirim">Pengirim</label>
-									<input class="form-control <?php echo form_error('pengirim') ? 'is-invalid' : '' ?>" type="text" pattern="[A-Za-z ]+" name="pengirim" placeholder="Tegangan" value="<?php echo $datpan->pengirim; ?>" />
+									<input class="form-control <?php echo form_error('pengirim') ? 'is-invalid' : '' ?>" type="text" pattern="[A-Za-z ]+" name="pengirim" placeholder="Tegangan" value="<?php echo $datpan->username; ?>" />
 								</div>
 
 								<input class="btn btn-success" type="submit" name="btn" value="Save" />

@@ -27,8 +27,9 @@
 					<?php $this->session->unset_userdata('success') ?>
 				<?php endif; ?>
 
-				<?php if ($this->session->flashdata('success')) : ?>
+				<?php if ($this->session->flashdata('berhasil')) : ?>
 					<div class="alert alert-success" role="alert">
+						<?php echo $this->session->flashdata('berhasil'); ?>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -43,7 +44,7 @@
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
+							<table class="table cell-border table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -139,8 +140,33 @@
 	<?php $this->load->view("ketua/_partials/modal.php") ?>
 	<?php $this->load->view("ketua/_partials/js.php") ?>
 
+	<script>
+		function deleteConfirm(url) {
+			$('#btn-delete').attr('href', url);
+			$('#deleteModal').modal();
+		}
+	</script>
 
-
+	<script>
+		$(document).ready(function() {
+			var table = $('#dataTables').DataTable({
+				"bInfo": false,
+				// "scrollX": true,
+				// "scrollY": "350px",
+				"scrollCollapse": true,
+				"paging": true,
+				// scrollY: '250px',
+				// dom: 'Bfrtip',
+				lengthMenu: [
+					[5, 10, 25, 50, -1],
+					[5, 10, 25, 50, "All"]
+				],
+				lengthChange: true,
+			});
+			table.buttons().container()
+				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+		});
+	</script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -148,6 +174,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.semanticui.min.js"></script> -->
 
 
 </body>

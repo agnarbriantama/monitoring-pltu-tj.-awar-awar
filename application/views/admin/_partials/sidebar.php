@@ -14,7 +14,7 @@
 	</li>
 
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'Tim' ? 'active' : '' ?>">
-		<a class="nav-link" href="<?php echo site_url('admin/Tim') ?>">
+		<a class="nav-link" href="<?php echo site_url('admin/NamaTim') ?>">
 			<i class="fa fa-users"></i>
 			<span> Nama Tim</span></a>
 	</li>

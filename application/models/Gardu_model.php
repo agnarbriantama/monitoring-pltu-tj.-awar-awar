@@ -19,6 +19,7 @@ class Gardu_model extends CI_Model
 		return $this->db->get_where($this->tb_gardu, ["id_gardu" => $id])->result();
 	}
 
+
 	public function save()
 	{
 		$gambar_gardu = $this->upload->do_upload('gambar_gardu');
