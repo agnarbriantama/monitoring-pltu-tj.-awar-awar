@@ -77,7 +77,7 @@ class User extends CI_Controller
 		}
 		$this->db->insert('users', $data);
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
-		redirect(site_url('admin/user/index'));
+		redirect(site_url('admin/User/index'));
 	}
 
 	// untuk fungsi edit dengan nilai defaultnya null
@@ -126,7 +126,7 @@ class User extends CI_Controller
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>');
-			redirect('admin/user');
+			redirect('admin/User');
 		} else {
 			$upload_data = $this->upload->data();
 			$gambar_user = $upload_data['file_name'];
@@ -150,7 +150,7 @@ class User extends CI_Controller
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>');
-			redirect('admin/user');
+			redirect('admin/User');
 		}
 	}
 

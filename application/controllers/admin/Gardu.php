@@ -78,7 +78,7 @@ class Gardu extends CI_Controller
 
 			$this->db->where($kondisi);
 			$this->db->update('tb_gardu', $data);
-			redirect('admin/gardu');
+			redirect('admin/Gardu');
 		} else {
 			$upload_data = $this->upload->data();
 			$gambar_gardu = $upload_data['file_name'];
@@ -89,7 +89,7 @@ class Gardu extends CI_Controller
 
 			$this->db->where($kondisi);
 			$this->db->update('tb_gardu', $data);
-			redirect('admin/gardu');
+			redirect('admin/Gardu');
 		}
 	}
 

@@ -37,7 +37,7 @@ class PantauanHarian extends CI_Controller
 		$sql = "UPDATE tb_pantauanharian SET status ='1' WHERE id_pantauan =$id";
 		$this->db->query($sql);
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect(site_url('ketua/pantauanharian'));
+		redirect(site_url('ketua/PantauanHarian'));
 	}
 
 	public function ditolak($id)
@@ -45,7 +45,7 @@ class PantauanHarian extends CI_Controller
 		$sql = "UPDATE tb_pantauanharian SET status ='2' WHERE id_pantauan =$id";
 		$this->db->query($sql);
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Ditolak <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect(site_url('ketua/pantauanharian'));
+		redirect(site_url('ketua/PantauanHarian'));
 	}
 
 

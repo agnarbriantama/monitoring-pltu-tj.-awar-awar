@@ -127,8 +127,8 @@
 												<?php echo $datpan->username ?>
 											</td>
 											<td width="250">
-												<a href="<?php echo site_url('admin/pantauanharian/edit/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
+												<a style="width: 100px;" href="<?php echo site_url('admin/pantauanharian/edit/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
+												<a style="width: 100px;" onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>

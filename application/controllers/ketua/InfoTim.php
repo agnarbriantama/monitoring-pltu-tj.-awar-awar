@@ -29,7 +29,7 @@ class InfoTim extends CI_Controller
 		$data["User"] = $this->user_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view
-		$this->load->view("ketua/infotim/list", $data);
+		$this->load->view("ketua/InfoTim/list", $data);
 	}
 
 	//disetujui

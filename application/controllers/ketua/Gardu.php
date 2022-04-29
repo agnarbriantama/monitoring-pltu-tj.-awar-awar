@@ -25,7 +25,7 @@ class Gardu extends CI_Controller
 		$data["Gardu"] = $this->Gardu_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// meload data pada view yang sudah dibuat pada folder view
-		$this->load->view("ketua/gardu/list", $data);
+		$this->load->view("ketua/Gardu/list", $data);
 	}
 
 	// Digunakan untuk memanggil form
@@ -33,7 +33,7 @@ class Gardu extends CI_Controller
 	{
 		// untuk meload tampilan newform pada bagian view
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-		$this->load->view('ketua/gardu/new_form',$data);
+		$this->load->view('ketua/Gardu/new_form',$data);
 	}
 
 	// menambahkan data
@@ -58,7 +58,7 @@ class Gardu extends CI_Controller
 	{
 		$data['Gardu'] =  $this->db->get_where('tb_gardu', ['id_gardu' => $id])->row();
 		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
-		$this->load->view("ketua/gardu/edit_form", $data);
+		$this->load->view("ketua/Gardu/edit_form", $data);
 	}
 
 	public function update_gardu($id)
@@ -78,7 +78,7 @@ class Gardu extends CI_Controller
 
 			$this->db->where($kondisi);
 			$this->db->update('tb_gardu', $data);
-			redirect('ketua/gardu');
+			redirect('ketua/Gardu');
 		} else {
 			$upload_data = $this->upload->data();
 			$gambar_gardu = $upload_data['file_name'];
@@ -89,7 +89,7 @@ class Gardu extends CI_Controller
 
 			$this->db->where($kondisi);
 			$this->db->update('tb_gardu', $data);
-			redirect('ketua/gardu');
+			redirect('ketua/Gardu');
 		}
 	}
 

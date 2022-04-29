@@ -10,8 +10,8 @@ class NamaTim extends CI_Controller
 		parent::__construct();
 		if (!$this->session->userdata('username')) {
 			redirect('auth/login');
-			$this->load->model('Tim_model');
 		}
+		$this->load->model('Tim_model');
 	}
 
 	// mengambil data model dan di render
@@ -37,7 +37,7 @@ class NamaTim extends CI_Controller
 			$data = $this->input->post();
 			$this->db->insert('tim', $data);
 
-			redirect('admin/namatim');
+			redirect('admin/NamaTim');
 		} else {
 			echo "gagal";
 		}
