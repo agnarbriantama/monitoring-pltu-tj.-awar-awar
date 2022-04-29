@@ -61,7 +61,7 @@
 			</div>
 			<!-- /.container-fluid -->
 			<div>
-				<h5 class="text-center mb-3 mt-3">Grafik Pantauan Harian</h5>
+				<h5 class="text-center mb-3 mt-3">Grafik Jumlah Pantauan Harian</h5>
 				<canvas id="myChart"></canvas>
 				<?php
 				//Inisialisasi nilai variabel awal

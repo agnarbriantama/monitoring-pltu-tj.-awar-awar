@@ -28,17 +28,17 @@
 
 							<div class="form-group">
 								<label for="full_name">Full Name</label>
-								<input class="form-control" type="text" name="full_name" placeholder="Full Name" required />
+								<input class="form-control" pattern="[A-Za-z ]+" type="text" name="full_name" placeholder="Full Name" required />
 							</div>
 
 							<div class="form-group">
 								<label for="username">Username</label>
-								<input class="form-control" type="text" name="username" placeholder="Username" required />
+								<input class="form-control" type="text" name="username" placeholder="Username" minlength="8" maxlength="500" required />
 							</div>
 
 							<div class="form-group">
 								<label for="password">Password</label>
-								<input class="form-control" type="password" name="password" placeholder="Password" required />
+								<input class="form-control" type="password" name="password" placeholder="Password" minlength="8" maxlength="500" required />
 							</div>
 
 							<div class="form-group">

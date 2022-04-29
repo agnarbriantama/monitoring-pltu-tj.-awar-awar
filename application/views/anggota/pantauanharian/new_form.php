@@ -37,16 +37,16 @@
 
 							<div class="form-group">
 								<label for="suhu">Suhu</label>
-								<input class="form-control" type="text" name="suhu" required />
+								<input class="form-control" type="number" name="suhu" required />
 							</div>
 							<div class="form-group">
 								<label for="suhu">Arus</label>
-								<input class="form-control" type="text" name="arus" required />
+								<input class="form-control" type="number" name="arus" required />
 							</div>
 
 							<div class="form-group">
 								<label for="cosphi">Cosphi</label>
-								<input class="form-control" type="text" name="cosphi" placeholder="" required />
+								<input class="form-control" type="number" name="cosphi" placeholder="" required />
 							</div>
 
 							<div class="form-group">
@@ -56,7 +56,7 @@
 
 							<div class="form-group">
 								<label for="tanggal_konfirmasi">Tegangan</label>
-								<input class="form-control" type="text" name="tegangan" placeholder="Tegangan" required />
+								<input class="form-control" type="number" name="tegangan" placeholder="Tegangan" required />
 							</div>
 
 							<div class="form-group">

@@ -48,22 +48,22 @@
 
 								<div class="form-group">
 									<label for="suhu">Suhu</label>
-									<input class="form-control <?php echo form_error('suhu') ? 'is-invalid' : '' ?>" type="text" name="suhu" placeholder="Suhu" value="<?php echo $datpan->suhu; ?>" />
+									<input class="form-control <?php echo form_error('suhu') ? 'is-invalid' : '' ?>" type="number" name="suhu" placeholder="Suhu" value="<?php echo $datpan->suhu; ?>" />
 								</div>
 
 								<div class="form-group">
 									<label for="arus">Arus</label>
-									<input class="form-control <?php echo form_error('arus') ? 'is-invalid' : '' ?>" type="text" name="arus" placeholder="Arus" value="<?php echo $datpan->arus; ?>" />
+									<input class="form-control <?php echo form_error('arus') ? 'is-invalid' : '' ?>" type="number" name="arus" placeholder="Arus" value="<?php echo $datpan->arus; ?>" />
 								</div>
 
 								<div class="form-group">
 									<label for="cosphi">cosphi</label>
-									<input class="form-control <?php echo form_error('cosphi') ? 'is-invalid' : '' ?>" type="text" name="cosphi" placeholder="Cosphi" value="<?php echo $datpan->cosphi; ?>" />
+									<input class="form-control <?php echo form_error('cosphi') ? 'is-invalid' : '' ?>" type="number" name="cosphi" placeholder="Cosphi" value="<?php echo $datpan->cosphi; ?>" />
 								</div>
 
 								<div class="form-group">
-									<label for="cosphi">Tegangan</label>
-									<input class="form-control <?php echo form_error('tegangan') ? 'is-invalid' : '' ?>" type="text" name="tegangan" placeholder="Tegangan" value="<?php echo $datpan->tegangan; ?>" />
+									<label for="tegangan">Tegangan</label>
+									<input class="form-control <?php echo form_error('tegangan') ? 'is-invalid' : '' ?>" type="number" name="tegangan" placeholder="Tegangan" value="<?php echo $datpan->tegangan; ?>" />
 								</div>
 
 								<div class="form-group">
@@ -94,12 +94,17 @@
 
 								<div class="form-group">
 									<label for="kondisi">Status</label>
-									<input class="form-control <?php echo form_error('kondisi') ? 'is-invalid' : '' ?>" type="text" name="kondisi" placeholder="Status" value="<?php echo $datpan->status; ?>" />
+									<input class="form-control <?php echo form_error('kondisi') ? 'is-invalid' : '' ?>" type="text" name="kondisi" placeholder="Status" value="<?php echo $datpan->status; ?>" readonly/>
 								</div>
 
 								<div class="form-group">
 									<label for="lokasi_pantauan">Lokasi Pantauan</label>
 									<input class="form-control <?php echo form_error('lokasi_pantauan') ? 'is-invalid' : '' ?>" type="text" name="lokasi_pantauan" placeholder="lokasi_pantauan" value="<?php echo $datpan->lokasi_pantauan; ?>" readonly/>
+								</div>
+
+								<div class="form-group">
+									<label for="pengirim">Pengirim</label>
+									<input class="form-control <?php echo form_error('pengirim') ? 'is-invalid' : '' ?>" type="text" pattern="[A-Za-z ]+" name="pengirim" placeholder="Tegangan" value="<?php echo $datpan->pengirim; ?>" />
 								</div>
 
 								<input class="btn btn-success" type="submit" name="btn" value="Save" />

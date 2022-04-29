@@ -29,11 +29,11 @@
 			<?php echo $this->session->flashdata('login'); ?>
 			<div class="form-group">
 				<label class="d-flex flex-row" for="username">Username</label>
-				<input type="text" name="username" class="form-control rounded-pill form-control-lg" placeholder="Username">
+				<input type="text" name="username" class="form-control rounded-pill form-control-lg" placeholder="Username" required>
 			</div>
 			<div class="form-group">
 				<label class="d-flex flex-row" for="password">Password</label>
-				<input type="password" class="form-control rounded-pill form-control-lg" name="password" placeholder="*******">
+				<input type="password" class="form-control rounded-pill form-control-lg" name="password" placeholder="*******" required>
 			</div>
 			<!-- <div class="forgot-link form-group d-flex justify-content-between align-items-center">
 				<div class="form-check">

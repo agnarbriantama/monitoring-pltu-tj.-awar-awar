@@ -110,9 +110,13 @@
 	<script>
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
+				lengthMenu: [
+					[5, 10, 25, 50, -1],
+					[5, 10, 25, 50, "All"]
+				],
 				"bInfo": false,
-				"scrollX": true,
-				"scrollY": "350px",
+				// "scrollX": true,
+				// "scrollY": "350px",
 				"scrollCollapse": true,
 				"paging": true,
 				lengthChange: true,

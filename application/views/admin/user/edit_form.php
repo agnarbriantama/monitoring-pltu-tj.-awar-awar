@@ -37,7 +37,7 @@
 
 								<div class="form-group">
 									<label for="full_name">Nama Lengkap</label>
-									<input class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Nama Lengkap" value="<?php echo $akun->full_name ?>" required />
+									<input pattern="[A-Za-z ]+" class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Nama Lengkap" value="<?php echo $akun->full_name ?>" required />
 									<div class="invalid-feedback">
 										<?php echo form_error('full_name') ?>
 									</div>
@@ -45,12 +45,12 @@
 
 								<div class="form-group">
 									<label for="username">Username</label>
-									<input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="Username" value="<?php echo $akun->username; ?>" required />
+									<input minlength="8" maxlength="500" class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="Username" value="<?php echo $akun->username; ?>" required />
 								</div>
 
 								<div class="form-group">
 									<label for="password">Password</label>
-									<input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required />
+									<input minlength="8" maxlength="500" class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required />
 									<div class="invalid-feedback">
 										<?php echo form_error('password') ?>
 									</div>

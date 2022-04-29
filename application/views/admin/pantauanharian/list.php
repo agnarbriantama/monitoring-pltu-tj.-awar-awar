@@ -117,7 +117,7 @@
 												?>
 											</td>
 											<td width="100">
-												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><?php echo $datpan->lokasi_pantauan ?></a>
+												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>">Lihat Lokasi</a>
 											</td>
 											<td width="100">
 												<?php echo $datpan->username ?>
@@ -162,8 +162,8 @@
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
 				"bInfo": false,
-				"scrollX": true,
-				"scrollY": "350px",
+				// "scrollX": true,
+				// "scrollY": "350px",
 				"scrollCollapse": true,
 				"paging": true,
 				// scrollY: '250px',

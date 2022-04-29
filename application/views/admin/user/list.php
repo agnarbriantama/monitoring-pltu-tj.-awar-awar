@@ -134,8 +134,8 @@
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
 				"bInfo": false,
-				"scrollX": true,
-				"scrollY": "350px",
+				// "scrollX": true,
+				// "scrollY": "350px",
 				"scrollCollapse": true,
 				"paging": true,
 				lengthChange: true,

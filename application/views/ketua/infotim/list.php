@@ -39,27 +39,28 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
+						<h3 class="text-uppercase font-weight-bold text-center">Nama Tim : <?= $users['id_tim'] ?></h3>
 					</div>
-					<div class="card-body">
 
+					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama Gardu</th>
-										<th>Suhu</th>
-										<th>Arus</th>
-										<th>Cosphi</th>
+										<th>Nama</th>
+										<th>Email</th>
+										<th>Foto</th>
+										<!-- <th>Cosphi</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Gambar</th>
 										<th>Status</th>
-										<th>Lokasi</th>
+										<th>Lokasi</th> -->
 										<th>Action</th>
 									</tr>
 								</thead>
-								<tbody>
+								<!-- <tbody>
 									<?php
 									$no = 1;
 									foreach ($PantauanHarian as $datpan) : ?>
@@ -109,7 +110,7 @@
 										</tr>
 									<?php endforeach; ?>
 
-								</tbody>
+								</tbody> -->
 							</table>
 						</div>
 					</div>

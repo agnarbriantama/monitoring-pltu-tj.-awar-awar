@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Login Admin Website Monitoring Gardu</title>
+	<title>Login Website Monitoring Gardu</title>
 	<link rel="icon" href="<?php echo base_url('assets/logoweb/logourlbaru.png') ?>" type="image/x-icon">
 
 	<!-- Bootstrap core CSS-->
