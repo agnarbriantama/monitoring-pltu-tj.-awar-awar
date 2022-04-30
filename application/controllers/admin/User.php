@@ -76,7 +76,7 @@ class User extends CI_Controller
 			);
 		}
 		$this->db->insert('users', $data);
-		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
+		$this->session->set_flashdata('success', 'Berhasil ditambahkan');
 		redirect(site_url('admin/User/index'));
 	}
 
@@ -120,12 +120,7 @@ class User extends CI_Controller
 
 			$this->db->where($kondisi);
 			$this->db->update('users', $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<strong>Data Berhasil Diubah</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>');
+			$this->session->set_flashdata('fail', 'Data Berhasil Diubah');
 			redirect('admin/User');
 		} else {
 			$upload_data = $this->upload->data();
@@ -144,12 +139,7 @@ class User extends CI_Controller
 
 			$this->db->where($kondisi);
 			$this->db->update('users', $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<strong>Data Berhasil Diubah</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>');
+			$this->session->set_flashdata('fail', 'Data Berhasil Diubah');
 			redirect('admin/User');
 		}
 	}
@@ -161,7 +151,7 @@ class User extends CI_Controller
 		if (!isset($id)) show_404();
 
 		if ($this->user_model->delete($id)) {
-			$this->session->set_flashdata('success', 'Berhasil dihapus');
+			$this->session->set_flashdata('success', 'Data Berhasil dihapus');
 			redirect(site_url('admin/User'));
 		}
 	}

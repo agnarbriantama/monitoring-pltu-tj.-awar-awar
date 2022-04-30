@@ -15,6 +15,7 @@ class PantauanHarian extends CI_Controller
 		}
 		// load model dan library
 		$this->load->model('Gardu_model');
+		$this->load->model('Tim_model');
 		$this->load->model('PantauanHarian_model');
 		$this->load->library('form_validation');
 		$this->load->model("user_model");
@@ -38,6 +39,7 @@ class PantauanHarian extends CI_Controller
 	public function relasi()
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
+		$data["tim"] = $this->Tim_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/pantauanharian/new_form", $data);
 	}
@@ -53,6 +55,7 @@ class PantauanHarian extends CI_Controller
 	public function add()
 	{
 		$id_gardu = $this->input->post('id_gardu');
+		$id_tim = $this->input->post('id_tim');
 		$suhu = $this->input->post('suhu');
 		$arus = $this->input->post('arus');
 		$cosphi = $this->input->post('cosphi');
@@ -61,7 +64,7 @@ class PantauanHarian extends CI_Controller
 		$lokasi_pantauan = $this->input->post('lokasi_pantauan');
 		//'kondisi' => $this->input->post('kondisi'),
 		$data['gambar'] = '';
-		$gambar = $_FILES['gambar']['name'];
+		$gambar = $_FILES['gambar']['file_name'];
 		$config['upload_path'] = './assets/imgpantauan/';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 
@@ -73,6 +76,7 @@ class PantauanHarian extends CI_Controller
 			$gambar = $this->upload->data('file_name');
 			$data = array(
 				'id_gardu' => $id_gardu,
+				'id_tim' => $id_tim,
 				'suhu' => $suhu,
 				'arus' => $arus,
 				'cosphi' => $cosphi,
@@ -93,6 +97,7 @@ class PantauanHarian extends CI_Controller
 	// untuk fungsi edit dengan nilai defaultnya null
 	public function edit($id = NULL)
 	{
+		$data["tim"] = $this->Tim_model->getAll();
 		$data["Gardu"] = $this->Gardu_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 
@@ -130,7 +135,7 @@ class PantauanHarian extends CI_Controller
 	{
 		$sql = "UPDATE tb_pantauanharian SET status ='2' WHERE id_pantauan =$id";
 		$this->db->query($sql);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data DiTolak<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect(site_url('admin/pantauanharian'));
 	}
 

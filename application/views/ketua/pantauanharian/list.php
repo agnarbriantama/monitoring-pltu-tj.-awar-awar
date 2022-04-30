@@ -113,7 +113,7 @@
 											</td>
 											<td width="250">
 												<a href="<?php echo site_url('ketua/PantauanHarian/disetujui/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-success mb-3 w-100"><i class="fa fa-check-square-o"></i> Setuju</a>
-												<a onclick="deleteConfirm('<?php echo site_url('ketua/PantauanHarian/ditolak/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger w-100"><i class="fa fa-window-close-o"></i> Tolak</a>
+												<a href="<?php echo site_url('ketua/PantauanHarian/ditolak/' . $datpan->id_pantauan) ?>" href="#!" class="btn btn-small btn-outline-danger w-100"><i class="fa fa-window-close-o"></i> Tolak</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>

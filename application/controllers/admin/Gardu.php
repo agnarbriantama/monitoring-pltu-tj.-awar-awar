@@ -89,6 +89,7 @@ class Gardu extends CI_Controller
 
 			$this->db->where($kondisi);
 			$this->db->update('tb_gardu', $data);
+			$this->session->set_flashdata('berhasil', 'Berhasil diubah');
 			redirect('admin/Gardu');
 		}
 	}

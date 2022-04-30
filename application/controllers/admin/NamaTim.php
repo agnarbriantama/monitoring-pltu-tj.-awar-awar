@@ -12,6 +12,7 @@ class NamaTim extends CI_Controller
 			redirect('auth/login');
 		}
 		$this->load->model('Tim_model');
+		$this->load->library('form_validation');
 	}
 
 	// mengambil data model dan di render
@@ -41,5 +42,19 @@ class NamaTim extends CI_Controller
 		} else {
 			echo "gagal";
 		}
+	}
+
+	public function edit($id = NULL)
+	{
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+		$this->form_validation->set_rules('nama_tim', 'Nama_Tim', 'required');
+		
+		$data["tim"] = $this->Tim_model->getById($id);
+
+		if ($this->form_validation->run()) {
+			$this->Tim_model->update();
+		}
+		$this->load->view("admin/NamaTim/edit_form", $data);
+		$this->session->set_flashdata('success', 'Berhasil diupdate');
 	}
 }

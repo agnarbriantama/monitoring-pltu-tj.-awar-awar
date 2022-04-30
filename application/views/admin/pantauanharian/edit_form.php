@@ -30,17 +30,26 @@
 						<?php foreach ($PantauanHarian as $datpan) : ?>
 
 							<form action="<?php echo site_url('admin/PantauanHarian/edit'); ?>" method="POST" enctype="multipart/form-data">
-								<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/UangKas/edit/ID --->
 
 								<input type="hidden" name="id_pantauan" value="<?php echo $datpan->id_pantauan; ?>" />
+
+								<div class="form-group">
+									<label for="id_tim">Nama Tim</label>
+									<select id="id_tim" name="id_tim" class="form-control" required>
+										<option value="">Pilih Tim</option>
+										<?php foreach ($tim as $timm) : ?>
+											<option value="<?php echo $timm->id_tim ?>" <?= $datpan->id_tim == $timm->id_tim ? 'selected' : null ?>><?= $timm->nama_tim ?></option>
+
+										<?php endforeach; ?>
+									</select>
+								</div>
 
 								<div class="form-group">
 									<label for="id_gardu">Nama Gardu</label>
 									<select id="id_gardu" name="id_gardu" class="form-control" required>
 										<option value="">Pilih Gardu</option>
 										<?php foreach ($Gardu as $gardu) : ?>
-											<option value="<?php echo $gardu->id_gardu ?>" <?= $datpan->id_gardu == $gardu->id_gardu ? 'selected' : null ?>   ><?= $gardu->nama_gardu ?></option>
+											<option value="<?php echo $gardu->id_gardu ?>" <?= $datpan->id_gardu == $gardu->id_gardu ? 'selected' : null ?>><?= $gardu->nama_gardu ?></option>
 
 										<?php endforeach; ?>
 									</select>
@@ -94,12 +103,12 @@
 
 								<div class="form-group">
 									<label for="kondisi">Status</label>
-									<input class="form-control <?php echo form_error('kondisi') ? 'is-invalid' : '' ?>" type="text" name="kondisi" placeholder="Status" value="<?php echo $datpan->status; ?>" readonly/>
+									<input class="form-control <?php echo form_error('kondisi') ? 'is-invalid' : '' ?>" type="text" name="kondisi" placeholder="Status" value="<?php echo $datpan->status; ?>" readonly />
 								</div>
 
 								<div class="form-group">
 									<label for="lokasi_pantauan">Lokasi Pantauan</label>
-									<input class="form-control <?php echo form_error('lokasi_pantauan') ? 'is-invalid' : '' ?>" type="text" name="lokasi_pantauan" placeholder="lokasi_pantauan" value="<?php echo $datpan->lokasi_pantauan; ?>" readonly/>
+									<input class="form-control <?php echo form_error('lokasi_pantauan') ? 'is-invalid' : '' ?>" type="text" name="lokasi_pantauan" placeholder="lokasi_pantauan" value="<?php echo $datpan->lokasi_pantauan; ?>" readonly />
 								</div>
 
 								<div class="form-group">

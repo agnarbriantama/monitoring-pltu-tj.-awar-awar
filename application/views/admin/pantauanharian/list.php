@@ -45,16 +45,11 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col col-8"></div>
-							<div class="col col-2"><input class="form-control" type="date" name="startdate" placeholder="Start Date" />
+							<div class="col col-6"></div>
+							<div class="col col-3 text-center"><label for="startdate">Start Date</label><input class="form-control" type="date" name="startdate" placeholder="Start Date" />
 							</div>
-							<div class="col col-2"><input class="form-control" type="date" name="enddate" placeholder="End Date" />
+							<div class="col col-3 text-center"><label for="enddate">End Date</label><input class="form-control" type="date" name="enddate" placeholder="End Date" />
 							</div>
-							<!-- <form action="<?php echo site_url('admin/PantauanHarian/index'); ?>" class="" method="get">
-								<input class="form-control" type="date" name="startdate" placeholder="Start Date" />
-								<input class="form-control" type="date" name="enddate" placeholder="End Date" />
-								<button type="submit" class="btn btn-primary">Cari</button>
-							</form> -->
 						</div>
 						<hr>
 
@@ -86,7 +81,7 @@
 												<?php echo $no++ ?>
 											</td>
 											<td class="100">
-												<?php echo $datpan->id_tim ?>
+												<?php echo $datpan->nama_tim ?>
 											</td>
 											<td class="100">
 												<?php echo $datpan->nama_gardu ?>
@@ -265,7 +260,6 @@
 	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.semanticui.min.js"></script> -->
-
 
 </body>
 

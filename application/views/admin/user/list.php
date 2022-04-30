@@ -27,14 +27,14 @@
 					<?php $this->session->unset_userdata('success') ?>
 				<?php endif; ?>
 
-				<?php if ($this->session->flashdata('berhasil')) : ?>
+				<?php if ($this->session->flashdata('fail')) : ?>
 					<div class="alert alert-success" role="alert">
-						<?php echo $this->session->flashdata('berhasil'); ?>
+						<?php echo $this->session->flashdata('fail'); ?>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<?php $this->session->unset_userdata('berhasil') ?>
+					<?php $this->session->unset_userdata('fail') ?>
 				<?php endif; ?>
 
 				<!-- DataTables -->

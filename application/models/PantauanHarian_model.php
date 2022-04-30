@@ -10,6 +10,7 @@ class PantauanHarian_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('tb_pantauanharian');
 		$this->db->join('tb_gardu', 'tb_gardu.id_gardu = tb_pantauanharian.id_gardu', 'left');
+		$this->db->join('tim', 'tim.id_tim = tb_pantauanharian.id_tim', 'left');
 		$this->db->order_by('id_pantauan', 'desc');
 		return $this->db->get()->result();
 	}
@@ -34,7 +35,7 @@ class PantauanHarian_model extends CI_Model
 		$data = array(
 			'id_pantauan' => $this->input->post('id_pantauan'),
 			'id_gardu' => $this->input->post('id_gardu'),
-			// 'nama_gardu' => $this->input->post('nama_gardu'),
+			'id_tim' => $this->input->post('id_tim'),
 			'suhu' => $this->input->post('suhu'),
 			'arus' => $this->input->post('arus'),
 			'cosphi' => $this->input->post('cosphi'),
@@ -66,6 +67,7 @@ class PantauanHarian_model extends CI_Model
 			'id_pantauan' => $id,
 			// 'nama_gardu' => $this->input->post('nama_gardu'),
 			'id_gardu' => $this->input->post('id_gardu'),
+			'id_tim' => $this->input->post('id_tim'),
 			'suhu' => $this->input->post('suhu'),
 			'arus' => $this->input->post('arus'),
 			'cosphi' => $this->input->post('cosphi'),
