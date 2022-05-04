@@ -27,7 +27,7 @@
 			<span> Data Gardu</span></a>
 	</li>
 	
-	<div class="ml-2">Data Transaksi</div>
+	<div class="ml-2">Data POS</div>
 	
 	<li class="nav-item <?php echo $this->uri->segment(2) == 'PantauanHarian' ? 'active' : '' ?>">
 		<a class="nav-link" href="<?php echo site_url('admin/PantauanHarian') ?>">

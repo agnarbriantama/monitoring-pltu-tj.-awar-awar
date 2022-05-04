@@ -45,10 +45,18 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col col-6"></div>
-							<div class="col col-3 text-center"><label for="startdate">Start Date</label><input class="form-control" type="date" name="startdate" placeholder="Start Date" />
+							<div class="col col-5"></div>
+							<div class="col col-3 text-center">
+								<label for="startdate">Start Date</label>
+								<input class="form-control" type="date" name="startdate" placeholder="Start Date" />
 							</div>
-							<div class="col col-3 text-center"><label for="enddate">End Date</label><input class="form-control" type="date" name="enddate" placeholder="End Date" />
+							<div class="col col-3 text-center">
+								<label for="enddate">End Date</label>
+								<input class="form-control" type="date" name="enddate" placeholder="End Date" />
+							</div>
+							<div class="col col-1">
+								<label for="cari"></label>
+								<button style="margin-top: 35px;" class="btn btn-info">Filter</button>
 							</div>
 						</div>
 						<hr>
