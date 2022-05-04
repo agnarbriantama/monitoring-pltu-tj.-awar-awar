@@ -255,12 +255,6 @@
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
-	<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.5/js/dataTables.semanticui.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.semanticui.min.js"></script> -->
-
 </body>
 
 </html>

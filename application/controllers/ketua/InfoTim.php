@@ -23,6 +23,9 @@ class InfoTim extends CI_Controller
 	// mengambil data model dan di render
 	public function index()
 	{
+		// check_level_admin();
+		check_level_ketua();
+		// check_level_anggota();
 		// untuk mengambil data dari model secara keseluruhan
 		$data["users_ketua"] = $this->user_model->users_ketua();
 		$data["users_tim"] = $this->user_model->users_tim();
@@ -31,34 +34,4 @@ class InfoTim extends CI_Controller
 		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("ketua/InfoTim/list", $data);
 	}
-
-	//disetujui
-	// public function disetujui($id)
-	// {
-	// 	$sql = "UPDATE tb_pantauanharian SET status ='1' WHERE id_pantauan =$id";
-	// 	$this->db->query($sql);
-	// 	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-	// 	redirect(site_url('ketua/pantauanharian'));
-	// }
-
-	// public function ditolak($id)
-	// {
-	// 	$sql = "UPDATE tb_pantauanharian SET status ='2' WHERE id_pantauan =$id";
-	// 	$this->db->query($sql);
-	// 	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Ditolak <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-	// 	redirect(site_url('ketua/pantauanharian'));
-	// }
-
-
-
-	// untuk fungsi delete dengan nilai defaultnya null
-	// public function delete($id = null)
-	// {
-	// 	if (!isset($id)) show_404();
-
-	// 	if ($this->PantauanHarian_model->delete($id)) {
-	// 		$this->session->set_flashdata('success', 'Berhasil dihapus');
-	// 		redirect(site_url('admin/PantauanHarian'));
-	// 	}
-	// }
 }

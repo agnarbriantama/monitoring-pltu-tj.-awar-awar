@@ -22,6 +22,9 @@ class User extends CI_Controller
 	// mengambil data model dan di render
 	public function index()
 	{
+		check_level_admin();
+		// check_level_ketua();
+		// check_level_anggota();
 		// untuk mengambil data dari model secara keseluruhan
 		$data["User"] = $this->user_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();

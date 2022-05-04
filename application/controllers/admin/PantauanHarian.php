@@ -18,12 +18,15 @@ class PantauanHarian extends CI_Controller
 		$this->load->model('Tim_model');
 		$this->load->model('PantauanHarian_model');
 		$this->load->library('form_validation');
-		$this->load->model("user_model");
+		$this->load->model("User_model");
 	}
 
 	// mengambil data model dan di render
 	public function index()
 	{
+		check_level_admin();
+		// check_level_ketua();
+		// check_level_anggota();
 		// $startdate = $this->input->get('startdate', TRUE);
 		// $enddate = $this->input->get('enddate', TRUE);
 		// die($startdate. "===" .$enddate);

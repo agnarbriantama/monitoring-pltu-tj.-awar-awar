@@ -48,13 +48,6 @@
 					<label class="d-flex flex-row font-weight-bold" for="password">Password</label>
 					<input type="password" class="form-control rounded-pill form-control-lg" name="password" placeholder="Input Password">
 				</div>
-				<!-- <div class="forgot-link form-group d-flex justify-content-between align-items-center">
-				<div class="form-check">
-					<input type="checkbox" class="form-check-input" id="remember">
-					<label class="form-check-label" for="remember">Remember Password</label>
-				</div>
-				<a href="#">Forgot Password?</a>
-			</div> -->
 				<button type="submit" class="btn mt-5 rounded-pill btn-lg btn-custom btn-block text-uppercase">Log in</button>
 			</form>
 		</div>

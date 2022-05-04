@@ -93,14 +93,6 @@
 									</div>
 								</div>
 
-								<!-- <div class="form-group">
-									<label for="gambar">Gambar</label>
-									<input class="form-control <?php echo form_error('gambar') ? 'is-invalid' : '' ?>" type="file" name="gambar" placeholder="gambar" value="<?php echo $datpan->gambar ?>" />
-									<div class="invalid-feedback">
-										<?php echo form_error('gambar') ?>
-									</div>
-								</div> -->
-
 								<div class="form-group">
 									<label for="kondisi">Status</label>
 									<input class="form-control <?php echo form_error('kondisi') ? 'is-invalid' : '' ?>" type="text" name="kondisi" placeholder="Status" value="<?php echo $datpan->status; ?>" readonly />
@@ -113,7 +105,7 @@
 
 								<div class="form-group">
 									<label for="pengirim">Pengirim</label>
-									<input class="form-control <?php echo form_error('pengirim') ? 'is-invalid' : '' ?>" type="text" pattern="[A-Za-z ]+" name="pengirim" placeholder="Tegangan" value="<?php echo $datpan->username; ?>" />
+									<input class="form-control <?php echo form_error('pengirim') ? 'is-invalid' : '' ?>" type="text" pattern="[A-Za-z ]+" name="pengirim" placeholder="Pengirim" value="<?php echo $datpan->username; ?>" />
 								</div>
 
 								<input class="btn btn-success" type="submit" name="btn" value="Save" />

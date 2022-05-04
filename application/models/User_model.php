@@ -66,27 +66,6 @@ class User_model extends CI_Model
 		redirect(site_url('admin/User/index'));
 	}
 
-	// public function doLogin()
-	// {
-	// 	$post = $this->input->post();
-
-	// 	$this->db->where('email', $post["email"])
-	// 		->or_where('username', $post["email"]);
-	// 	$user = $this->db->get($this->_table)->row();
-
-	// 	if ($user) {
-	// 		$isPasswordTrue = password_verify($post["password"], $user->password);
-	// 		// $isAdmin = $user->role == "admin";
-	// 		if ($isPasswordTrue && $isAdmin) {
-	// 			$this->session->set_userdata(['user_logged' => $user]);
-	// 			$this->_updateLastLogin($user->user_id);
-	// 			return true;
-	// 		}
-	// 	}
-	// 	$this->session->set_flashdata('error', 'Username atau Password Anda Salah !!!');
-	// 	return false;
-	// }
-
 	public function delete($user_id)
 	{
 		// menjalankan dengan memanggil db dan tabel kemudian mencari id yang sesuai

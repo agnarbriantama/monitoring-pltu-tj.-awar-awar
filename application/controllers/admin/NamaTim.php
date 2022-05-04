@@ -18,7 +18,9 @@ class NamaTim extends CI_Controller
 	// mengambil data model dan di render
 	public function index()
 	{
-
+		check_level_admin();
+		// check_level_ketua();
+		// check_level_anggota();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$data["tim"] = $this->Tim_model->getAll();
 		// meload data pada view yang sudah dibuat pada folder view

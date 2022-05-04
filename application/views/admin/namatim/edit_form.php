@@ -30,9 +30,6 @@
 						<?php foreach ($tim as $timm) : ?>
 
 							<form action="<?php echo site_url('admin/NamaTim/edit'); ?>" method="POST" enctype="multipart/form-data">
-								<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/UangKas/edit/ID --->
-
 								<input type="hidden" name="id_tim" value="<?php echo $timm->id_tim; ?>" />
 
 								<div class="form-group">

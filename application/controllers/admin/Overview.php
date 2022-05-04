@@ -15,6 +15,9 @@ class Overview extends CI_Controller
 
 	public function index()
 	{
+		check_level_admin();
+		// check_level_ketua();
+		// check_level_anggota();
 		$data['hasil'] = $this->Overview_model->Jum_data();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// load view admin/overview.php

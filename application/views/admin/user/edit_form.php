@@ -30,8 +30,6 @@
 						<?php foreach ($User as $akun) : ?>
 
 							<form action="<?= base_url('admin/user/update/' . $akun->user_id) ?>" method="POST" enctype="multipart/form-data">
-								<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/User/edit/ID --->
 
 								<input type="hidden" name="id" value="<?php echo $akun->user_id; ?>" />
 

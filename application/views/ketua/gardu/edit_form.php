@@ -30,10 +30,6 @@
 
 
 						<form action="<?php echo base_url('ketua/gardu/update_gardu/' . $Gardu->id_gardu) ?>" method="POST" enctype="multipart/form-data">
-							<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-							oleh controller tempat vuew ini digunakan. Yakni index.php/ketua/Gardu/edit/ID --->
-
-							<!-- <input type="hidden" name="id" value="<?php echo $kunci['id_gardu']; ?>" /> -->
 
 							<div class="form-group">
 								<label for="nama_gardu">Nama Gardu</label>
