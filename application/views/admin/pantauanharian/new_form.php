@@ -26,7 +26,7 @@
 
 						<form action="<?php echo site_url('admin/PantauanHarian/add'); ?>" method="POST" enctype="multipart/form-data">
 							<?php echo $this->session->flashdata('berhasil'); ?>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label for="id_tim">Nama Tim</label>
 								<select id="id_tim" name="id_tim" class="form-control" required>
 									<option value="">Pilih Tim</option>
@@ -34,7 +34,7 @@
 										<option value="<?php echo $timm->id_tim ?>"><?= $timm->nama_tim ?></option>
 									<?php endforeach; ?>
 								</select>
-							</div>
+							</div> -->
 
 							<div class="form-group">
 								<label for="id_gardu">Nama Gardu</label>
@@ -81,7 +81,7 @@
 
 							<div class="form-group">
 								<label for="pengirim">Pengirim</label>
-								<input class="form-control" type="text" name="pengirim" placeholder="Pengirim" required />
+								<input class="form-control" type="text" name="username" placeholder="Pengirim" required />
 							</div>
 
 							<div class="form-group custom-file mt-2 mb-3">

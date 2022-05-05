@@ -42,7 +42,7 @@ class Auth extends CI_Controller
 						redirect('admin/Overview');
 					}
 					if ($user['level_id'] == 2) {
-						redirect('ketua/InfoTim');
+						redirect('ketua/Overview');
 					}
 					if ($user['level_id'] == 3) {
 						redirect('anggota/PantauanHarian');

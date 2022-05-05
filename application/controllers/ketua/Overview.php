@@ -15,10 +15,10 @@ class Overview extends CI_Controller
 
 	public function index()
 	{
-		check_level_admin();
-		$data['hasil'] = $this->Overview_model->Jum_data();
+		check_level_ketua();
+		$data['hasil'] = $this->Overview_model->kinerja();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		// load view admin/overview.php
-		$this->load->view("admin/Overview", $data);
+		$this->load->view("ketua/Overview", $data);
 	}
 }

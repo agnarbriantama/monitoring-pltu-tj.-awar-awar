@@ -25,8 +25,6 @@ class PantauanHarian extends CI_Controller
 	public function index()
 	{
 		check_level_admin();
-		// check_level_ketua();
-		// check_level_anggota();
 		// $startdate = $this->input->get('startdate', TRUE);
 		// $enddate = $this->input->get('enddate', TRUE);
 		// die($startdate. "===" .$enddate);
@@ -58,16 +56,17 @@ class PantauanHarian extends CI_Controller
 	public function add()
 	{
 		$id_gardu = $this->input->post('id_gardu');
-		$id_tim = $this->input->post('id_tim');
+		// $id_tim = $this->input->post('id_tim');
 		$suhu = $this->input->post('suhu');
 		$arus = $this->input->post('arus');
 		$cosphi = $this->input->post('cosphi');
 		$tgl_pantauan = $this->input->post('tgl_pantauan');
 		$tegangan = $this->input->post('tegangan');
 		$lokasi_pantauan = $this->input->post('lokasi_pantauan');
+		$username = $this->input->post('username');
 		//'kondisi' => $this->input->post('kondisi'),
 		$data['gambar'] = '';
-		$gambar = $_FILES['gambar']['file_name'];
+		$gambar = $_FILES['gambar']['name'];
 		$config['upload_path'] = './assets/imgpantauan/';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 
@@ -79,7 +78,7 @@ class PantauanHarian extends CI_Controller
 			$gambar = $this->upload->data('file_name');
 			$data = array(
 				'id_gardu' => $id_gardu,
-				'id_tim' => $id_tim,
+				// 'id_tim' => $id_tim,
 				'suhu' => $suhu,
 				'arus' => $arus,
 				'cosphi' => $cosphi,
@@ -88,6 +87,7 @@ class PantauanHarian extends CI_Controller
 				'gambar' => $gambar,
 				'status' => 0,
 				'lokasi_pantauan' => $lokasi_pantauan,
+				'username' => $username,
 			);
 		}
 

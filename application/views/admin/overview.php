@@ -109,6 +109,8 @@
 					}
 				});
 			</script>
+
+			
 			<!-- Sticky Footer -->
 			<?php $this->load->view("admin/_partials/footer.php") ?>
 		</div>
