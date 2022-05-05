@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand navbar-dark fixed-top" style=" background-color: #FBE900; font-weight: 600;">
 
-	<!-- <a class="navbar-brand mr-1 text-dark" href="<?php echo site_url('admin') ?>"><?php echo SITE_NAME ?></a> -->
 	<a><img src="<?php echo base_url('assets/logoweb/logoweb.png') ?>" width="150px" height="50px" alt=""></a>
 
 	<button class="btn btn-link btn-sm text-dark order-1 order-sm-0" id="sidebarToggle" style="color: #FBE900;" href="#">

@@ -38,9 +38,4 @@
 	<li class="nav-item">
 		<a class="nav-link" style="color: #909294;" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fa fa-sign-out"></i> Logout</a>
 	</li>
-
-	<!-- <div class="sb-sidenav-footer">
-		<div class="small">Logged in as:</div>
-		Start Bootstrap
-	</div> -->
 </ul>

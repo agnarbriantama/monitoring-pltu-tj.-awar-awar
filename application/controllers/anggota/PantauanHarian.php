@@ -24,7 +24,6 @@ class PantauanHarian extends CI_Controller
 	public function index()
 	{
 		check_level_anggota();
-		// untuk mengambil data dari model secara keseluruhan
 		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$data["pantauan_user"] = $this->PantauanHarian_model->pantauan_user();
@@ -33,7 +32,6 @@ class PantauanHarian extends CI_Controller
 
 	public function tambah_data()
 	{
-		// untuk mengambil data dari model secara keseluruhan
 		$data["Gardu"] = $this->Gardu_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("anggota/pantauanharian/new_form", $data);
@@ -48,7 +46,6 @@ class PantauanHarian extends CI_Controller
 		$tgl_pantauan = $this->input->post('tgl_pantauan');
 		$tegangan = $this->input->post('tegangan');
 		$lokasi_pantauan = $this->input->post('lokasi_pantauan');
-		//'kondisi' => $this->input->post('kondisi'),
 		$data['gambar'] = '';
 		$gambar = $_FILES['gambar']['name'];
 		$config['upload_path'] = './assets/imgpantauan/';
@@ -82,7 +79,6 @@ class PantauanHarian extends CI_Controller
 
 	public function list()
 	{
-		// untuk mengambil data dari model secara keseluruhan
 		$data["Gardu"] = $this->Gardu_model->getAll();
 		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();

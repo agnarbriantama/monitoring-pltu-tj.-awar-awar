@@ -6,7 +6,6 @@ class NamaTim extends CI_Controller
 {
 	public function __construct()
 	{
-		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
 		if (!$this->session->userdata('username')) {
 			redirect('auth/login');
@@ -21,14 +20,12 @@ class NamaTim extends CI_Controller
 		check_level_admin();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$data["tim"] = $this->Tim_model->getAll();
-		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("admin/namatim/list", $data);
 	}
 
 	public function tambah_tim()
 	{
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-		// meload data pada view  	yang sudah dibuat pada folder view
 		$this->load->view("admin/namatim/new_form", $data);
 	}
 

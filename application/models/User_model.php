@@ -68,7 +68,6 @@ class User_model extends CI_Model
 
 	public function delete($user_id)
 	{
-		// menjalankan dengan memanggil db dan tabel kemudian mencari id yang sesuai
 		$this->db->delete($this->_table, array('user_id' => $user_id));
 		$this->session->set_flashdata('success', 'Berhasil dihapus');
 		redirect(site_url('admin/User/index'));

@@ -46,11 +46,6 @@
 								<input class="form-control" type="email" name="email" placeholder="Email" required />
 							</div>
 
-							<!-- <div class="form-group">
-								<label for="nama_tim">Nama Tim</label>
-								<input class="form-control" type="text" name="nama_tim" placeholder="Nama Tim" required />
-							</div> -->
-
 							<div class="form-group">
 								<label for="id_tim">Nama Tim</label>
 								<select class="form-control" name="id_tim" id=id_tim">

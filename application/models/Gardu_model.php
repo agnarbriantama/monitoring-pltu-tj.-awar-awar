@@ -8,14 +8,11 @@ class Gardu_model extends CI_Model
 	public function getAll()
 	{
 		// tb_gardu adalah nama tabel
-		// untuk mengembalikan array yang berisi objek dari row
 		return $this->db->get($this->tb_gardu)->result();
 	}
 
 	public function getById($id)
 	{
-		// mengembalikan sebuah objek
-		// mengambil semua dari tb_data-rt yang dimana id_nama = id
 		return $this->db->get_where($this->tb_gardu, ["id_gardu" => $id])->result();
 	}
 
@@ -70,7 +67,6 @@ class Gardu_model extends CI_Model
 
 	public function delete($id)
 	{
-		// menjalankan dengan memanggil db dan tabel kemudian mencari id yang sesuai
 		return $this->db->delete($this->tb_gardu, array("id_gardu" => $id));
 	}
 }

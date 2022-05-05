@@ -4,10 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class User extends CI_Controller
 {
-	// membuat class construct
 	public function __construct()
 	{
-		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
 
 		if (!$this->session->userdata('username')) {
@@ -23,17 +21,14 @@ class User extends CI_Controller
 	public function index()
 	{
 		check_level_admin();
-		// untuk mengambil data dari model secara keseluruhan
 		$data["User"] = $this->user_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("admin/user/list", $data);
 	}
 
 	// Digunakan untuk memanggil form
 	public function input()
 	{
-		// untuk meload tampilan newform pada bagian view
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view('admin/user/new_form', $data);
 	}
@@ -50,7 +45,6 @@ class User extends CI_Controller
 		$phone = $this->input->post('phone');
 		$level_id = $this->input->post('level_id');
 
-		//'kondisi' => $this->input->post('kondisi'),
 		$data['gambar'] = '';
 		$gambar_user = $_FILES['gambar_user']['name'];
 		$config['upload_path'] = './assets/imguser/';
@@ -81,7 +75,6 @@ class User extends CI_Controller
 		redirect(site_url('admin/User/index'));
 	}
 
-	// untuk fungsi edit dengan nilai defaultnya null
 	public function edit($id = NULL)
 	{
 		$data['User']  = $this->user_model->getById($id);
@@ -146,7 +139,6 @@ class User extends CI_Controller
 	}
 
 
-	// untuk fungsi delete dengan nilai defaultnya null
 	public function delete($id = null)
 	{
 		if (!isset($id)) show_404();

@@ -72,7 +72,7 @@
 				});
 			</script>
 
-			
+
 			<!-- Sticky Footer -->
 			<?php $this->load->view("ketua/_partials/footer.php") ?>
 		</div>

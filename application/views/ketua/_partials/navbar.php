@@ -18,9 +18,6 @@
 			<i class="fas fa-user-circle fa-fw"></i> <?= $users['username'] ?>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right badge-danger" aria-labelledby="userDropdown">
-				<!-- <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a> -->
-				<!-- <div class="dropdown-divider"></div> -->
 				<a class="dropdown-item badge-danger text-light text-center" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
 			</div>
 		</li>

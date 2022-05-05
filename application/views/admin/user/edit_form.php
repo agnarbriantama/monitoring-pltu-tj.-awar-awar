@@ -62,14 +62,6 @@
 									</div>
 								</div>
 
-								<!-- <div class="form-group">
-									<label for="nama_tim">Nama Tim</label>
-									<input class="form-control <?php echo form_error('nama_tim') ? 'is-invalid' : '' ?>" type="text" name="nama_tim" placeholder="Nomor Hp" value="<?php echo $akun->nama_tim ?>" required />
-									<div class="invalid-feedback">
-										<?php echo form_error('nama_tim') ?>
-									</div>
-								</div> -->
-
 								<div class="form-group">
 									<label>Nama Tim</label><br>
 									<select name="id_tim" class="form-control">

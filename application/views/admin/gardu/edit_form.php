@@ -33,7 +33,6 @@
 							<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
 							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/Gardu/edit/ID --->
 
-							<!-- <input type="hidden" name="id" value="<?php echo $kunci['id_gardu']; ?>" /> -->
 
 							<div class="form-group">
 								<label for="nama_gardu">Nama Gardu</label>

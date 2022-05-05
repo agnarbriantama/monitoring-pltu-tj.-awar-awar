@@ -7,7 +7,6 @@ class Gardu extends CI_Controller
 	// membuat class construct
 	public function __construct()
 	{
-		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
 		if (!$this->session->userdata('username')) {
 			redirect('auth/login');
@@ -22,10 +21,8 @@ class Gardu extends CI_Controller
 	public function index()
 	{
 		check_level_admin();
-		// untuk mengambil data dari model secara keseluruhan
 		$data["Gardu"] = $this->Gardu_model->getAll();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-		// meload data pada view yang sudah dibuat pada folder view
 		$this->load->view("admin/gardu/list", $data);
 	}
 
@@ -54,7 +51,6 @@ class Gardu extends CI_Controller
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 	}
 
-	// untuk fungsi edit dengan nilai defaultnya null
 	public function edit($id)
 	{
 		$data['Gardu'] =  $this->db->get_where('tb_gardu', ['id_gardu' => $id])->row();

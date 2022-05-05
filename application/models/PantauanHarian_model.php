@@ -61,11 +61,9 @@ class PantauanHarian_model extends CI_Model
 		}
 
 		$id = $this->input->post('id_pantauan');
-		// if (empty($tegangan)) $tegangan = "Kosong";
 
 		$data = array(
 			'id_pantauan' => $id,
-			// 'nama_gardu' => $this->input->post('nama_gardu'),
 			'id_gardu' => $this->input->post('id_gardu'),
 			'id_tim' => $this->input->post('id_tim'),
 			'suhu' => $this->input->post('suhu'),
@@ -80,12 +78,10 @@ class PantauanHarian_model extends CI_Model
 
 		$this->db->update($this->tb_pantauanharian, $data, array('id_pantauan' => $id));
 		redirect(site_url('admin/PantauanHarian/index'));
-		// $this->session->set_flashdata('success', 'Berhasil diupdate');
 	}
 
 	public function delete($id)
 	{
-		// menjalankan dengan memanggil db dan tabel kemudian mencari id yang sesuai
 		return $this->db->delete($this->tb_pantauanharian, array("id_pantauan" => $id));
 	}
 
