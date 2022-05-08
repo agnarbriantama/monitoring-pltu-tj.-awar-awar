@@ -56,7 +56,7 @@
 										<th>Nama Tim</th>
 										<th>Nomor HP</th>
 										<th>Level</th>
-										<th>Foto</th>
+										<th>Foto User</th>
 										<th>Action</th>
 									</tr>
 								</thead>

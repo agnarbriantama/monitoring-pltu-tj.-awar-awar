@@ -27,7 +27,7 @@ class PantauanHarian extends CI_Controller
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/pantauanharian/list", $data);
 	}
-
+	// ! relasi data
 	public function relasi()
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();
@@ -42,7 +42,7 @@ class PantauanHarian extends CI_Controller
 	// 	$this->load->view('admin/pantauanharian/new_form');
 	// }
 
-	// menambahkan data
+	// ! menambahkan data
 	public function add()
 	{
 		$id_gardu = $this->input->post('id_gardu');
@@ -83,7 +83,7 @@ class PantauanHarian extends CI_Controller
 		redirect(site_url('admin/PantauanHarian/index'));
 	}
 
-
+	// ! mengubah data
 	public function edit($id = NULL)
 	{
 		$data["tim"] = $this->Tim_model->getAll();
@@ -111,7 +111,7 @@ class PantauanHarian extends CI_Controller
 		$this->load->view("admin/pantauanharian/edit_form", $data);
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
 	}
-	//disetujui
+	// ! disetujui
 	public function disetujui($id)
 	{
 		$sql = "UPDATE tb_pantauanharian SET status ='1' WHERE id_pantauan =$id";
@@ -119,7 +119,7 @@ class PantauanHarian extends CI_Controller
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect(site_url('admin/pantauanharian'));
 	}
-// ditolak
+	// ! ditolak
 	public function ditolak($id)
 	{
 		$sql = "UPDATE tb_pantauanharian SET status ='2' WHERE id_pantauan =$id";
@@ -127,10 +127,7 @@ class PantauanHarian extends CI_Controller
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data DiTolak<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect(site_url('admin/pantauanharian'));
 	}
-
-
-
-	// untuk fungsi delete dengan nilai defaultnya null
+	// ! menghapus data
 	public function delete($id = null)
 	{
 		if (!isset($id)) show_404();

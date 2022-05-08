@@ -2,6 +2,7 @@
 
 class Overview_model extends CI_Model
 {
+	// ! grafik admin
 	public function Jum_data()
 	{
 		$this->db->group_by('tgl_pantauan');
@@ -11,7 +12,7 @@ class Overview_model extends CI_Model
 			->get()
 			->result();
 	}
-
+	// ! grafik ketua
 	public function kinerja()
 	{
 		$this->db->group_by('username');

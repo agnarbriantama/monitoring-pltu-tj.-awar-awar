@@ -13,7 +13,7 @@ class Tim_model extends CI_Model
 	{
 		return $this->db->get_where($this->tim, ["id_tim" => $id])->result();
 	}
-
+	// ! update
 	public function update()
 	{
 		$post = $this->input->post();
@@ -22,5 +22,10 @@ class Tim_model extends CI_Model
 		$this->db->update($this->tim, $this, array('id_tim' => $post['id_tim']));
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
 		redirect(site_url('admin/NamaTim/index'));
+	}
+
+	public function delete($id)
+	{
+		return $this->db->delete($this->tim, array("id_tim" => $id));
 	}
 }

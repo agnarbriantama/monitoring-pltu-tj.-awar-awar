@@ -24,14 +24,14 @@ class Gardu extends CI_Controller
 		$this->load->view("ketua/Gardu/list", $data);
 	}
 
-	// Digunakan untuk memanggil form
+	// ! Digunakan untuk memanggil form
 	public function input()
 	{
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view('ketua/Gardu/new_form',$data);
 	}
 
-	// menambahkan data
+	// ! menambahkan data
 	public function add()
 	{
 		// Configurasi File
@@ -47,14 +47,14 @@ class Gardu extends CI_Controller
 		$this->Gardu_model->save();
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 	}
-
+	// ! edit data
 	public function edit($id)
 	{
 		$data['Gardu'] =  $this->db->get_where('tb_gardu', ['id_gardu' => $id])->row();
 		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("ketua/Gardu/edit_form", $data);
 	}
-
+	// ! update data
 	public function update_gardu($id)
 	{
 		$kondisi = array('id_gardu' => $id);
@@ -86,7 +86,7 @@ class Gardu extends CI_Controller
 			redirect('ketua/Gardu');
 		}
 	}
-
+	// ! hapus data
 	public function delete($id = null)
 	{
 		if (!isset($id)) show_404();

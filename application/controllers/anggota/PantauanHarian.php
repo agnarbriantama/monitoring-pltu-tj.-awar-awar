@@ -20,7 +20,7 @@ class PantauanHarian extends CI_Controller
 		$this->load->model("user_model");
 	}
 
-	// mengambil data model dan di render
+	// ! mengambil data model dan di render
 	public function index()
 	{
 		check_level_anggota();
@@ -36,7 +36,7 @@ class PantauanHarian extends CI_Controller
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("anggota/pantauanharian/new_form", $data);
 	}
-
+	// ! tambah data
 	public function add()
 	{
 		$id_gardu = $this->input->post('id_gardu');
@@ -76,7 +76,7 @@ class PantauanHarian extends CI_Controller
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 		redirect(site_url('anggota/PantauanHarian/index'));
 	}
-
+	// ! list data
 	public function list()
 	{
 		$data["Gardu"] = $this->Gardu_model->getAll();

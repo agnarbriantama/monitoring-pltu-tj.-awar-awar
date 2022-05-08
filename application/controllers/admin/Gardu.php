@@ -4,7 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Gardu extends CI_Controller
 {
-	// membuat class construct
 	public function __construct()
 	{
 		parent::__construct();
@@ -17,7 +16,6 @@ class Gardu extends CI_Controller
 		$this->load->model("user_model");
 	}
 
-	// mengambil data model dan di render
 	public function index()
 	{
 		check_level_admin();
@@ -26,15 +24,14 @@ class Gardu extends CI_Controller
 		$this->load->view("admin/gardu/list", $data);
 	}
 
-	// Digunakan untuk memanggil form
+	// ! Digunakan untuk memanggil form
 	public function input()
 	{
-		// untuk meload tampilan newform pada bagian view
-		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
-		$this->load->view('admin/gardu/new_form',$data);
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+		$this->load->view('admin/gardu/new_form', $data);
 	}
 
-	// menambahkan data
+	// ! menambahkan data
 	public function add()
 	{
 		// Configurasi File
@@ -50,14 +47,14 @@ class Gardu extends CI_Controller
 		$this->Gardu_model->save();
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 	}
-
+	// ! edit data
 	public function edit($id)
 	{
 		$data['Gardu'] =  $this->db->get_where('tb_gardu', ['id_gardu' => $id])->row();
-		$data["users"] = $this->db->get_where('users',['username' => $this->session->userdata('username')])->row_array();
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/gardu/edit_form", $data);
 	}
-
+	// ! update data
 	public function update_gardu($id)
 	{
 		$kondisi = array('id_gardu' => $id);
@@ -90,8 +87,7 @@ class Gardu extends CI_Controller
 			redirect('admin/Gardu');
 		}
 	}
-
-	// untuk fungsi delete dengan nilai defaultnya null
+	// ! hapus data
 	public function delete($id = null)
 	{
 		if (!isset($id)) show_404();

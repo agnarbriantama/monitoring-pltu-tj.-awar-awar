@@ -19,7 +19,7 @@ class PantauanHarian_model extends CI_Model
 	{
 		return $this->db->get_where($this->tb_pantauanharian, ["id_pantauan" => $id])->result();
 	}
-
+	// ! pantauan user
 	public function pantauan_user()
 	{
 		$this->db->select('*');
@@ -27,7 +27,7 @@ class PantauanHarian_model extends CI_Model
 		$this->db->where('tb_pantauanharian.username',  $this->session->userdata('username'));
 		return $this->db->get('tb_pantauanharian')->result();
 	}
-
+	// ! simpan
 	public function save()
 	{
 		$tegangan = implode(" , ", $this->input->post('tegangan'));
@@ -49,7 +49,7 @@ class PantauanHarian_model extends CI_Model
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 		redirect(site_url('admin/PantauanHarian/index'));
 	}
-
+	// ! update
 	public function update($id = NULL)
 	{
 		$gambar = $this->upload->do_upload('gambar');
@@ -79,12 +79,12 @@ class PantauanHarian_model extends CI_Model
 		$this->db->update($this->tb_pantauanharian, $data, array('id_pantauan' => $id));
 		redirect(site_url('admin/PantauanHarian/index'));
 	}
-
+	// ! hapus
 	public function delete($id)
 	{
 		return $this->db->delete($this->tb_pantauanharian, array("id_pantauan" => $id));
 	}
-
+	// ! relasi
 	public function pantauan_tim()
 	{
 		$this->db->select('*');

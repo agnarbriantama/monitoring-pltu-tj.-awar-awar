@@ -22,13 +22,13 @@ class NamaTim extends CI_Controller
 		$data["tim"] = $this->Tim_model->getAll();
 		$this->load->view("admin/namatim/list", $data);
 	}
-
+	// ! tambah data tim
 	public function tambah_tim()
 	{
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/namatim/new_form", $data);
 	}
-
+	// ! proses db
 	public function proses()
 	{
 		if ($this->input->Server('REQUEST_METHOD') === 'POST') {
@@ -40,12 +40,12 @@ class NamaTim extends CI_Controller
 			echo "gagal";
 		}
 	}
-
+	// ! edit data
 	public function edit($id = NULL)
 	{
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->form_validation->set_rules('nama_tim', 'Nama_Tim', 'required');
-		
+
 		$data["tim"] = $this->Tim_model->getById($id);
 
 		if ($this->form_validation->run()) {
@@ -53,5 +53,15 @@ class NamaTim extends CI_Controller
 		}
 		$this->load->view("admin/NamaTim/edit_form", $data);
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
+	}
+
+	public function delete($id = null)
+	{
+		if (!isset($id)) show_404();
+
+		if ($this->Tim_model->delete($id)) {
+			$this->session->set_flashdata('success', 'Berhasil dihapus');
+			redirect(site_url('admin/NamaTim'));
+		}
 	}
 }

@@ -76,7 +76,7 @@
 							</div>
 
 							<div class="form-group custom-file mt-2 mb-3">
-								<label for="gambar" class="custom-file-label">Foto Bukti Di Tempat Gardu</label>
+								<label for="gambar" class="custom-file-label">Foto Bukti Data Gardu</label>
 								<input class="form-control custom-file-input" type="file" name="gambar" required />
 							</div>
 

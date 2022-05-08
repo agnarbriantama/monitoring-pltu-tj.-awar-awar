@@ -20,7 +20,7 @@ class PantauanHarian extends CI_Controller
 		$this->load->model("user_model");
 	}
 
-	// mengambil data model dan di render
+	// ! mengambil data model dan di render
 	public function index()
 	{
 		check_level_ketua();
@@ -32,7 +32,7 @@ class PantauanHarian extends CI_Controller
 		$this->load->view("ketua/pantauanharian/list", $data);
 	}
 
-	//disetujui
+	// ! disetujui
 	public function disetujui($id)
 	{
 		$sql = "UPDATE tb_pantauanharian SET status ='1' WHERE id_pantauan =$id";
@@ -40,7 +40,7 @@ class PantauanHarian extends CI_Controller
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Telah Disetujui<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect(site_url('ketua/PantauanHarian'));
 	}
-
+	//  ! ditolak
 	public function ditolak($id)
 	{
 		$sql = "UPDATE tb_pantauanharian SET status ='2' WHERE id_pantauan =$id";
@@ -48,10 +48,7 @@ class PantauanHarian extends CI_Controller
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">  Data Ditolak <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect(site_url('ketua/PantauanHarian'));
 	}
-
-
-
-	// untuk fungsi delete dengan nilai defaultnya null
+	// ! delete
 	public function delete($id = null)
 	{
 		if (!isset($id)) show_404();

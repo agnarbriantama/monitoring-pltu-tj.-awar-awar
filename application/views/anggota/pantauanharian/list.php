@@ -55,7 +55,7 @@
 										<th>Cosphi</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
-										<th>Gambar</th>
+										<th>Bukti Data</th>
 										<th>Status</th>
 									</tr>
 								</thead>
@@ -80,7 +80,7 @@
 												<?php echo $datpan->cosphi ?>
 											</td>
 											<td width="100">
-												<?php echo dateindo($datpan->tgl_pantauan) ?>
+												<?php echo $datpan->tgl_pantauan ?>
 											</td>
 											<td width="100">
 												<?php echo $datpan->tegangan ?>

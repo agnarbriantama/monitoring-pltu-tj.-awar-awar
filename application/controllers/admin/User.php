@@ -17,7 +17,7 @@ class User extends CI_Controller
 		$this->load->model("user_model");
 	}
 
-	// mengambil data model dan di render
+	// ! mengambil data model dan di render
 	public function index()
 	{
 		check_level_admin();
@@ -26,14 +26,14 @@ class User extends CI_Controller
 		$this->load->view("admin/user/list", $data);
 	}
 
-	// Digunakan untuk memanggil form
+	// ! Digunakan untuk memanggil form
 	public function input()
 	{
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view('admin/user/new_form', $data);
 	}
 
-	// menambahkan data
+	// ! menambahkan data
 	public function add()
 	{
 		$user_id = $this->input->post('user_id');
@@ -74,7 +74,7 @@ class User extends CI_Controller
 		$this->session->set_flashdata('success', 'Berhasil ditambahkan');
 		redirect(site_url('admin/User/index'));
 	}
-
+	// ! fungsi edit
 	public function edit($id = NULL)
 	{
 		$data['User']  = $this->user_model->getById($id);
@@ -82,7 +82,7 @@ class User extends CI_Controller
 
 		$this->load->view("admin/user/edit_form", $data);
 	}
-
+	// ! fungsi update
 	public function update($id)
 	{
 		$kondisi = array('user_id' => $id);
@@ -138,7 +138,7 @@ class User extends CI_Controller
 		}
 	}
 
-
+	// ! fungsi delete
 	public function delete($id = null)
 	{
 		if (!isset($id)) show_404();

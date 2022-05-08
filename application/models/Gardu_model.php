@@ -16,7 +16,7 @@ class Gardu_model extends CI_Model
 		return $this->db->get_where($this->tb_gardu, ["id_gardu" => $id])->result();
 	}
 
-
+// ! save
 	public function save()
 	{
 		$gambar_gardu = $this->upload->do_upload('gambar_gardu');
@@ -40,7 +40,7 @@ class Gardu_model extends CI_Model
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 		redirect(site_url('admin/Gardu/index'));
 	}
-
+	//  ! update
 	public function update($id = NULL)
 	{
 		$foto = $this->upload->do_upload('foto_gardu');
@@ -64,7 +64,7 @@ class Gardu_model extends CI_Model
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
 		redirect(site_url('admin/Gardu/index'));
 	}
-
+	//  ! delete
 	public function delete($id)
 	{
 		return $this->db->delete($this->tb_gardu, array("id_gardu" => $id));

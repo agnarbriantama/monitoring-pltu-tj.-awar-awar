@@ -7,7 +7,7 @@ class Auth extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 	}
-
+	// ! menampilkan halaman login
 	public function login()
 	{
 		check_already_login();
@@ -20,7 +20,7 @@ class Auth extends CI_Controller
 			$this->_login();
 		}
 	}
-
+	// ! proses login
 	private function _login()
 	{
 		$username = $this->input->post('username');
@@ -69,7 +69,7 @@ class Auth extends CI_Controller
 			redirect('auth/login');
 		}
 	}
-
+	// ! logout
 	public function logout()
 	{
 		$this->session->sess_destroy();

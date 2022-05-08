@@ -3,6 +3,7 @@
 
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
+	<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
 </head>
 
 <body id=" page-top">
@@ -16,7 +17,7 @@
 
 			<div class="container-fluid">
 				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
-
+				<!-- // ! Alert -->
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $this->session->flashdata('success'); ?>
@@ -41,26 +42,24 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a class="btn btn-primary" href="<?php echo site_url('admin/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
-						<a class="btn btn-success ml-2" style="float: right;" target="_blank" href="https://wa.me/+6285748502961?text=Nama%20Pengirim%20%3A%20%0ANama%20Tim%20%3A%20"><i class="fa fa-whatsapp"></i> Send Whatsapp</a>
+						<!-- // ! whatsapp -->
+						<a onclick="whatsapp()" style="float: right;" class="btn btn-success ml-2 text-light"><i class="fa fa-whatsapp"></i> Whatsapp</a>
 					</div>
+					<!-- // ! view sortir by date -->
 					<div class="card-body">
 						<div class="row">
-							<div class="col col-5"></div>
-							<div class="col col-3 text-center">
-								<label for="startdate">Start Date</label>
-								<input class="form-control" type="date" name="startdate" placeholder="Start Date" />
+							<div class="col col-8"></div>
+							<div class="col col-2 text-center">
+								<label style="font-size: 14px;" for="startdate">Mulai Tanggal</label>
+								<input class="form-control text-center" type="text" id="min" name="min" placeholder="Tanggal Mulai" />
 							</div>
-							<div class="col col-3 text-center">
-								<label for="enddate">End Date</label>
-								<input class="form-control" type="date" name="enddate" placeholder="End Date" />
-							</div>
-							<div class="col col-1">
-								<label for="cari"></label>
-								<button style="margin-top: 35px;" class="btn btn-info">Filter</button>
+							<div class="col col-2 text-center">
+								<label style="font-size: 14px;" for="enddate">Akhir Tanggal</label>
+								<input class="form-control text-center" type="text" id="max" name="max" placeholder="Tanggal Selesai" />
 							</div>
 						</div>
 						<hr>
-
+						<!-- // ! datatable -->
 						<div class="table-responsive">
 							<table class="table cell-border table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
 								<thead>
@@ -73,7 +72,7 @@
 										<th>Cosphi</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
-										<th>Gambar</th>
+										<th>Bukti Data</th>
 										<th>Status</th>
 										<th>Lokasi Pantauan</th>
 										<th>Pengirim</th>
@@ -104,7 +103,7 @@
 												<?php echo $datpan->cosphi ?>
 											</td>
 											<td width="100">
-												<?php echo dateindo($datpan->tgl_pantauan) ?>
+												<?php echo $datpan->tgl_pantauan ?>
 											</td>
 											<td width="100">
 												<?php echo $datpan->tegangan ?>
@@ -129,6 +128,7 @@
 											<td width="100">
 												<?php echo $datpan->username ?>
 											</td>
+											<!-- // ! action -->
 											<td width="250">
 												<a style="width: 100px;" href="<?php echo site_url('admin/pantauanharian/edit/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
 												<a style="width: 100px;" onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
@@ -159,22 +159,28 @@
 	<?php $this->load->view("admin/_partials/js.php") ?>
 
 	<script>
+		// ! untuk hapus
 		function deleteConfirm(url) {
 			$('#btn-delete').attr('href', url);
 			$('#deleteModal').modal();
 		}
-	</script>
 
-	<script>
+		// ! untuk whatsapp
+		function whatsapp() {
+			$('#waModal').modal();
+		}
+
+		// ! untuk datatable
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
 				"bInfo": false,
+				lengthChange: true,
 				// "scrollX": true,
 				// "scrollY": "350px",
 				"scrollCollapse": true,
 				"paging": true,
 				// scrollY: '250px',
-				// dom: 'Bfrtip',
+				dom: 'Bfrtip',
 				buttons: [{
 						title: 'Data Pantauan Harian Monitoring Gardu',
 						extend: 'copyHtml5',
@@ -254,6 +260,45 @@
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
 		});
+
+		// ! sortir by date
+		var minDate, maxDate;
+
+		$.fn.dataTable.ext.search.push(
+			function(settings, data, dataIndex) {
+				var min = minDate.val();
+				var max = maxDate.val();
+				var date = new Date(data[6]);
+
+				if (
+					(min === null && max === null) ||
+					(min === null && date <= max) ||
+					(min <= date && max === null) ||
+					(min <= date && date <= max)
+				) {
+					return true;
+				}
+				return false;
+			}
+		);
+
+		$(document).ready(function() {
+			// Create date inputs
+			minDate = new DateTime($('#min'), {
+				format: 'YYYY MMMM Do '
+			});
+			maxDate = new DateTime($('#max'), {
+				format: 'YYYY MMMM Do'
+			});
+
+			// DataTables initialisation
+			var table = $('#dataTables').DataTable();
+
+			// Refilter the table
+			$('#min, #max').on('change', function() {
+				table.draw();
+			});
+		});
 	</script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
@@ -262,6 +307,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+
 
 </body>
 

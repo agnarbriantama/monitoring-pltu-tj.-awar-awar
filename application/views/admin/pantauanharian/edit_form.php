@@ -84,7 +84,7 @@
 								</div>
 
 								<div class="form-group">
-									<label for="gambar">Gambar</label>
+									<label for="gambar">Bukti Data</label>
 									<div><img src="<?php echo base_url('./assets/imgpantauan/') . $datpan->gambar ?>" border="0" width="70px" height="70px" /></div>
 									<input class="form-control <?php echo form_error('gambar') ? 'is-invalid' : '' ?>" type="file" name="gambar" placeholder="Gambar" />
 									<input type="hidden" name="fotolama" value="<?php echo $datpan->gambar; ?>" />

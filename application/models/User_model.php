@@ -19,7 +19,7 @@ class User_model extends CI_Model
 	{
 		return $this->db->get_where($this->_table, ["user_id" => $id])->result();
 	}
-
+	// ! user ketua
 	public function users_ketua()
 	{
 		$this->db->select('*');
@@ -28,6 +28,7 @@ class User_model extends CI_Model
 		$this->db->where('users.id_tim',  $this->session->userdata('id_tim'));
 		return $this->db->get('users')->result();
 	}
+	// ! user tim
 	public function users_tim()
 	{
 		$this->db->select('*');
@@ -35,7 +36,7 @@ class User_model extends CI_Model
 		$this->db->where('users.username',  $this->session->userdata('username'));
 		return $this->db->get('users')->result();
 	}
-
+	// ! simpan
 	public function save()
 	{
 		$post = $this->input->post();
@@ -50,7 +51,7 @@ class User_model extends CI_Model
 		$this->session->set_flashdata('berhasil', 'Berhasil ditambahkan');
 		redirect(site_url('admin/User/index'));
 	}
-
+	// ! update
 	public function update()
 	{
 		$post = $this->input->post();
@@ -64,15 +65,15 @@ class User_model extends CI_Model
 		$this->db->update($this->_table, $this, array('user_id' => $post['id']));
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
 		redirect(site_url('admin/User/index'));
-	}
-
+	}	
+	// ! hapus
 	public function delete($user_id)
 	{
 		$this->db->delete($this->_table, array('user_id' => $user_id));
 		$this->session->set_flashdata('success', 'Berhasil dihapus');
 		redirect(site_url('admin/User/index'));
 	}
-
+	// ! tidak login
 	public function isNotLogin()
 	{
 		return $this->session->userdata('user_logged') === null;

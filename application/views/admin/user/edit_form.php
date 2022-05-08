@@ -47,8 +47,9 @@
 								</div>
 
 								<div class="form-group">
-									<label for="password">Password</label>
-									<input minlength="8" maxlength="500" class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required />
+									<label for="password">Password <span style="color: red; font-size: 12px; font-style: italic;">(*Optional)</span></label>
+									<!-- <input minlength="8" maxlength="500" class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="Password" value="<?php echo $akun->password ?>" required /> -->
+									<input style="" minlength="8" maxlength="500" class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="password" name="password" placeholder="Ubah Password" value="" />
 									<div class="invalid-feedback">
 										<?php echo form_error('password') ?>
 									</div>
