@@ -66,7 +66,7 @@
 								</div>
 
 								<div class="form-group">
-									<label for="cosphi">cosphi</label>
+									<label for="cosphi">Daya</label>
 									<input class="form-control <?php echo form_error('cosphi') ? 'is-invalid' : '' ?>" type="number" name="cosphi" placeholder="Cosphi" value="<?php echo $datpan->cosphi; ?>" />
 								</div>
 

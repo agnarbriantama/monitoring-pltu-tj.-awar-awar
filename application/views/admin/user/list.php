@@ -65,17 +65,19 @@
 									$no = 1;
 									foreach ($User as $akun) : ?>
 										<tr>
-											<td class="10">
+											<td width="10">
 												<?php echo $no++ ?>
 											</td>
 											<td width="200">
 												<?php echo $akun->full_name ?>
 											</td>
-											<td class="200">
+											<td width="200">
 												<?php echo $akun->username ?>
 											</td>
 											<td type="password">
-												<?php echo $akun->password ?>
+												<?php 
+												echo substr($akun->password, 0, 8);
+												?>
 											</td>
 											<td>
 												<?php echo $akun->email ?>

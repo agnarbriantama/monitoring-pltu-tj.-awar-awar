@@ -47,7 +47,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="cosphi">Cosphi</label>
+								<label for="cosphi">Daya</label>
 								<input class="form-control" type="number" name="cosphi" placeholder="" required />
 							</div>
 

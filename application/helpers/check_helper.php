@@ -50,7 +50,7 @@ function check_level_anggota()
 		if($hak_akses == 1){
 			redirect('admin/Overview');
 		} else if ($hak_akses == 2) {
-			redirect('ketua/InfoTim');
+			redirect('ketua/Overview');
 		}
 	}
 }

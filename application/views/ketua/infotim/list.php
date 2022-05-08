@@ -62,7 +62,7 @@
 									$no = 1;
 									foreach ($users_ketua as $akun) : ?>
 										<tr>
-											<td class="10">
+											<td width="10">
 												<?php echo $no++ ?>
 											</td>
 											<td width="200">

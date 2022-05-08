@@ -59,10 +59,10 @@
 									$no = 1;
 									foreach ($Gardu as $gardu) : ?>
 										<tr>
-											<td class="10"><br>
+											<td width="10"><br>
 												<?php echo $no++ ?>
 											</td>
-											<td class="100"><br>
+											<td width="100"><br>
 												<?php echo $gardu->nama_gardu ?>
 											</td>
 											<td width="200">

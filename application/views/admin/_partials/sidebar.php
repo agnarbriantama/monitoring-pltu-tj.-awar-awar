@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
-	<li class="nav-item <?php echo $this->uri->segment(2) == '' ? 'active' : '' ?>">
-		<a class="nav-link" href="<?php echo site_url('admin') ?>">
+	<li class="nav-item <?php echo $this->uri->segment(2) == 'Overview' ? 'active' : '' ?>">
+		<a class="nav-link" href="<?php echo site_url('admin/Overview') ?>">
 			<i class="fas fa-tachometer-alt"></i>
 			<span> Dashboard</span>
 		</a>

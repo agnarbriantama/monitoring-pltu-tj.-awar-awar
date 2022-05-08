@@ -36,6 +36,7 @@
 		</div>
 	</div>
 </div>
+
 <?php
 if (isset($_POST['kirim'])) {
 	$nomortujuan  = $_POST['nomortujuan'];
@@ -44,6 +45,7 @@ if (isset($_POST['kirim'])) {
 	echo "<script>window.location = 'https://api.whatsapp.com/send?phone=$nomortujuan&text=$pesan&source=&data='</script>";
 }
 ?>
+
 <!-- send Whatsapp -->
 <div class="modal fade" id="waModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">

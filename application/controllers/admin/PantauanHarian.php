@@ -18,8 +18,7 @@ class PantauanHarian extends CI_Controller
 		$this->load->library('form_validation');
 		$this->load->model("User_model");
 	}
-
-	// mengambil data model dan di render
+	// ! mengambil data model dan di render
 	public function index()
 	{
 		check_level_admin();
@@ -35,13 +34,6 @@ class PantauanHarian extends CI_Controller
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/pantauanharian/new_form", $data);
 	}
-
-	// Digunakan untuk memanggil form
-	// public function input()
-	// {
-	// 	$this->load->view('admin/pantauanharian/new_form');
-	// }
-
 	// ! menambahkan data
 	public function add()
 	{
@@ -82,7 +74,6 @@ class PantauanHarian extends CI_Controller
 		$this->session->set_flashdata('berhasil', 'Berhasil DiTambahkan');
 		redirect(site_url('admin/PantauanHarian/index'));
 	}
-
 	// ! mengubah data
 	public function edit($id = NULL)
 	{

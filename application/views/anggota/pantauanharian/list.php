@@ -52,7 +52,7 @@
 										<th>Nama Gardu</th>
 										<th>Suhu</th>
 										<th>Arus</th>
-										<th>Cosphi</th>
+										<th>Daya</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Bukti Data</th>
@@ -64,10 +64,10 @@
 									$no = 1;
 									foreach ($pantauan_user as $datpan) : ?>
 										<tr>
-											<td class="10">
+											<td width="10">
 												<?php echo $no++ ?>
 											</td>
-											<td class="100">
+											<td width="100">
 												<?php echo $datpan->nama_gardu ?>
 											</td>
 											<td width="100">
@@ -145,13 +145,6 @@
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
 		});
 	</script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
 
 </body>

@@ -69,7 +69,7 @@
 										<th>Nama Gardu</th>
 										<th>Suhu</th>
 										<th>Arus</th>
-										<th>Cosphi</th>
+										<th>Daya</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Bukti Data</th>
@@ -84,34 +84,34 @@
 									$no = 1;
 									foreach ($PantauanHarian as $datpan) : ?>
 										<tr>
-											<td class="10">
+											<td width="10">
 												<?php echo $no++ ?>
 											</td>
-											<td class="100">
+											<td width="70">
 												<?php echo $datpan->nama_tim ?>
 											</td>
-											<td class="100">
+											<td width="70">
 												<?php echo $datpan->nama_gardu ?>
 											</td>
-											<td width="100">
+											<td width="70">
 												<?php echo $datpan->suhu ?>
 											</td>
-											<td width="100">
+											<td width="70">
 												<?php echo $datpan->arus ?>
 											</td>
-											<td width="150">
+											<td width="70">
 												<?php echo $datpan->cosphi ?>
 											</td>
-											<td width="100">
+											<td width="70">
 												<?php echo $datpan->tgl_pantauan ?>
 											</td>
-											<td width="100">
+											<td width="70">
 												<?php echo $datpan->tegangan ?>
 											</td>
 											<td>
 												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
 											</td>
-											<td width="100">
+											<td width="70">
 												<?php
 												if ($datpan->status == 0) {
 												?>
@@ -122,10 +122,10 @@
 												}
 												?>
 											</td>
-											<td width="100">
+											<td width="70">
 												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>">Lihat Lokasi</a>
 											</td>
-											<td width="100">
+											<td width="70">
 												<?php echo $datpan->username ?>
 											</td>
 											<!-- // ! action -->
@@ -300,17 +300,6 @@
 			});
 		});
 	</script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-	<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
-
-
 </body>
 
 </html>

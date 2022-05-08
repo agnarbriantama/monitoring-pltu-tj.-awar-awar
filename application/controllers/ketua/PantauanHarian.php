@@ -4,10 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class PantauanHarian extends CI_Controller
 {
-	// membuat class construct
 	public function __construct()
 	{
-		// untuk menjalankan program pertama kali dieksekusi
 		parent::__construct();
 
 		if (!$this->session->userdata('username')) {
@@ -24,7 +22,6 @@ class PantauanHarian extends CI_Controller
 	public function index()
 	{
 		check_level_ketua();
-		// untuk mengambil data dari model secara keseluruhan
 		$data["PantauanHarian"] = $this->PantauanHarian_model->getAll();
 		$data["pantauan_tim"] = $this->PantauanHarian_model->pantauan_tim();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();

@@ -59,17 +59,17 @@
 									$no = 1;
 									foreach ($Gardu as $gardu) : ?>
 										<tr>
-											<td class="10"><br>
+											<td width="10"><br>
 												<?php echo $no++ ?>
 											</td>
-											<td class="100"><br>
+											<td width="300"><br>
 												<?php echo $gardu->nama_gardu ?>
 											</td>
-											<td width="200">
+											<td width="300">
 												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="80px" width="80px" alt="foto">
 											</td>
 
-											<td width="250"><br>
+											<td width="150"><br>
 												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
 												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
