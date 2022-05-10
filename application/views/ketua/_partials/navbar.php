@@ -13,14 +13,25 @@
 
 	<!-- Navbar -->
 	<ul class="navbar-nav ml-auto ml-md-0">
-		<li class="nav-item dropdown no-arrow">
+		<!-- <li class="nav-item dropdown no-arrow">
 			<a class="nav-link dropdown-toggle text-dark" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<i class="fas fa-user-circle fa-fw"></i> <?= $users['username'] ?>
+				<i class="fas fa-user-circle fa-fw"></i> <?= $users['username'] ?>
 			</a>
-			<div class="dropdown-menu dropdown-menu-right badge-danger" aria-labelledby="userDropdown">
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+				<p style="pointer-events : none;" class="dropdown-item badge-info text-light text-center">Logout</p>
 				<a class="dropdown-item badge-danger text-light text-center" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
 			</div>
-		</li>
+		</li> -->
+		<div class="dropdown show">
+			<a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-user-circle fa-fw"></i> <?= $users['username'] ?>
+			</a>
+
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink"">
+				<p class="dropdown-item text-center">Ketua Tim</p>
+				<a class="dropdown-item text-center logout" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+			</div>
+		</div>
 	</ul>
 
 </nav>

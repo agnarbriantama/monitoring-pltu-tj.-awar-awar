@@ -31,4 +31,10 @@
 	body {
 		padding-top: 66px;
 	}
+
+	.logout:hover {
+		background-color: #f00;
+		color: white;
+		font-weight: bold;
+	}
 </style>

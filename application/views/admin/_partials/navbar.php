@@ -12,17 +12,27 @@
 
 	<!-- Navbar -->
 	<ul class="navbar-nav ml-auto ml-md-0">
-		<li class="nav-item dropdown no-arrow">
+		<!-- <li class="nav-item dropdown no-arrow">
 			<a class="nav-link dropdown-toggle text-dark" style="font-size: 15px;" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="fas fa-user-circle fa-fw"></i> <?= $users['username'] ?>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right badge-danger" aria-labelledby="userDropdown">
 				<!-- <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activity Log</a> -->
-				<!-- <div class="dropdown-divider"></div> -->
-				<a class="dropdown-item badge-danger text-light text-center" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+		<!-- <div class="dropdown-divider"></div> -->
+		<!-- <a class="dropdown-item badge-danger text-light text-center" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a> -->
+		<!-- </div> -->
+		<!-- </li> -->
+		<div class="dropdown show">
+			<a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-user-circle fa-fw"></i> <?= $users['username'] ?>
+			</a>
+
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink"">
+				<p class=" dropdown-item text-center">Admin</p>
+				<a class="dropdown-item text-center logout" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
 			</div>
-		</li>
+		</div>
 	</ul>
 
 </nav>
