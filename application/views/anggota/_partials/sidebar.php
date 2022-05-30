@@ -6,7 +6,7 @@
 			<span>Data Pantauan Harian</span></a>
 	</li>
 
-	<li class="nav-item">
+	<!-- <li class="nav-item">
 		<a class="nav-link" style="color: #909294;" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fa fa-sign-out"></i> Logout</a>
-	</li>
+	</li> -->
 </ul>

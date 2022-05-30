@@ -37,4 +37,54 @@
 		color: white;
 		font-weight: bold;
 	}
+
+	.dropmenu {
+		background-color: #212529;
+		border-style: none;
+	}
+
+	.dropmenu a.active {
+		font-weight: bold;
+		border-radius: 15px;
+	}
+
+	.item1:hover {
+		background-color: #FFC107;
+		color: black;
+	}
+
+	a.item1.active {
+		background-color: #FFC107 !important;
+		color: black;
+	}
+
+	a.item2.active {
+		background-color: #28A745 !important;
+		color: white;
+	}
+
+	a.item3.active {
+		background-color: #DC3545 !important;
+		color: white;
+	}
+
+	.item2:hover {
+		background-color: #28A745;
+		color: white;
+	}
+
+	.item3:hover {
+		background-color: #DC3545;
+		color: white;
+	}
+
+	.dropitem {
+		color: #ebebeb;
+		margin-bottom: 1vh;
+	}
+
+	.dropmenu a:hover {
+		font-weight: bold;
+		border-radius: 15px;
+	}
 </style>

@@ -79,16 +79,45 @@ class User extends CI_Controller
 	{
 		$data['User']  = $this->user_model->getById($id);
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-
 		$this->load->view("admin/user/edit_form", $data);
 	}
+	// ! fungsi edit password
+	public function editpassword($id = NULL)
+	{
+		$data['User']  = $this->user_model->getById($id);
+		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+		$password = password_hash($this->input->post('new_password1'), PASSWORD_DEFAULT);
+		
+		// $this->form_validation->set_rules('password', 'password', 'required|trim');
+		$this->form_validation->set_rules('new_password1', 'password', 'required|trim|matches[new_password2]', [
+			'matches' => 'Password dont matches!'
+			
+		]);
+		$this->form_validation->set_rules('new_password2', 'password', 'required|trim|matches[new_password1]');
+		if ($this->form_validation->run() == false) {
+			// $this->User_model->updatepassword();
+			// echo "tes";
+			$this->load->view("admin/user/edit_password", $data);
+		} else {		
+				$data = [
+					'password' => $password,
+				];
+		
+					$this->db->where('user_id', $id);
+					$this->db->update('users',$data);
+					redirect('admin/user');
+				}
+				
+		}
+	// }
+
+
 	// ! fungsi update
 	public function update($id)
 	{
 		$kondisi = array('user_id' => $id);
 		$full_name = $this->input->post('full_name');
 		$username = $this->input->post('username');
-		$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		$email = $this->input->post('email');
 		$id_tim = $this->input->post('id_tim');
 		$phone = $this->input->post('phone');
@@ -102,14 +131,12 @@ class User extends CI_Controller
 			$data = array(
 				'full_name' => $full_name,
 				'username' => $username,
-				'password' => $password,
 				'email' => $email,
 				'id_tim' => $id_tim,
 				'phone' => $phone,
 				'level_id' => $level_id,
 				'created_at' => time(),
 				'is_active' => 1,
-
 			);
 
 			$this->db->where($kondisi);
@@ -122,7 +149,6 @@ class User extends CI_Controller
 			$data = array(
 				'full_name' => $full_name,
 				'username' => $username,
-				'password' => $password,
 				'email' => $email,
 				'id_tim' => $id_tim,
 				'phone' => $phone,

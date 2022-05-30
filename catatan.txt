@@ -1,0 +1,9 @@
+<?php
+												if ($datpan->status == 0) {
+												?>
+													<span class="badge badge-warning">Pending</span>
+												<?php
+												} else {
+													echo $datpan->status == 1 ? '<span class="badge badge-success">Diterima</span>' : '<span class="badge badge-danger">Ditolak</span>';
+												}
+												?>

@@ -85,17 +85,17 @@
 											<td width="100">
 												<?php echo $datpan->tegangan ?>
 											</td>
-											<td>
+											<td width="100">
 												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
 											</td>
 											<td width="100">
 												<?php
 												if ($datpan->status == 0) {
 												?>
-													<span class="badge badge-warning">Pending</span>
+													<span class="badge badge-warning"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</span>
 												<?php
 												} else {
-													echo $datpan->status == 1 ? '<span class="badge badge-success">Diterima</span>' : '<span class="badge badge-danger">Ditolak</span>';
+													echo $datpan->status == 1 ? '<span class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i> Diterima</span>' : '<span class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i> Ditolak</span>';
 												}
 												?>
 											</td>

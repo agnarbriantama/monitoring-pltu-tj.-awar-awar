@@ -3,6 +3,7 @@
 
 <head>
 	<?php $this->load->view("ketua/_partials/head.php") ?>
+	<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
 </head>
 
 <body id=" page-top">
@@ -16,7 +17,7 @@
 
 			<div class="container-fluid">
 				<?php $this->load->view("ketua/_partials/breadcrumb.php") ?>
-
+				<!-- // ! Alert -->
 				<?php if ($this->session->flashdata('success')) : ?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $this->session->flashdata('success'); ?>
@@ -41,10 +42,23 @@
 				<div class="card mb-3">
 					<div class="card-header">
 					</div>
+					<!-- // ! view sortir by date -->
 					<div class="card-body">
-
+						<div class="row">
+							<div class="col col-8"></div>
+							<div class="col col-2 text-center">
+								<label style="font-size: 14px;" for="startdate">Mulai Tanggal</label>
+								<input class="form-control text-center" type="text" id="min" name="min" placeholder="Tanggal Mulai" />
+							</div>
+							<div class="col col-2 text-center">
+								<label style="font-size: 14px;" for="enddate">Akhir Tanggal</label>
+								<input class="form-control text-center" type="text" id="max" name="max" placeholder="Tanggal Selesai" />
+							</div>
+						</div>
+						<hr>
+						<!-- // ! datatable -->
 						<div class="table-responsive">
-							<table class="table cell-border table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
+							<table class="table cell-border table-hover table-striped text-center display" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<th class="filterhead">No</th>
@@ -59,6 +73,7 @@
 										<th class="filterhead"></th>
 										<th class="filterhead"></th>
 										<th class="filterhead"></th>
+										<th class="filterhead"></th>
 									</tr>
 									<tr>
 										<th>No</th>
@@ -70,64 +85,65 @@
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Pengirim</th>
-										<th>Bukti Data</th>
 										<th>Status</th>
-										<th>Lokasi</th>
+										<th>Lokasi Pantauan</th>
+										<th>Bukti Data</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($pantauan_tim as $datpan) : ?>
+									foreach ($Status as $stat) : ?>
 										<tr>
 											<td width="10">
 												<?php echo $no++ ?>
 											</td>
-											<td width="100">
-												<?php echo $datpan->nama_tim ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->nama_gardu ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->suhu ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->arus ?>
-											</td>
-											<td width="150">
-												<?php echo $datpan->cosphi ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->tgl_pantauan ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->tegangan ?>
-											</td>
-											<td width="100">
-												<?php echo $datpan->username ?>
+											<td>
+												<?php echo $stat->nama_tim ?>
 											</td>
 											<td>
-												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
+												<?php echo $stat->nama_gardu ?>
 											</td>
-											<td width="100">
+											<td>
+												<?php echo $stat->suhu ?>
+											</td>
+											<td>
+												<?php echo $stat->arus ?>
+											</td>
+											<td>
+												<?php echo $stat->cosphi ?>
+											</td>
+											<td>
+												<?php echo $stat->tgl_pantauan ?>
+											</td>
+											<td>
+												<?php echo $stat->tegangan ?>
+											</td>
+											<td>
+												<?php echo $stat->username ?>
+											</td>
+											<td>
 												<?php
-												if ($datpan->status == 0) {
+												if ($stat->status == 0) {
 												?>
 													<span class="badge badge-warning"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</span>
 												<?php
 												} else {
-													echo $datpan->status == 1 ? '<span class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i> Diterima</span>' : '<span class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i> Ditolak</span>';
+													echo $stat->status == 1 ? '<span class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i> Diterima</span>' : '<span class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i> Ditolak</span>';
 												}
 												?>
 											</td>
-											<td width="100">
-												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>">Lihat Lokasi</a>
+											<td>
+												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $stat->lokasi_pantauan ?>">Lihat Lokasi</a>
 											</td>
-											<!-- <td width="250">
-												<a href="<?php echo site_url('ketua/PantauanHarian/disetujui/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-success mb-3 w-100"><i class="fa fa-check-square-o"></i> Setuju</a>
-												<a href="<?php echo site_url('ketua/PantauanHarian/ditolak/' . $datpan->id_pantauan) ?>" href="#!" class="btn btn-small btn-danger w-100"><i class="fa fa-window-close-o"></i> Tolak</a>
-											</td> -->
+											<td>
+												<img src="<?= base_url('assets/imgpantauan/' . $stat->gambar) ?>" width="70px" height="50px">
+											</td>
+											<td width="250">
+												<a href="<?php echo site_url('ketua/Status/disetujui/' . $stat->id_pantauan) ?>" class="btn btn-small btn-success mb-3 w-100"><i class="fa fa-check-square-o"></i> Setuju</a>
+												<a href="<?php echo site_url('ketua/Status/ditolak/' . $stat->id_pantauan) ?>" href="#!" class="btn btn-small btn-danger w-100"><i class="fa fa-window-close-o"></i> Tolak</a>
+											</td>
 										</tr>
 									<?php endforeach; ?>
 
@@ -154,32 +170,78 @@
 	<?php $this->load->view("ketua/_partials/js.php") ?>
 
 	<script>
+		// ! untuk hapus
 		function deleteConfirm(url) {
 			$('#btn-delete').attr('href', url);
 			$('#deleteModal').modal();
 		}
-	</script>
 
-	<script>
+		// ! untuk whatsapp
+		function whatsapp() {
+			$('#waModal').modal();
+		}
+
+		// ! untuk datatable
 		$(document).ready(function() {
 			var table = $('#dataTables').DataTable({
 				"bInfo": false,
-				// "scrollX": true,
-				// "scrollY": "350px",
+				lengthChange: true,
 				"scrollCollapse": true,
 				"paging": true,
-				// scrollY: '250px',
-				// dom: 'Bfrtip',
 				lengthMenu: [
 					[5, 10, 25, 50, -1],
 					[5, 10, 25, 50, "All"]
 				],
 				lengthChange: true,
 			});
+
+
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+		});
 
-				$(".filterhead").not(":eq(9), :eq(10),:eq(11)").each(function(i) {
+		// ! sortir by date
+		var minDate, maxDate;
+
+		$.fn.dataTable.ext.search.push(
+			function(settings, data, dataIndex) {
+				var min = minDate.val();
+				var max = maxDate.val();
+				var date = new Date(data[6]);
+
+				if (
+					(min === null && max === null) ||
+					(min === null && date <= max) ||
+					(min <= date && max === null) ||
+					(min <= date && date <= max)
+				) {
+					return true;
+				}
+				return false;
+			}
+		);
+
+		$(document).ready(function() {
+			// Create date inputs
+			minDate = new DateTime($('#min'), {
+				format: 'YYYY MMMM Do '
+			});
+			maxDate = new DateTime($('#max'), {
+				format: 'YYYY MMMM Do'
+			});
+
+			// DataTables initialisation
+			var table = $('#dataTables').DataTable();
+
+			// Refilter the table
+			$('#min, #max').on('change', function() {
+				table.draw();
+			});
+
+			// ! sortir per column
+			$(".filterhead").not(":eq(9), :eq(10), :eq(11), :eq(12)").each(function(i) {
+				// $(".filterhead").each(function(i) {
+				// var select = $('<select><option value=""></option></select>')
 				var select = $('<select><option value=""></option></select>')
 					.appendTo($(this).empty())
 					.on('change', function() {
@@ -192,6 +254,7 @@
 			});
 		});
 	</script>
+
 </body>
 
 </html>

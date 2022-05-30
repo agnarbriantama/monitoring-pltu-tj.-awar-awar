@@ -58,7 +58,7 @@ class User_model extends CI_Model
 		$this->username = $post["username"];
 		$this->full_name = $post["full_name"];
 		$this->email = $post["email"];
-		$this->password = password_hash($post["password"], PASSWORD_DEFAULT);
+		// $this->password = password_hash($post["password"], PASSWORD_DEFAULT);
 		$this->phone = $post["phone"];
 		$this->level_id = $post["level_id"];
 		$this->id_tim = $post["id_tim"];
@@ -66,6 +66,18 @@ class User_model extends CI_Model
 		$this->session->set_flashdata('success', 'Berhasil diupdate');
 		redirect(site_url('admin/User/index'));
 	}	
+
+	// ! update
+	public function updatepassword()
+	{
+		$post = $this->input->post();
+		$this->password = password_hash($post["password"], PASSWORD_DEFAULT);
+		$this->db->update($this->_table, $this, array('user_id' => $post['id']));
+		$this->session->set_flashdata('success', 'Berhasil diupdate');
+		redirect(site_url('admin/User/index'));
+	}	
+
+	
 	// ! hapus
 	public function delete($user_id)
 	{
@@ -83,5 +95,20 @@ class User_model extends CI_Model
 	{
 		$sql = "UPDATE {$this->_table} SET last_login=now() WHERE user_id={$user_id}";
 		$this->db->query($sql);
+	}
+
+	public function updatepw($id = NULL)
+	{
+
+		$id = $this->input->post('user_id');
+		$password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+
+		$data = array(
+			'user_id' => $id,
+			
+		);
+
+		$this->db->update($this->tb_pantauanharian, $data, array('id_pantauan' => $id));
+		redirect(site_url('admin/PantauanHarian/index'));
 	}
 }

@@ -48,6 +48,11 @@
 							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
+										<th class="filterhead">No</th>
+										<th class="filterhead">Nama Tim</th>
+										<th class="filterhead"></th>
+									</tr>
+									<tr>
 										<th>No</th>
 										<th>Nama Tim</th>
 										<th>Action</th>
@@ -61,12 +66,12 @@
 											<td width="10">
 												<?php echo $no++ ?>
 											</td>
-											<td width="350">
+											<td>
 												<?php echo $timm->nama_tim ?>
 											</td>
-											<td width="200">
-												<a href="<?php echo site_url('admin/NamaTim/edit/' . $timm->id_tim) ?>" class="btn btn-small btn-outline-primary text-primary"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/NamaTim/delete/' . $timm->id_tim) ?>')" href="#!" class="btn btn-small btn-outline-danger text-danger"><i class="fas fa-trash"></i> Hapus</a>
+											<td width="250">
+												<a href="<?php echo site_url('admin/NamaTim/edit/' . $timm->id_tim) ?>" class="btn btn-small btn-primary text-light"><i class="fas fa-edit"></i> Ubah</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/NamaTim/delete/' . $timm->id_tim) ?>')" href="#!" class="btn btn-small btn-danger text-light"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -113,6 +118,18 @@
 			});
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+
+			$(".filterhead").not(":eq(2)").each(function(i) {
+				var select = $('<select><option value=""></option></select>')
+					.appendTo($(this).empty())
+					.on('change', function() {
+						var term = $(this).val();
+						table.column(i).search(term, false, false).draw();
+					});
+				table.column(i).data().unique().sort().each(function(d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>')
+				});
+			});
 		});
 	</script>
 </body>

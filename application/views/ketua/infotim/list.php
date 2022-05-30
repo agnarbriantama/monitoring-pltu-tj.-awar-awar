@@ -50,6 +50,13 @@
 							<table class="table table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
+										<th class="filterhead">No</th>
+										<th class="filterhead">Nama</th>
+										<th class="filterhead">Email</th>
+										<th class="filterhead">Jabatan</th>
+										<th class="filterhead"></th>
+									</tr>
+									<tr>
 										<th>No</th>
 										<th>Nama</th>
 										<th>Email</th>
@@ -118,6 +125,18 @@
 			});
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+
+				$(".filterhead").not(":eq(4)").each(function(i) {
+				var select = $('<select><option value=""></option></select>')
+					.appendTo($(this).empty())
+					.on('change', function() {
+						var term = $(this).val();
+						table.column(i).search(term, false, false).draw();
+					});
+				table.column(i).data().unique().sort().each(function(d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>')
+				});
+			});
 		});
 	</script>
 	<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>

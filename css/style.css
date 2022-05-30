@@ -29,6 +29,12 @@ body {
 	color: #2AA4F3;
 }
 
+.logout:hover {
+	background-color: #f00;
+	color: white;
+	font-weight: bold;
+}
+
 .form-control:focus {
 	border-color: #2AA4F3;
 	box-shadow: 0 0 0 0.2rem rgba(113,180,224, 0.25);
@@ -51,4 +57,44 @@ body {
 }
 .btn-custom:focus {
 	box-shadow: 0 0 0 0.2rem rgba(113,180,224, 0.25);
+}
+
+.logout:hover {
+	background-color: #f00;
+	color: white;
+	font-weight: bold;
+}
+
+.dropmenu {
+	background-color: #212529;
+	border-style: none;
+}
+
+.item1:hover {
+	background-color: #FFC107;
+	color: black;
+}
+
+.item1:active{
+	background-color: #FFC107 !important;
+	color: black;
+}
+
+.item2:hover {
+	background-color: #28A745;
+	color: white;
+}
+
+.item3:hover {
+	background-color: #DC3545;
+	color: white;
+}
+
+	.dropitem {
+		color: #ebebeb;
+		margin-bottom: 1vh;
+	}
+.dropmenu a:hover {
+	font-weight: bold;
+	border-radius: 15px;
 }

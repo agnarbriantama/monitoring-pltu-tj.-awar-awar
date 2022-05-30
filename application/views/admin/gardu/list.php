@@ -47,9 +47,15 @@
 						<div class="table-responsive">
 							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
 								<thead>
+									<tr>
+										<th class="filterhead">No</th>
+										<th class="filterhead">Nama Gardu</th>
+										<th class="filterhead"></th>
+										<th class="filterhead"></th>
+									</tr>
 									<tr class="text-center">
-										<th style="max-width: 30px;">No</th>
-										<th style="max-width: 200px;">Nama Gardu</th>
+										<th>No</th>
+										<th>Nama Gardu</th>
 										<th>Foto Gardu</th>
 										<th>Action</th>
 									</tr>
@@ -62,16 +68,16 @@
 											<td width="10"><br>
 												<?php echo $no++ ?>
 											</td>
-											<td width="300"><br>
+											<td><br>
 												<?php echo $gardu->nama_gardu ?>
 											</td>
-											<td width="300">
+											<td>
 												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="80px" width="80px" alt="foto">
 											</td>
 
-											<td width="150"><br>
-												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small btn-outline-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
-												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small btn-outline-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
+											<td><br>
+												<a href="<?php echo site_url('admin/Gardu/edit/' . $gardu->id_gardu) ?>" class="btn btn-small btn-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/gardu/delete/' . $gardu->id_gardu) ?>')" href="#!" class="btn btn-small btn-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -123,6 +129,18 @@
 			
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+
+				$(".filterhead").not(":eq(2), :eq(3)").each(function(i) {
+				var select = $('<select><option value=""></option></select>')
+					.appendTo($(this).empty())
+					.on('change', function() {
+						var term = $(this).val();
+						table.column(i).search(term, false, false).draw();
+					});
+				table.column(i).data().unique().sort().each(function(d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>')
+				});
+			});
 		});
 	</script>
 </body>

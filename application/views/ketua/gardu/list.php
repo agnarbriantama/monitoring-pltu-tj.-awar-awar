@@ -47,11 +47,15 @@
 						<div class="table-responsive">
 							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
 								<thead>
+									<tr>
+										<th class="filterhead">No</th>
+										<th class="filterhead">Nama Gardu</th>
+										<th class="filterhead"></th>
+									</tr>
 									<tr class="text-center">
-										<th style="max-width: 30px;">No</th>
-										<th style="max-width: 200px;">Nama Gardu</th>
+										<th>No</th>
+										<th>Nama Gardu</th>
 										<th>Foto Gardu</th>
-										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -62,15 +66,14 @@
 											<td width="10"><br>
 												<?php echo $no++ ?>
 											</td>
-											<td width="100"><br>
+											<td><br>
 												<?php echo $gardu->nama_gardu ?>
 											</td>
-											<td width="200">
+											<td>
 												<img src="<?php echo base_url('assets/imgpantauan/' . $gardu->gambar_gardu) ?>" height="80px" width="80px" alt="foto">
 											</td>
 										</tr>
 									<?php endforeach; ?>
-
 								</tbody>
 							</table>
 						</div>
@@ -117,6 +120,18 @@
 			});
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+
+				$(".filterhead").not(":eq(2)").each(function(i) {
+				var select = $('<select><option value=""></option></select>')
+					.appendTo($(this).empty())
+					.on('change', function() {
+						var term = $(this).val();
+						table.column(i).search(term, false, false).draw();
+					});
+				table.column(i).data().unique().sort().each(function(d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>')
+				});
+			});
 		});
 	</script>
 </body>

@@ -3,7 +3,10 @@
 
 <head>
 	<?php $this->load->view("admin/_partials/head.php") ?>
-	<script src="<?php echo base_url('assets/Chart.js') ?>"></script>
+	<!-- change chart js v3 -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+	<!-- ... -->
 </head>
 
 <body id="page-top" style="padding-top: 66px;">
@@ -61,67 +64,109 @@
 			</div>
 			<!-- /.container-fluid -->
 			<div>
-				<h5 class="text-center mb-3 mt-3">Grafik Jumlah Pantauan Harian</h5>
-				<canvas id="myChart"></canvas>
-				<?php
-				//Inisialisasi nilai variabel awal
-				$jum_data = "";
-				$jumlah = null;
-				foreach ($hasil as $item) {
-					$tgl = $item->tgl_pantauan;
-					$jum_data .= "'$tgl'" . ", ";
-					$jum = $item->total;
-					$jumlah .= "$jum" . ", ";
-				}
-				?>
-			</div>
+				<div>
+					<h5 class="text-center mb-3 mt-3">Grafik Jumlah Pantauan Harian</h5>
+					<div class="form-group row">
+						<div class="col-4 ml-3">
+							<label for="">Start Date</label>
+							<input type="date" class="form-control" id="startDate" value="2022-04-01" min="2022-01-01" max="2022-12-30">
+						</div>
+						<div class="col-5">
+							<label for="">End Date</label>
+							<input type="date" class="form-control" id="endDate" value="2022-04-30" min="2022-01-01" max="2022-12-30">
+						</div>
+					</div>
+					<canvas id="myChart"></canvas>
+					<?php
+					$dateArray = array();
+					$jmlArray = array();
+					foreach ($hasil as $item) {
+						$dateArray[] = $item->tgl_pantauan;
+						$jmlArray[] = $item->total;
+					}
+					?>
+				</div>
 
-			<script>
-				var ctx = document.getElementById('myChart').getContext('2d');
-				var chart = new Chart(ctx, {
-					// The type of chart we want to create
-					type: 'line',
-					// The data for our dataset
-					data: {
-						labels: [<?php echo $jum_data; ?>],
-						datasets: [{
-							label: 'Data Pantauan Harian ',
-							pointStyle: 'circle',
-							pointBorderWidth: '3',
-							// pointBorderColor: '#00c0ef',
-							pointBackgroundColor: 'rgb(65, 105, 225)',
-							backgroundColor: ['rgba(255, 255, 0, 0.2)'],
-							fill: true,
-							borderColor: ['rgb(255,160,122)'],
-							data: [<?php echo $jumlah; ?>]
-						}]
-					},
+				<script>
+					const label = <?php echo json_encode($dateArray) ?>;
+					const dateChartJS = label.map((day, index) => {
+						let dayjs = new Date(day);
+						return dayjs.setHours(0, 0, 0, 0);
+					});
 
-					// Configuration options go here
-					options: {
-						scales: {
-							yAxes: [{
-								ticks: {
+					const ctx = document.getElementById('myChart').getContext('2d');
+					const plugin = {
+						id: 'custom_canvas_background_color',
+						beforeDraw: (chart) => {
+							const ctx = chart.canvas.getContext('2d');
+							ctx.save();
+							ctx.globalCompositeOperation = 'destination-over';
+							ctx.fillStyle = ['rgba(255, 255, 0, 0.2)'];
+							ctx.fillRect(0, 0, chart.width, chart.height);
+							ctx.restore();
+						}
+					};
+					const myChart = new Chart(ctx, {
+						type: 'line',
+						data: {
+							labels: dateChartJS,
+							datasets: [{
+								label: 'Data Pantauan Harian ',
+								data: <?php echo json_encode($jmlArray); ?>,
+								pointBorderWidth: '3',
+								pointBackgroundColor: 'rgb(65, 105, 225)',
+								borderColor: ['rgb(255,160,122)'],
+								borderWidth: 1
+							}]
+						},
+						options: {
+							scales: {
+								x: {
+									min: '2022-01-01',
+									max: '2022-12-30',
+									type: 'time',
+									time: {
+										unit: 'day'
+									}
+								},
+								y: {
 									beginAtZero: true
 								}
-							}]
+							}
+						},
+						plugins: [plugin]
+					});
+
+					function Filter(date, type) {
+						const startDate = new Date(date);
+						console.log(startDate.setHours(0, 0, 0, 0));
+						if (type == 'min') {
+							myChart.options.scales.x.min = startDate.setHours(0, 0, 0, 0);
+						} else {
+							myChart.options.scales.x.max = startDate.setHours(0, 0, 0, 0);
 						}
+						myChart.update();
 					}
-				});
-			</script>
 
+					$(document).on('change', '#startDate', function() {
+						Filter($(this).val(), 'min');
+					})
 
-			<!-- Sticky Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
+					$(document).on('change', '#endDate', function() {
+						Filter($(this).val(), 'max');
+					})
+				</script>
+				<!-- Sticky Footer -->
+				<?php $this->load->view("admin/_partials/footer.php") ?>
+			</div>
+			<!-- /.content-wrapper -->
+
 		</div>
-		<!-- /.content-wrapper -->
+		<!-- /#wrapper -->
 
-	</div>
-	<!-- /#wrapper -->
-
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?>
-	<?php $this->load->view("admin/_partials/js.php") ?>
+		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
+		<?php $this->load->view("admin/_partials/modal.php") ?>
+		<?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
 

@@ -29,7 +29,7 @@
 			</a>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink"">
-				<p class=" dropdown-item text-center">Admin</p>
+				<p class="dropdown-item text-center" style="pointer-events: none;">Admin</p>
 				<a class="dropdown-item text-center logout" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
 			</div>
 		</div>

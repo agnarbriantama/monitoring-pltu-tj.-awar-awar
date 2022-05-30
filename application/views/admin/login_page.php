@@ -42,11 +42,11 @@
 				<?php echo $this->session->flashdata('login'); ?>
 				<div class="form-group">
 					<label class="d-flex flex-row font-weight-bold" for="username">Username</label>
-					<input type="text" name="username" class="form-control rounded-pill form-control-lg" placeholder="Input Username">
+					<input type="text" name="username" class="form-control rounded-pill form-control-lg" placeholder="Username">
 				</div>
 				<div class="form-group">
 					<label class="d-flex flex-row font-weight-bold" data-toggle="password" for="password">Password</label>
-					<input type="password" class="form-control rounded-pill form-control-lg" name="password" placeholder="Input Password">
+					<input type="password" class="form-control rounded-pill form-control-lg" name="password" placeholder="Password">
 				</div>
 				<button type="submit" class="btn mt-5 rounded-pill btn-lg btn-custom btn-block text-uppercase">Log in</button>
 			</form>

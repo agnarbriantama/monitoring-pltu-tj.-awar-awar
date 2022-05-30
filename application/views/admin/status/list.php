@@ -41,9 +41,6 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a class="btn btn-primary" href="<?php echo site_url('admin/PantauanHarian/relasi') ?>"><i class="fas fa-plus"></i> Tambah Data</a>
-						<!-- // ! whatsapp -->
-						<a onclick="whatsapp()" style="float: right;" class="btn btn-success ml-2 text-light"><i class="fa fa-whatsapp"></i> Whatsapp</a>
 					</div>
 					<!-- // ! view sortir by date -->
 					<div class="card-body">
@@ -97,57 +94,57 @@
 								<tbody>
 									<?php
 									$no = 1;
-									foreach ($PantauanHarian as $datpan) : ?>
+									foreach ($Status as $stat) : ?>
 										<tr>
 											<td width="10">
 												<?php echo $no++ ?>
 											</td>
 											<td>
-												<?php echo $datpan->nama_tim ?>
+												<?php echo $stat->nama_tim ?>
 											</td>
 											<td>
-												<?php echo $datpan->nama_gardu ?>
+												<?php echo $stat->nama_gardu ?>
 											</td>
 											<td>
-												<?php echo $datpan->suhu ?>
+												<?php echo $stat->suhu ?>
 											</td>
 											<td>
-												<?php echo $datpan->arus ?>
+												<?php echo $stat->arus ?>
 											</td>
 											<td>
-												<?php echo $datpan->cosphi ?>
+												<?php echo $stat->cosphi ?>
 											</td>
 											<td>
-												<?php echo $datpan->tgl_pantauan ?>
+												<?php echo $stat->tgl_pantauan ?>
 											</td>
 											<td>
-												<?php echo $datpan->tegangan ?>
+												<?php echo $stat->tegangan ?>
 											</td>
 											<td>
-												<?php echo $datpan->username ?>
+												<?php echo $stat->username ?>
 											</td>
 											<td>
-												<?php
-												if ($datpan->status == 0) {
+											<?php
+												if ($stat->status == 0) {
 												?>
 													<span class="badge badge-warning"><i class="fa fa-clock-o" aria-hidden="true"></i> Pending</span>
 												<?php
 												} else {
-													echo $datpan->status == 1 ? '<span class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i> Diterima</span>' : '<span class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i> Ditolak</span>';
+													echo $stat->status == 1 ? '<span class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i> Diterima</span>' : '<span class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i> Ditolak</span>';
 												}
 												?>
 
 											</td>
 											<td>
-												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>">Lihat Lokasi</a>
+												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $stat->lokasi_pantauan ?>">Lihat Lokasi</a>
 											</td>
 											<td>
-												<img src="<?= base_url('assets/imgpantauan/' . $datpan->gambar) ?>" width="70px" height="50px">
+												<img src="<?= base_url('assets/imgpantauan/' . $stat->gambar) ?>" width="70px" height="50px">
 											</td>
 											<!-- // ! action -->
-											<td>
-												<a style="width: 100px;" href="<?php echo site_url('admin/pantauanharian/edit/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
-												<a style="width: 100px;" onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $datpan->id_pantauan) ?>')" href="#!" class="btn btn-small btn-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
+											<td width="250">
+												<a style="width: 100px;" href="<?php echo site_url('admin/pantauanharian/edit/' . $stat->id_pantauan) ?>" class="btn btn-small btn-primary mb-3 w-60"><i class="fas fa-edit"></i> Ubah</a>
+												<a style="width: 100px;" onclick="deleteConfirm('<?php echo site_url('admin/pantauanharian/delete/' . $stat->id_pantauan) ?>')" href="#!" class="btn btn-small btn-danger mb-3 w-60"><i class="fas fa-trash"></i> Hapus</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -188,88 +185,12 @@
 
 		// ! untuk datatable
 		$(document).ready(function() {
-			// $('#dataTables thead tr')
-			// 	.clone(true)
-			// 	.addClass('filters')
-			// 	.appendTo('#dataTables thead');
 
 			var table = $('#dataTables').DataTable({
 				"bInfo": false,
 				lengthChange: true,
 				"scrollCollapse": true,
 				"paging": true,
-
-				dom: 'Bfrtip',
-				buttons: [{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'copyHtml5',
-						text: 'COPY <i class="fa fa-files-o"></i>',
-						titleAttr: 'Copy',
-						className: 'btn-default',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'excelHtml5',
-						text: 'EXCEL <i class="fa fa-file-excel-o"></i>',
-						titleAttr: 'Excel',
-						className: 'btn-success',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'csvHtml5',
-						text: 'CSV <i class="fa fa-file-text-o"></i>',
-						titleAttr: 'CSV',
-						className: 'btn-info',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'pdfHtml5',
-						// orientation: 'landscape',
-						text: 'PDF <i class="fa fa-file-pdf-o"></i>',
-						titleAttr: 'PDF',
-						className: 'btn-danger',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 8, 9],
-							// stripHtml: false
-						}
-					},
-					{
-						title: 'Data Pantauan Harian Monitoring Gardu',
-						extend: 'print',
-						// orientation: 'landscape',	
-						text: 'PRINT <i class="fa fa-print"></i>',
-						titleAttr: 'print',
-						className: 'btn-warning text-white',
-						exportOptions: {
-							columns: [0, 1, 2, 3, 4, 5, 6, 7],
-							stripHtml: false
-						},
-						customize: function(win) {
-							$(win.document.body)
-								.css('font-size', '10pt');
-
-							$(win.document.body).find('table')
-								.addClass('compact')
-								.css('font-size', 'inherit');
-						}
-					},
-				],
-				dom: "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
-					"<'row'<'col-md-12'tr>>" +
-					"<'row'<'col-md-5'i><'col-md-7'p>>",
 				lengthMenu: [
 					[5, 10, 25, 50, -1],
 					[5, 10, 25, 50, "All"]
@@ -322,6 +243,8 @@
 
 			// ! sortir per column
 			$(".filterhead").not(":eq(9), :eq(10), :eq(11), :eq(12)").each(function(i) {
+				// $(".filterhead").each(function(i) {
+				// var select = $('<select><option value=""></option></select>')
 				var select = $('<select><option value=""></option></select>')
 					.appendTo($(this).empty())
 					.on('change', function() {

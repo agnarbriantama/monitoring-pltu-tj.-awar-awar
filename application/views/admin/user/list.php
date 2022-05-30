@@ -48,6 +48,18 @@
 							<table class="table table-hover text-center table-striped" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
+										<th class="filterhead">No</th>
+										<th class="filterhead">Nama Lengkap</th>
+										<th class="filterhead">Username</th>
+										<th class="filterhead">Password</th>
+										<th class="filterhead">Email</th>
+										<th class="filterhead">Nama Tim</th>
+										<th class="filterhead">Nomor HP</th>
+										<th class="filterhead">Level</th>
+										<th class="filterhead"></th>
+										<th class="filterhead"></th>
+									</tr>
+									<tr>
 										<th>No</th>
 										<th>Nama Lengkap</th>
 										<th>Username</th>
@@ -68,14 +80,14 @@
 											<td width="10">
 												<?php echo $no++ ?>
 											</td>
-											<td width="200">
+											<td>
 												<?php echo $akun->full_name ?>
 											</td>
-											<td width="200">
+											<td>
 												<?php echo $akun->username ?>
 											</td>
 											<td type="password">
-												<?php 
+												<?php
 												echo substr($akun->password, 0, 8);
 												?>
 											</td>
@@ -85,19 +97,20 @@
 											<td>
 												<?php echo $akun->nama_tim ?>
 											</td>
-											<td width="150">
+											<td>
 												<?php echo $akun->phone ?>
 											</td>
 											<td>
 												<?php echo $akun->nama_level ?>
 											</td>
-											<td width="150">
+											<td>
 												<img src="<?= base_url('assets/imguser/' . $akun->gambar_user) ?>" width="70px" height="50px">
 											</td>
 
 											<td width="250">
-												<a style="width: 100px;" href="<?php echo site_url('admin/User/edit/' . $akun->user_id) ?>" class="btn btn-small btn-outline-primary text-primary mb-3"><i class="fas fa-edit"></i> Ubah</a>
-												<a style="width: 100px;" onclick="deleteConfirm('<?php echo site_url('admin/User/delete/' . $akun->user_id) ?>')" href="#!" class="btn btn-small btn-outline-danger text-danger"><i class="fas fa-trash"></i> Hapus</a>
+												<a style="width: 170px;" href="<?php echo site_url('admin/User/edit/' . $akun->user_id) ?>" class="btn btn-small btn-primary text-white mb-3"><i class="fas fa-edit"></i> Ubah</a>
+												<a style="width: 170px;" onclick="deleteConfirm('<?php echo site_url('admin/User/delete/' . $akun->user_id) ?>')" href="#!" class="btn btn-small btn-danger text-white mb-3"><i class="fas fa-trash"></i> Hapus</a>
+												<a style="width: 170px;" href="<?php echo site_url('admin/User/editpassword/' . $akun->user_id) ?>" class="btn btn-small btn-secondary text-white mb-3"><i class="fas fa-key"></i> Ubah Password</a>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -144,6 +157,18 @@
 			});
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
+
+			$(".filterhead").not(":eq(8), :eq(9)").each(function(i) {
+				var select = $('<select><option value=""></option></select>')
+					.appendTo($(this).empty())
+					.on('change', function() {
+						var term = $(this).val();
+						table.column(i).search(term, false, false).draw();
+					});
+				table.column(i).data().unique().sort().each(function(d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>')
+				});
+			});
 		});
 	</script>
 </body>
