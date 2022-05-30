@@ -67,14 +67,16 @@
 				<div>
 					<h5 class="text-center mb-3 mt-3">Grafik Jumlah Pantauan Harian</h5>
 					<div class="form-group row">
-						<div class="col-4 ml-3">
-							<label for="">Start Date</label>
+						<div class="col-3"></div>
+						<div class="col-3 ml-3">
+							<label for="" style="font-size: 14px; text-align: center; display: block;">Start Date</label>
 							<input type="date" class="form-control" id="startDate" value="2022-04-01" min="2022-01-01" max="2022-12-30">
 						</div>
-						<div class="col-5">
-							<label for="">End Date</label>
+						<div class="col-3">
+							<label for="" style="font-size: 14px; text-align: center; display: block;">End Date</label>
 							<input type="date" class="form-control" id="endDate" value="2022-04-30" min="2022-01-01" max="2022-12-30">
 						</div>
+						<div class="col-3"></div>
 					</div>
 					<canvas id="myChart"></canvas>
 					<?php
