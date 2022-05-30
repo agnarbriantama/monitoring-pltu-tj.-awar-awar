@@ -22,7 +22,7 @@ class Status extends CI_Controller
 	public function pending()
 	{
 		check_level_admin();
-		$data["Status"] = $this->Status_model->getPending();
+		$data["Status"] = $this->Status_model->getPendingA();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/status/list", $data);
 	}
@@ -31,7 +31,7 @@ class Status extends CI_Controller
 	public function setuju()
 	{
 		check_level_admin();
-		$data["Status"] = $this->Status_model->getSetuju();
+		$data["Status"] = $this->Status_model->getSetujuA();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/status/list", $data);
 	}
@@ -40,7 +40,7 @@ class Status extends CI_Controller
 	public function tolak()
 	{
 		check_level_admin();
-		$data["Status"] = $this->Status_model->getTolak();
+		$data["Status"] = $this->Status_model->getTolakA();
 		$data["users"] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 		$this->load->view("admin/status/list", $data);
 	}
