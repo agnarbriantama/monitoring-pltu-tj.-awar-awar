@@ -52,7 +52,7 @@ class NamaTim extends CI_Controller
 			$this->Tim_model->update();
 		}
 		$this->load->view("admin/NamaTim/edit_form", $data);
-		$this->session->set_flashdata('success', 'Berhasil diupdate');
+		// $this->session->set_flashdata('success', 'Berhasil diupdate');
 	}
 
 	public function delete($id = null)

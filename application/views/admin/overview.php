@@ -70,11 +70,11 @@
 						<div class="col-3"></div>
 						<div class="col-3 ml-3">
 							<label for="" style="font-size: 14px; text-align: center; display: block;">Start Date</label>
-							<input type="date" class="form-control" id="startDate" value="2022-04-01" min="2022-01-01" max="2022-12-30">
+							<input type="date" class="form-control" id="startDate">
 						</div>
 						<div class="col-3">
 							<label for="" style="font-size: 14px; text-align: center; display: block;">End Date</label>
-							<input type="date" class="form-control" id="endDate" value="2022-04-30" min="2022-01-01" max="2022-12-30">
+							<input type="date" class="form-control" id="endDate">
 						</div>
 						<div class="col-3"></div>
 					</div>
@@ -115,7 +115,7 @@
 							datasets: [{
 								label: 'Data Pantauan Harian ',
 								data: <?php echo json_encode($jmlArray); ?>,
-								pointBorderWidth: '3',
+								pointBorderWidth: '2',
 								pointBackgroundColor: 'rgb(65, 105, 225)',
 								borderColor: ['rgb(255,160,122)'],
 								borderWidth: 1

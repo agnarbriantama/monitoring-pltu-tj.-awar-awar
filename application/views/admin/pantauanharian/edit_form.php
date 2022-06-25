@@ -29,7 +29,7 @@
 
 						<?php foreach ($PantauanHarian as $datpan) : ?>
 
-							<form action="<?php echo site_url('admin/PantauanHarian/edit'); ?>" method="POST" enctype="multipart/form-data">
+							<form action="<?php echo base_url('admin/PantauanHarian/update_data/' . $datpan->id_pantauan); ?>" method="POST" enctype="multipart/form-data">
 
 								<input type="hidden" name="id_pantauan" value="<?php echo $datpan->id_pantauan; ?>" />
 
@@ -56,17 +56,17 @@
 								</div>
 
 								<div class="form-group">
-									<label for="suhu">Suhu</label>
+									<label for="suhu">Suhu (°C)</label>
 									<input class="form-control <?php echo form_error('suhu') ? 'is-invalid' : '' ?>" type="number" name="suhu" placeholder="Suhu" value="<?php echo $datpan->suhu; ?>" />
 								</div>
 
 								<div class="form-group">
-									<label for="arus">Arus</label>
+									<label for="arus">Arus (A)</label>
 									<input class="form-control <?php echo form_error('arus') ? 'is-invalid' : '' ?>" type="number" name="arus" placeholder="Arus" value="<?php echo $datpan->arus; ?>" />
 								</div>
 
 								<div class="form-group">
-									<label for="cosphi">Daya</label>
+									<label for="cosphi">Daya (W)</label>
 									<input class="form-control <?php echo form_error('cosphi') ? 'is-invalid' : '' ?>" type="number" name="cosphi" placeholder="Cosphi" value="<?php echo $datpan->cosphi; ?>" />
 								</div>
 

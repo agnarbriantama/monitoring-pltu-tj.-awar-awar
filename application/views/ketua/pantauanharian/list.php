@@ -64,9 +64,9 @@
 										<th>No</th>
 										<th>Nama Tim</th>
 										<th>Nama Gardu</th>
-										<th>Suhu</th>
-										<th>Arus</th>
-										<th>Daya</th>
+										<th>Suhu (°C)</th>
+										<th>Arus (A)</th>
+										<th>Daya (W)</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Pengirim</th>
@@ -122,7 +122,7 @@
 												?>
 											</td>
 											<td width="100">
-												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>">Lihat Lokasi</a>
+												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $datpan->lokasi_pantauan ?>"><i class="fa fa-map-marker" aria-hidden="true"></i> Lokasi</a>
 											</td>
 											<!-- <td width="250">
 												<a href="<?php echo site_url('ketua/PantauanHarian/disetujui/' . $datpan->id_pantauan) ?>" class="btn btn-small btn-success mb-3 w-100"><i class="fa fa-check-square-o"></i> Setuju</a>

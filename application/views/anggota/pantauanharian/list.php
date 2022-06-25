@@ -48,11 +48,22 @@
 							<table class="table cell-border table-hover table-striped text-center" id="dataTables" width="100%" cellspacing="0">
 								<thead>
 									<tr>
+										<th class="filterhead">No</th>
+										<th class="filterhead">Nama Gardu</th>
+										<th class="filterhead">Suhu (°C)</th>
+										<th class="filterhead">Arus (A)</th>
+										<th class="filterhead">Daya (W)</th>
+										<th class="filterhead">Tanggal</th>
+										<th class="filterhead">Tegangan</th>
+										<th class="filterhead"></th>
+										<th class="filterhead"></th>
+									</tr>
+									<tr>
 										<th>No</th>
 										<th>Nama Gardu</th>
-										<th>Suhu</th>
-										<th>Arus</th>
-										<th>Daya</th>
+										<th>Suhu (°C)</th>
+										<th>Arus (A)</th>
+										<th>Daya (W)</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Bukti Data</th>
@@ -124,7 +135,7 @@
 	<?php $this->load->view("anggota/_partials/modal.php") ?>
 	<?php $this->load->view("anggota/_partials/js.php") ?>
 
-	<script>
+	<!-- <script>
 		function deleteConfirm(url) {
 			$('#btn-delete').attr('href', url);
 			$('#deleteModal').modal();
@@ -144,8 +155,41 @@
 			table.buttons().container()
 				.appendTo('#dataTables_wrapper .col-md-6:eq(0)');
 		});
-	</script>
+	</script> -->
 
+	<script>
+		// ! untuk hapus
+		function deleteConfirm(url) {
+			$('#btn-delete').attr('href', url);
+			$('#deleteModal').modal();
+		}
+
+		// ! untuk datatable
+		$(document).ready(function() {
+			var table = $('#dataTables').DataTable({
+				"bInfo": false,
+				lengthChange: true,
+				"scrollCollapse": true,
+				"paging": true,
+				lengthMenu: [
+					[5, 10, 25, 50, -1],
+					[5, 10, 25, 50, "All"]
+				],
+				lengthChange: true,
+			});
+			$(".filterhead").not(":eq(7), :eq(8)").each(function(i) {
+				var select = $('<select><option value=""></option></select>')
+					.appendTo($(this).empty())
+					.on('change', function() {
+						var term = $(this).val();
+						table.column(i).search(term, false, false).draw();
+					});
+				table.column(i).data().unique().sort().each(function(d, j) {
+					select.append('<option value="' + d + '">' + d + '</option>')
+				});
+			});
+		});
+	</script>
 
 </body>
 

@@ -78,9 +78,9 @@
 										<th>No</th>
 										<th>Nama Tim</th>
 										<th>Nama Gardu</th>
-										<th>Suhu</th>
-										<th>Arus</th>
-										<th>Daya</th>
+										<th>Suhu (°C)</th>
+										<th>Arus (A)</th>
+										<th>Daya (W)</th>
 										<th>Tanggal</th>
 										<th>Tegangan</th>
 										<th>Pengirim</th>
@@ -133,7 +133,7 @@
 												?>
 											</td>
 											<td>
-												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $stat->lokasi_pantauan ?>">Lihat Lokasi</a>
+												<a class="text-monospace text-decoration-none" target="_blank" href="https://www.google.com/maps?q=<?php echo $stat->lokasi_pantauan ?>"><i class="fa fa-map-marker" aria-hidden="true"></i> Lokasi</a>
 											</td>
 											<td>
 												<img src="<?= base_url('assets/imgpantauan/' . $stat->gambar) ?>" width="70px" height="50px">

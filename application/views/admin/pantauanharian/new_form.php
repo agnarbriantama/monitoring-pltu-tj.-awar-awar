@@ -38,16 +38,16 @@
 							</div>
 
 							<div class="form-group"> 
-								<label for="suhu">Suhu</label>
+								<label for="suhu">Suhu (°C)</label>
 								<input class="form-control" type="number" name="suhu" required />
 							</div>
 							<div class="form-group">
-								<label for="suhu">Arus</label>
+								<label for="suhu">Arus (A)</label>
 								<input class="form-control" type="number" name="arus" required />
 							</div>
 
 							<div class="form-group">
-								<label for="cosphi">Daya</label>
+								<label for="cosphi">Daya (W)</label>
 								<input class="form-control" type="number" name="cosphi" placeholder="" required />
 							</div>
 

@@ -105,6 +105,7 @@ class User extends CI_Controller
 		
 					$this->db->where('user_id', $id);
 					$this->db->update('users',$data);
+					$this->session->set_flashdata('password', 'Password Berhasil Diubah');
 					redirect('admin/user');
 				}
 				

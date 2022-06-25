@@ -86,21 +86,75 @@ class PantauanHarian extends CI_Controller
 
 		$data['PantauanHarian']  = $this->PantauanHarian_model->getById($id);
 
-		$config['upload_path'] = './assets/imgpantauan';
-		$config['allowed_types'] = 'jpg|png|jpeg';
-		// Mengatur ukuran maksimal file
-		$config['max_size'] = '2048';
-		// mengatur ukuran lebar maksimal yang dilakukan
-		$config['max_width'] = '2000';
-		$config['max_height'] = '2000';
-		$this->load->library('upload', $config);
-		$this->upload->initialize($config);
+		// $config['upload_path'] = './assets/imgpantauan';
+		// $config['allowed_types'] = 'jpg|png|jpeg';
+		// // Mengatur ukuran maksimal file
+		// $config['max_size'] = '2048';
+		// // mengatur ukuran lebar maksimal yang dilakukan
+		// $config['max_width'] = '2000';
+		// $config['max_height'] = '2000';
+		// $this->load->library('upload', $config);
+		// $this->upload->initialize($config);
 
 		if ($this->form_validation->run()) {
 			$this->PantauanHarian_model->update();
 		}
 		$this->load->view("admin/pantauanharian/edit_form", $data);
-		$this->session->set_flashdata('success', 'Berhasil diupdate');
+		
+	}
+	
+	public function update_data($id)
+	{
+		$kondisi = array('id_pantauan' => $id);
+		$id_gardu = $this->input->post('id_gardu');
+		$suhu = $this->input->post('suhu');
+		$arus = $this->input->post('arus');
+		$cosphi = $this->input->post('cosphi');
+		$tgl_pantauan = $this->input->post('tgl_pantauan');
+		$tegangan = $this->input->post('tegangan');
+		$username = $this->input->post('username');
+		$config['upload_path'] = './assets/imgpantauan';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('gambar')) {
+			$data = array(
+				'id_gardu' => $id_gardu,
+				'suhu' => $suhu,
+				'arus' => $arus,
+				'cosphi' => $cosphi,
+				'tgl_pantauan' => $tgl_pantauan,
+				'tegangan' => $tegangan,
+				'status' => $this->input->post('kondisi'),
+				'username' =>  $username,
+
+			);
+
+			$this->db->where($kondisi);
+			$this->db->update('tb_pantauanharian', $data);
+			$this->session->set_flashdata('success', 'Berhasil diubah');
+			redirect('admin/pantauanharian');
+		} else {
+			$upload_data = $this->upload->data();
+			$gambar = $upload_data['file_name'];
+			$data = array(
+				'id_gardu' => $id_gardu,
+				'suhu' => $suhu,
+				'arus' => $arus,
+				'cosphi' => $cosphi,
+				'tgl_pantauan' => $tgl_pantauan,
+				'tegangan' => $tegangan,
+				'status' => $this->input->post('kondisi'),
+				'username' => $username,
+				'gambar' => $gambar,
+			);
+
+			$this->db->where($kondisi);
+			$this->db->update('tb_pantauanharian', $data);
+			$this->session->set_flashdata('success', 'Berhasil diubah');
+			redirect('admin/pantauanharian');
+		}
 	}
 	// ! disetujui
 	public function disetujui($id)
